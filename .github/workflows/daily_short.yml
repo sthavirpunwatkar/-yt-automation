@@ -1,0 +1,82 @@
+name: Daily FIFA 2026 Short
+
+on:
+  schedule:
+    - cron: "0 14 * * *"   # 14:00 UTC = 10:00 AM EDT (US Morning peak)
+    - cron: "0 19 * * *"   # 19:00 UTC = 03:00 PM EDT (US Afternoon peak)
+    - cron: "0 0 * * *"    # 00:00 UTC = 08:00 PM EDT (US Evening peak)
+  workflow_dispatch:
+    inputs:
+      channel:
+        description: "Channel preset (fifa_2026 or football)"
+        required: false
+        default: "fifa_2026"
+      topic:
+        description: "Optional topic override (leave empty for auto-selection)"
+        required: false
+        default: ""
+
+env:
+  GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
+  DEAPI_TOKEN: ${{ secrets.DEAPI_TOKEN }}
+  YT_CLIENT_ID: ${{ secrets.YT_CLIENT_ID }}
+  YT_CLIENT_SECRET_VALUE: ${{ secrets.YT_CLIENT_SECRET_VALUE }}
+  YT_REFRESH_TOKEN: ${{ secrets.YT_REFRESH_TOKEN }}
+  INSTAGRAM_ACCOUNT_ID: ${{ secrets.INSTAGRAM_ACCOUNT_ID }}
+  INSTAGRAM_ACCESS_TOKEN: ${{ secrets.INSTAGRAM_ACCESS_TOKEN }}
+  FACEBOOK_PAGE_ID: ${{ secrets.FACEBOOK_PAGE_ID }}
+  FACEBOOK_ACCESS_TOKEN: ${{ secrets.FACEBOOK_ACCESS_TOKEN }}
+  EDGE_TTS_VOICE: "en-US-GuyNeural"
+
+jobs:
+  generate-and-upload:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: "pip"
+
+      - name: Install ffmpeg
+        run: sudo apt-get update && sudo apt-get install -y ffmpeg
+
+      - name: Install Python deps
+        run: pip install -r requirements.txt
+
+      # Auto-update FIFA 2026 match data before generating video
+      - name: Update FIFA 2026 match data
+        run: python scripts/update_wc_data.py
+        continue-on-error: true   # don't fail the whole run if fetch fails — use local data
+
+      # Restore story history — prevents repeating same topic twice
+      - name: Restore history cache
+        uses: actions/cache/restore@v4
+        with:
+          path: output/history/
+          key: story-history-${{ github.event.inputs.channel || 'fifa_2026' }}-${{ github.run_id }}
+          restore-keys: |
+            story-history-${{ github.event.inputs.channel || 'fifa_2026' }}-
+
+      - name: Generate & upload Short
+        run: |
+          CHANNEL="${{ github.event.inputs.channel || 'fifa_2026' }}"
+          TOPIC="${{ github.event.inputs.topic || '' }}"
+          if [ -n "$TOPIC" ]; then
+            python -u scripts/run_short_ltx.py --channel "$CHANNEL" --topic "$TOPIC" --upload --instagram --facebook --privacy public
+          else
+            python -u scripts/run_short_ltx.py --channel "$CHANNEL" --upload --instagram --facebook --privacy public
+          fi
+
+      # Save history so next run doesn't repeat topics
+      - name: Save history cache
+        uses: actions/cache/save@v4
+        if: always()
+        with:
+          path: output/history/
+          key: story-history-${{ github.event.inputs.channel || 'fifa_2026' }}-${{ github.run_id }}
