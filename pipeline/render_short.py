@@ -231,3 +231,65 @@ def render_vertical_short(
 
     # ── cleanup ──────────────────────────────────────────────────────────────
     shutil.rmtree(tmp, ignore_errors=True)
+
+
+def render_video_background_short(
+    bg_video_path: Path,
+    total_duration: float,
+    audio_path: Path,
+    srt_path: Path,
+    out_video: Path,
+    *,
+    width: int = 1080,
+    height: int = 1920,
+    font_file: str = DEFAULT_FONT_FILE,
+    font_name: str = DEFAULT_FONT_NAME,
+) -> None:
+    if not shutil.which("ffmpeg"):
+        raise RuntimeError("ffmpeg not found")
+
+    out_video = Path(out_video)
+    out_video.parent.mkdir(parents=True, exist_ok=True)
+    tmp = out_video.parent / "_tmp_render_vid"
+    tmp.mkdir(parents=True, exist_ok=True)
+
+    shutil.copyfile(srt_path, tmp / "captions.srt")
+
+    font_path = FONTS_DIR / font_file
+    rendered_font_name = "Arial"
+    fontsdir_arg = ""
+    if font_path.is_file():
+        font_dir = tmp / "_fonts"
+        font_dir.mkdir(exist_ok=True)
+        shutil.copyfile(font_path, font_dir / font_path.name)
+        rendered_font_name = font_name
+        fontsdir_arg = ":fontsdir='_fonts'"
+
+    force_style = (
+        f"FontName={rendered_font_name},"
+        f"FontSize=20,"
+        f"PrimaryColour=&H00FFFFFF,"
+        f"OutlineColour=&H00000000,"
+        f"BackColour=&HA0000000,"
+        f"BorderStyle=4,Outline=2,Bold=1,"
+        f"Shadow=0,Alignment=2,"
+        f"MarginV=40,MarginL=30,MarginR=30"
+    )
+
+    # Remove stream_loop to prevent lag, enforce 30fps
+    cmd = [
+        "ffmpeg", "-y", "-hide_banner", "-loglevel", "warning",
+        "-i", str(bg_video_path.resolve()),
+        "-i", str(audio_path.resolve()),
+        "-filter_complex",
+        f"[0:v]scale={width}:{height}:force_original_aspect_ratio=increase,crop={width}:{height},subtitles=captions.srt{fontsdir_arg}:force_style='{force_style}'[final]",
+        "-map", "[final]", "-map", "1:a:0",
+        "-c:v", "libopenh264",
+        "-pix_fmt", "yuv420p",
+        "-c:a", "aac", "-b:a", "192k",
+        "-shortest",
+        "-movflags", "+faststart",
+        str(out_video.resolve()),
+    ]
+    subprocess.run(cmd, check=True, cwd=str(tmp))
+    shutil.rmtree(tmp, ignore_errors=True)
