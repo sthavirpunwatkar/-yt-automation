@@ -14,7 +14,7 @@ jobs:
       - name: Checkout AI-Youtube-Shorts-Generator
         uses: actions/checkout@v4
         with:
-          repository: 'SamurAIGPT/AI-Youtube-Shorts-Generator'
+          repository: 'sthavirpunwatkar/AI-Youtube-Shorts-Generator'
           path: 'generator'
 
       - name: Set up Python
