@@ -167,8 +167,15 @@ STRICT RULES:
 
             prompts = data.get("image_prompts")
             queries = data.get("visual_search_queries")
-            if not isinstance(prompts, list) or not isinstance(queries, list) or len(prompts) != len(queries) or len(prompts) == 0:
-                raise ValueError(f"image_prompts ({len(prompts or [])}) and visual_search_queries ({len(queries or [])}) must be non-empty lists of equal length.")
+            if not isinstance(prompts, list) or not isinstance(queries, list) or len(prompts) == 0 or len(queries) == 0:
+                raise ValueError(f"image_prompts ({len(prompts or [])}) and visual_search_queries ({len(queries or [])}) must be non-empty lists.")
+            
+            # Truncate to the shortest list to guarantee 1-to-1 matching
+            min_len = min(len(prompts), len(queries))
+            prompts = prompts[:min_len]
+            queries = queries[:min_len]
+            data["image_prompts"] = prompts
+            data["visual_search_queries"] = queries
             
             for i, p in enumerate(prompts):
                 if not isinstance(p, str) or not p.strip():
