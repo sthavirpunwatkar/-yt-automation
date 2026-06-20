@@ -453,12 +453,15 @@ def main() -> None:
         from pipeline.youtube_upload import upload_short
         yt_token_env = preset.get("yt_token_env") or "YT_REFRESH_TOKEN"
         print(f"\n⑦ YouTube: uploading ({yt_token_env})...")
-        vid = upload_short(
-            out_video, title, pack.get("youtube_description", ""),
-            privacy_status=args.privacy,
-            refresh_token_env=yt_token_env,
-        )
-        print(f"   Uploaded! https://www.youtube.com/shorts/{vid}")
+        try:
+            vid = upload_short(
+                out_video, title, pack.get("youtube_description", ""),
+                privacy_status=args.privacy,
+                refresh_token_env=yt_token_env,
+            )
+            print(f"   Uploaded! https://www.youtube.com/shorts/{vid}")
+        except Exception as e:
+            print(f"   [YouTube] Upload failed: {e}")
 
     # 7.5 Upload to Instagram Reels (optional)
     if args.instagram:
