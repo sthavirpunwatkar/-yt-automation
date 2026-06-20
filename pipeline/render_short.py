@@ -14,6 +14,17 @@ import shutil
 import subprocess
 from pathlib import Path
 
+def get_h264_encoder():
+    try:
+        res = subprocess.run(["ffmpeg", "-encoders"], capture_output=True, text=True)
+        if "libx264" in res.stdout:
+            return "libx264"
+        if "libopenh264" in res.stdout:
+            return "libopenh264"
+    except Exception:
+        pass
+    return "libx264"
+
 REPO_ROOT = Path(__file__).resolve().parent.parent
 FONTS_DIR = REPO_ROOT / "assets" / "fonts"
 DEFAULT_FONT_FILE = "BebasNeue-Regular.ttf"
@@ -133,6 +144,8 @@ def render_vertical_short(
         extra = random.sample(PAN_PATTERNS, n - len(patterns))
         patterns += extra
 
+    encoder = get_h264_encoder()
+
     for i in range(n):
         src_img = tmp / f"img_{i + 1:02d}.png"
         clip = tmp / f"clip_{i + 1:02d}.mp4"
@@ -152,7 +165,7 @@ def render_vertical_short(
                 "ffmpeg", "-y", "-hide_banner", "-loglevel", "warning",
                 "-i", str(src_img),
                 "-vf", vf,
-                "-c:v", "libx264",
+                "-c:v", encoder,
                 str(clip),
             ],
             check=True,
@@ -220,7 +233,7 @@ def render_vertical_short(
         *inputs,
         "-filter_complex", fc,
         "-map", "[final]", "-map", f"{n}:a",
-        "-c:v", "libx264",
+        "-c:v", encoder,
         "-pix_fmt", "yuv420p",
         "-c:a", "aac", "-b:a", "192k",
         "-shortest",
@@ -277,6 +290,8 @@ def render_video_background_short(
     )
 
     # Remove stream_loop to prevent lag, enforce 30fps
+    encoder = get_h264_encoder()
+
     cmd = [
         "ffmpeg", "-y", "-hide_banner", "-loglevel", "warning",
         "-i", str(bg_video_path.resolve()),
@@ -284,7 +299,7 @@ def render_video_background_short(
         "-filter_complex",
         f"[0:v]scale={width}:{height}:force_original_aspect_ratio=increase,crop={width}:{height},subtitles=captions.srt{fontsdir_arg}:force_style='{force_style}'[final]",
         "-map", "[final]", "-map", "1:a:0",
-        "-c:v", "libx264",
+        "-c:v", encoder,
         "-pix_fmt", "yuv420p",
         "-c:a", "aac", "-b:a", "192k",
         "-shortest",

@@ -45,7 +45,14 @@ def fetch_web_image(query: str, out_path: str | Path) -> tuple[str, str]:
                     with httpx.Client(timeout=15.0) as client:
                         resp = client.get(image_url)
                         resp.raise_for_status()
-                        out_path.write_bytes(resp.content)
+                        
+                        # Verify it's actually an image by checking magic bytes
+                        content = resp.content
+                        if not (content.startswith(b'\xff\xd8\xff') or content.startswith(b'\x89PNG\r\n\x1a\n') or content.startswith(b'RIFF')):
+                            print(f"      [WebImages] Invalid image data (likely HTML) from {image_url}")
+                            continue
+                            
+                        out_path.write_bytes(content)
                         return "ok", image_url
                 except Exception as dl_err:
                     print(f"      [WebImages] Failed to download {image_url}: {dl_err}")
