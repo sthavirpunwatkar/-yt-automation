@@ -130,13 +130,19 @@ Return ONLY valid JSON with this shape:
     "visual description for image 1: setting, subject, action. No style words. No text in image.",
     "visual description for image 2...",
     "..."
+  ],
+  "visual_search_queries": [
+    "duckduckgo search query for image 1 (e.g. 'Kylian Mbappe match action football')",
+    "duckduckgo search query for image 2...",
+    "..."
   ]
 }}
 
 STRICT RULES:
 {strict_extra}- "image_prompts" array MUST have exactly {n} entries.
+- "visual_search_queries" array MUST have exactly {n} entries.
 - Each image_prompt matches a different moment/beat in order.
-- Image prompts are just visuals — no narration text, no style words, no quotes.
+- Each visual_search_query should be a simple search string to find a real photo for that beat.
 - The narration must flow naturally as one spoken piece (no "segment 1", "segment 2" etc).
 """
 
@@ -165,6 +171,13 @@ STRICT RULES:
             for i, p in enumerate(prompts):
                 if not isinstance(p, str) or not p.strip():
                     raise ValueError(f"image_prompt {i} is empty")
+
+            queries = data.get("visual_search_queries")
+            if not isinstance(queries, list) or len(queries) != n:
+                raise ValueError(f"Expected {n} visual_search_queries, got {len(queries or [])}")
+            for i, q in enumerate(queries):
+                if not isinstance(q, str) or not q.strip():
+                    raise ValueError(f"visual_search_query {i} is empty")
 
             word_count = len(narration.split())
             min_words = preset.get("min_words", DEFAULT_MIN_WORDS.get(language, 80))
@@ -218,6 +231,11 @@ Return ONLY valid JSON with this shape:
     "visual description for image 2 — in English…",
     "..."
   ],
+  "visual_search_queries": [
+    "duckduckgo search query for image 1 (e.g. 'Kylian Mbappe match action football')",
+    "duckduckgo search query for image 2...",
+    "..."
+  ],
   "variants": {{
 {variants_block}
   }}
@@ -225,6 +243,7 @@ Return ONLY valid JSON with this shape:
 
 STRICT RULES:
 - "image_prompts" array MUST have exactly {n} entries, ALL in English.
+- "visual_search_queries" array MUST have exactly {n} entries.
 - "variants" object MUST contain keys: {lang_keys}.
 - Each variant tells the SAME facts/story but written natively in that language (not literal translation).
 - Word-count targets per language:
@@ -265,6 +284,13 @@ def _assert_multivariant_valid(data: dict[str, Any], variants: list, n: int) -> 
     for i, p in enumerate(prompts):
         if not isinstance(p, str) or not p.strip():
             raise ValueError(f"image_prompt {i} is empty")
+            
+    queries = data.get("visual_search_queries")
+    if not isinstance(queries, list) or len(queries) != n:
+        raise ValueError(f"Expected {n} visual_search_queries, got {len(queries or [])}")
+    for i, q in enumerate(queries):
+        if not isinstance(q, str) or not q.strip():
+            raise ValueError(f"visual_search_query {i} is empty")
 
     vmap = data.get("variants")
     if not isinstance(vmap, dict):
