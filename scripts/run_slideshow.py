@@ -105,9 +105,11 @@ def main() -> None:
     image_paths = []
     
     for i, query in enumerate(search_queries, 1):
-        print(f"   [Image {i}/{len(search_queries)}] Searching: {query}")
+        # Force strict football context so DuckDuckGo doesn't return vague/generic images
+        strict_query = f"{query} FIFA World Cup football match"
+        print(f"   [Image {i}/{len(search_queries)}] Searching: {strict_query}")
         out_path = img_dir / f"img_{i:02d}.jpg"
-        status, detail = fetch_web_image(query, out_path)
+        status, detail = fetch_web_image(strict_query, out_path)
         if status == "ok":
             print(f"      Saved: {detail}")
             image_paths.append(out_path)

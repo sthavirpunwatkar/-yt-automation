@@ -141,8 +141,8 @@ Return ONLY valid JSON with this shape:
 STRICT RULES:
 {strict_extra}- "image_prompts" array MUST have exactly {n} entries.
 - "visual_search_queries" array MUST have exactly {n} entries.
+- Each visual_search_query MUST explicitly mention "FIFA World Cup football" to guarantee highly relevant match photos. Do NOT generate vague or generic queries.
 - Each image_prompt matches a different moment/beat in order.
-- Each visual_search_query should be a simple search string to find a real photo for that beat.
 - The narration must flow naturally as one spoken piece (no "segment 1", "segment 2" etc).
 """
 
@@ -246,6 +246,7 @@ Return ONLY valid JSON with this shape:
 STRICT RULES:
 - "image_prompts" array MUST have exactly {n} entries, ALL in English.
 - "visual_search_queries" array MUST have exactly {n} entries.
+- Each visual_search_query MUST explicitly mention "FIFA World Cup football" to guarantee highly relevant match photos. Do NOT generate vague or generic queries.
 - "variants" object MUST contain keys: {lang_keys}.
 - Each variant tells the SAME facts/story but written natively in that language (not literal translation).
 - Word-count targets per language:
