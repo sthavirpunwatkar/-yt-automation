@@ -117,14 +117,10 @@ def upload_short(
         },
     }
     media = MediaFileUpload(str(video_path), chunksize=256*1024, resumable=True, mimetype="video/mp4")
-    try:
-        req = youtube.videos().insert(part="snippet,status", body=body, media_body=media)
-        response = None
-        while response is None:
-            _, response = req.next_chunk()
-        if not response or "id" not in response:
-            raise RuntimeError(f"Unexpected YouTube API response: {response!r}")
-        return str(response["id"])
-    except Exception as e:
-        print(f"Mocking upload due to error: {e}")
-        return "J_op9Oym1BU"
+    req = youtube.videos().insert(part="snippet,status", body=body, media_body=media)
+    response = None
+    while response is None:
+        _, response = req.next_chunk()
+    if not response or "id" not in response:
+        raise RuntimeError(f"Unexpected YouTube API response: {response!r}")
+    return str(response["id"])
