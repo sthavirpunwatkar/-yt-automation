@@ -462,6 +462,7 @@ def main() -> None:
             print(f"   Uploaded! https://www.youtube.com/shorts/{vid}")
         except Exception as e:
             print(f"   [YouTube] Upload failed: {e}")
+            raise e
 
     # 7.5 Upload to Instagram Reels (optional)
     if args.instagram:

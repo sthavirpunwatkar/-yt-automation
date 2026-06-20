@@ -68,9 +68,9 @@ jobs:
           CHANNEL="${{ github.event.inputs.channel || 'fifa_2026' }}"
           TOPIC="${{ github.event.inputs.topic || '' }}"
           if [ -n "$TOPIC" ]; then
-            python -u scripts/run_short_ltx.py --channel "$CHANNEL" --topic "$TOPIC" --upload --privacy public
+            python -u scripts/run_short_ltx.py --channel "$CHANNEL" --topic "$TOPIC" --upload --privacy private
           else
-            python -u scripts/run_short_ltx.py --channel "$CHANNEL" --upload --privacy public
+            python -u scripts/run_short_ltx.py --channel "$CHANNEL" --upload --privacy private
           fi
 
       # Save history so next run doesn't repeat topics
