@@ -13,18 +13,15 @@ def fetch_web_image(query: str, out_path: str | Path) -> tuple[str, str]:
     out_path.parent.mkdir(parents=True, exist_ok=True)
 
     try:
-        # We append ' hd high quality' to get better results
-        search_query = f"{query} hd high resolution"
+        # We append ' hd' and negative keywords to avoid heavily watermarked stock images
+        search_query = f"{query} hd -alamy -getty -shutterstock -stock"
         
         with DDGS() as ddgs:
-            # We search for images, safely. 
-            # If we wanted purely safe for reuse, there is currently no direct DDG param in the lib, 
-            # so we rely on fair use for Option A.
             results = ddgs.images(
                 search_query,
-                safesearch="moderate",
+                safesearch="off",  # Get the absolute best news/editorial images
                 size="Large",
-                max_results=5,
+                max_results=8,
             )
             
             if not results:

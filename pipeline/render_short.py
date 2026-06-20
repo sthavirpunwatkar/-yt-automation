@@ -74,19 +74,17 @@ def _build_zoompan(frames: int, direction: str, zoom_start: float, zoom_end: flo
 
     if direction == "zi":
         # zoom in: start at zoom_start, increase
-        z_expr = f"min(zoom+{zoom_per_frame:.8f},{zoom_end:.6f})"
-        z_init = f"if(eq(on,1),{zoom_start:.6f},zoom+{zoom_per_frame:.8f})"
         z_full = f"if(eq(on,1),{zoom_start:.6f},min(zoom+{zoom_per_frame:.8f},{zoom_end:.6f}))"
     else:
         # zoom out: start at zoom_end, decrease
-        z_init = f"if(eq(on,1),{zoom_end:.6f},zoom-{zoom_per_frame:.8f})"
         z_full = f"if(eq(on,1),{zoom_end:.6f},max(zoom-{zoom_per_frame:.8f},{zoom_start:.6f}))"
 
     return (
         f"zoompan=z='{z_full}':"
         f"x='{x_expr}':y='{y_expr}':"
         f"d={frames}:s={width}x{height}:fps={FPS},"
-        f"format=yuv420p"
+        f"format=yuv420p,"
+        f"vignette=PI/3"
     )
 
 
