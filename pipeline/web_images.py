@@ -13,8 +13,8 @@ def fetch_web_image(query: str, out_path: str | Path) -> tuple[str, str]:
     out_path.parent.mkdir(parents=True, exist_ok=True)
 
     try:
-        # We append ' hd' but remove negative keywords to maximize relevant hits regardless of copyright
-        search_query = f"{query} hd"
+        # We append ' hd' and aggressively exclude domains known for heavy watermarks
+        search_query = f"{query} hd -alamy -getty -shutterstock -stock -dreamstime -istock -123rf -depositphotos"
         
         with DDGS() as ddgs:
             results = ddgs.images(
@@ -49,13 +49,6 @@ def fetch_web_image(query: str, out_path: str | Path) -> tuple[str, str]:
                             continue
                             
                         out_path.write_bytes(content)
-                        
-                        try:
-                            from pipeline.watermark_remover import remove_watermark
-                            remove_watermark(out_path)
-                        except Exception as wm_err:
-                            print(f"      [WebImages] Warning: Failed to apply watermark removal filter: {wm_err}")
-                            
                         return "ok", image_url
                 except Exception as dl_err:
                     print(f"      [WebImages] Failed to download {image_url}: {dl_err}")
