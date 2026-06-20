@@ -136,11 +136,9 @@ def render_vertical_short(
 
     # ── 2. Generate Ken Burns clips ──────────────────────────────────────────
     # Shuffle pan patterns so adjacent clips feel different
-    patterns = random.sample(PAN_PATTERNS, min(n, len(PAN_PATTERNS)))
-    if n > len(patterns):
-        # If more clips than patterns, extend by repeating with shuffle
-        extra = random.sample(PAN_PATTERNS, n - len(patterns))
-        patterns += extra
+    patterns = []
+    while len(patterns) < n:
+        patterns += random.sample(PAN_PATTERNS, min(n - len(patterns), len(PAN_PATTERNS)))
 
     encoder = get_h264_encoder()
 
