@@ -1,0 +1,41 @@
+name: Automated FIFA Shorts Pipeline
+on:
+  schedule:
+    - cron: '0 6,18 * * *' # Runs at 06:00 and 18:00 UTC every day
+  workflow_dispatch: # Allows you to manually trigger it via a button
+
+jobs:
+  build-and-upload:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout yt-automation Code
+        uses: actions/checkout@v7
+
+      - name: Checkout AI-Youtube-Shorts-Generator
+        uses: actions/checkout@v7
+        with:
+          repository: 'sthavirpunwatkar/AI-Youtube-Shorts-Generator'
+          path: 'generator'
+
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:         
+          python-version: '3.11'
+
+      - name: Install System Dependencies
+        run: sudo apt-get update && sudo apt-get install -y ffmpeg
+
+      - name: Install yt-automation Dependencies
+        run: pip install -r requirements.txt
+
+      - name: Install Generator Dependencies
+        working-directory: ./generator
+        run: pip install -r requirements.txt
+
+      - name: Run Orchestrator
+        env:
+          GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          YT_REFRESH_TOKEN: ${{ secrets.YT_REFRESH_TOKEN }}
+          YOUTUBE_SHORT_GEN_DIR: ${{ github.workspace }}/generator
+        run: python scripts/fifa_orchestrator.py
