@@ -53,7 +53,7 @@ def main() -> None:
     # Get preset and override segment_count to 5 (good for ~60s short)
     preset = get_preset(args.channel)
     preset = dict(preset)
-    preset["segment_count"] = 5
+    preset["segment_count"] = 25
     preset["min_words"] = 100
 
     ts = datetime.now(timezone.utc).strftime("%Y%m%d_%H%M%S")
@@ -73,7 +73,7 @@ def main() -> None:
         except ImportError:
             pass
 
-    print("\n① Groq: generating script with 5 image segments...")
+    print("\n① Groq: generating script with 25 image segments...")
     pack = generate_short_pack(
         preset, topic_hint=topic_hint, channel_id=args.channel,
         extra_context=fifa_context,

@@ -13,15 +13,15 @@ def fetch_web_image(query: str, out_path: str | Path) -> tuple[str, str]:
     out_path.parent.mkdir(parents=True, exist_ok=True)
 
     try:
-        # We append ' hd' and negative keywords to avoid heavily watermarked stock images
-        search_query = f"{query} hd -alamy -getty -shutterstock -stock"
+        # We append ' hd' but remove negative keywords to maximize relevant hits regardless of copyright
+        search_query = f"{query} hd"
         
         with DDGS() as ddgs:
             results = ddgs.images(
                 search_query,
                 safesearch="off",  # Get the absolute best news/editorial images
                 size="Large",
-                max_results=8,
+                max_results=30,
             )
             
             if not results:
@@ -33,10 +33,9 @@ def fetch_web_image(query: str, out_path: str | Path) -> tuple[str, str]:
                 if not image_url:
                     continue
                     
-                # Ensure it's a typical image format
+                # We no longer strictly filter by .jpg/.png extensions
+                # because the magic byte check later will verify the actual format.
                 lower_url = image_url.lower()
-                if not (lower_url.endswith(".jpg") or lower_url.endswith(".jpeg") or lower_url.endswith(".png")):
-                    continue
                     
                 try:
                     with httpx.Client(timeout=15.0) as client:
