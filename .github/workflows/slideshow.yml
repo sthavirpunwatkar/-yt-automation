@@ -1,5 +1,12 @@
 name: Slideshow Type Automation
 on:
+  schedule:
+    # Match Window 1: ~12:00 PM EDT -> 12:30 PM EDT (16:30 UTC)
+    - cron: "30 16 * * *"
+    # Match Window 2: ~3:00 PM EDT -> 3:30 PM EDT (19:30 UTC)
+    - cron: "30 19 * * *"
+    # Match Window 3: ~7:00 PM EDT -> 7:30 PM EDT (23:30 UTC)
+    - cron: "30 23 * * *"
   workflow_dispatch:
     inputs:
       channel:
