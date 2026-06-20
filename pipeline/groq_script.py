@@ -124,7 +124,7 @@ def _generate_single(preset: ChannelPreset, user: str, n: int) -> dict[str, Any]
 Return ONLY valid JSON with this shape:
 {{
   "youtube_title": "short catchy title, under 90 chars, no hashtags",
-  "youtube_description": "2-3 sentences plus optional #Shorts at end",
+  "youtube_description": "2-3 sentences including hashtags like #Shorts INSIDE this string",
   {narration_rule},
   "image_prompts": [
     "visual description for image 1: setting, subject, action. No style words. No text in image.",
@@ -212,7 +212,7 @@ def _generate_multivariant(
         lang_lines.append(
             f'    "{lang}": {{\n'
             f'      "youtube_title": "catchy title in {_lang_label(lang)} (<90 chars, no hashtags)",\n'
-            f'      "youtube_description": "2-3 sentences in {_lang_label(lang)} + optional #Shorts",\n'
+            f'      "youtube_description": "2-3 sentences in {_lang_label(lang)} with #Shorts INSIDE this string",\n'
             f'      "full_narration": "ONE continuous paragraph in {_lang_label(lang)}. '
             f'{blurb}. Natural spoken narration, no segment markers."\n'
             f'    }}'
