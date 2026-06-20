@@ -49,6 +49,13 @@ def fetch_web_image(query: str, out_path: str | Path) -> tuple[str, str]:
                             continue
                             
                         out_path.write_bytes(content)
+                        
+                        try:
+                            from pipeline.watermark_remover import remove_watermark
+                            remove_watermark(out_path)
+                        except Exception as wm_err:
+                            print(f"      [WebImages] Warning: Failed to apply watermark removal filter: {wm_err}")
+                            
                         return "ok", image_url
                 except Exception as dl_err:
                     print(f"      [WebImages] Failed to download {image_url}: {dl_err}")
