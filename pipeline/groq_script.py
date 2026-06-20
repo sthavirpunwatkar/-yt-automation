@@ -139,8 +139,8 @@ Return ONLY valid JSON with this shape:
 }}
 
 STRICT RULES:
-{strict_extra}- "image_prompts" array MUST have exactly {n} entries.
-- "visual_search_queries" array MUST have exactly {n} entries.
+{strict_extra}- "image_prompts" array MUST have approximately {n} entries.
+- "visual_search_queries" array MUST have approximately {n} entries.
 - Each visual_search_query MUST explicitly mention "FIFA World Cup football" to guarantee highly relevant match photos. Do NOT generate vague or generic queries.
 - Each image_prompt matches a different moment/beat in order.
 - The narration must flow naturally as one spoken piece (no "segment 1", "segment 2" etc).
@@ -166,18 +166,14 @@ STRICT RULES:
                 raise ValueError("Missing full_narration")
 
             prompts = data.get("image_prompts")
-            if not isinstance(prompts, list) or len(prompts) < n:
-                raise ValueError(f"Expected at least {n} image_prompts, got {len(prompts or [])}")
-            data["image_prompts"] = prompts[:n]
-            for i, p in enumerate(data["image_prompts"]):
+            queries = data.get("visual_search_queries")
+            if not isinstance(prompts, list) or not isinstance(queries, list) or len(prompts) != len(queries) or len(prompts) == 0:
+                raise ValueError(f"image_prompts ({len(prompts or [])}) and visual_search_queries ({len(queries or [])}) must be non-empty lists of equal length.")
+            
+            for i, p in enumerate(prompts):
                 if not isinstance(p, str) or not p.strip():
                     raise ValueError(f"image_prompt {i} is empty")
-
-            queries = data.get("visual_search_queries")
-            if not isinstance(queries, list) or len(queries) < n:
-                raise ValueError(f"Expected at least {n} visual_search_queries, got {len(queries or [])}")
-            data["visual_search_queries"] = queries[:n]
-            for i, q in enumerate(data["visual_search_queries"]):
+            for i, q in enumerate(queries):
                 if not isinstance(q, str) or not q.strip():
                     raise ValueError(f"visual_search_query {i} is empty")
 
@@ -244,8 +240,8 @@ Return ONLY valid JSON with this shape:
 }}
 
 STRICT RULES:
-- "image_prompts" array MUST have exactly {n} entries, ALL in English.
-- "visual_search_queries" array MUST have exactly {n} entries.
+- "image_prompts" array MUST have approximately {n} entries, ALL in English.
+- "visual_search_queries" array MUST have approximately {n} entries.
 - Each visual_search_query MUST explicitly mention "FIFA World Cup football" to guarantee highly relevant match photos. Do NOT generate vague or generic queries.
 - "variants" object MUST contain keys: {lang_keys}.
 - Each variant tells the SAME facts/story but written natively in that language (not literal translation).
@@ -282,18 +278,15 @@ STRICT RULES:
 
 def _assert_multivariant_valid(data: dict[str, Any], variants: list, n: int) -> None:
     prompts = data.get("image_prompts")
-    if not isinstance(prompts, list) or len(prompts) < n:
-        raise ValueError(f"Expected at least {n} image_prompts, got {len(prompts or [])}")
-    data["image_prompts"] = prompts[:n]
-    for i, p in enumerate(data["image_prompts"]):
+    queries = data.get("visual_search_queries")
+    if not isinstance(prompts, list) or not isinstance(queries, list) or len(prompts) != len(queries) or len(prompts) == 0:
+        raise ValueError(f"image_prompts ({len(prompts or [])}) and visual_search_queries ({len(queries or [])}) must be non-empty lists of equal length.")
+        
+    for i, p in enumerate(prompts):
         if not isinstance(p, str) or not p.strip():
             raise ValueError(f"image_prompt {i} is empty")
             
-    queries = data.get("visual_search_queries")
-    if not isinstance(queries, list) or len(queries) < n:
-        raise ValueError(f"Expected at least {n} visual_search_queries, got {len(queries or [])}")
-    data["visual_search_queries"] = queries[:n]
-    for i, q in enumerate(data["visual_search_queries"]):
+    for i, q in enumerate(queries):
         if not isinstance(q, str) or not q.strip():
             raise ValueError(f"visual_search_query {i} is empty")
 
