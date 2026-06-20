@@ -35,10 +35,10 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
 
       - name: Setup Python
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@v6
         with:
           python-version: "3.12"
           cache: "pip"
@@ -56,7 +56,7 @@ jobs:
 
       # Restore story history — prevents repeating same topic twice
       - name: Restore history cache
-        uses: actions/cache/restore@v4
+        uses: actions/cache/restore@v5
         with:
           path: output/history/
           key: story-history-${{ github.event.inputs.channel || 'fifa_2026' }}-${{ github.run_id }}
@@ -75,7 +75,7 @@ jobs:
 
       # Save history so next run doesn't repeat topics
       - name: Save history cache
-        uses: actions/cache/save@v4
+        uses: actions/cache/save@v5
         if: always()
         with:
           path: output/history/

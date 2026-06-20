@@ -38,7 +38,10 @@ else:
 
 def search_fifa_video():
     print("Searching for FIFA videos...")
-    cmd = [YT_DLP_PATH, "ytsearch10:fifa 2026", "-J"]
+    if IN_GITHUB_ACTIONS:
+        cmd = [sys.executable, "-m", "yt_dlp", "ytsearch10:fifa 2026", "-J"]
+    else:
+        cmd = [YT_DLP_PATH, "ytsearch10:fifa 2026", "-J"]
     result = subprocess.run(cmd, capture_output=True, text=True)
     try:
         playlist = json.loads(result.stdout)
