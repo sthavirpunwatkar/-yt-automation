@@ -53,8 +53,10 @@ def search_fifa_video():
                 print(f"Found suitable video: {video_url} (Duration: {duration}s)")
                 return video_url
     except Exception as e:
-        pass
-    raise RuntimeError("No suitable FIFA video found between 10 and 20 minutes.")
+        print(f"Error parsing yt-dlp output: {e}")
+        print(f"STDOUT: {result.stdout[:500]}")
+        print(f"STDERR: {result.stderr}")
+    raise RuntimeError("No suitable FIFA video found. Ensure yt-dlp is not being blocked.")
 
 def generate_shorts(video_url):
     print(f"Generating 4 clips from {video_url}...")
