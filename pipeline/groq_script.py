@@ -166,16 +166,18 @@ STRICT RULES:
                 raise ValueError("Missing full_narration")
 
             prompts = data.get("image_prompts")
-            if not isinstance(prompts, list) or len(prompts) != n:
-                raise ValueError(f"Expected {n} image_prompts, got {len(prompts or [])}")
-            for i, p in enumerate(prompts):
+            if not isinstance(prompts, list) or len(prompts) < n:
+                raise ValueError(f"Expected at least {n} image_prompts, got {len(prompts or [])}")
+            data["image_prompts"] = prompts[:n]
+            for i, p in enumerate(data["image_prompts"]):
                 if not isinstance(p, str) or not p.strip():
                     raise ValueError(f"image_prompt {i} is empty")
 
             queries = data.get("visual_search_queries")
-            if not isinstance(queries, list) or len(queries) != n:
-                raise ValueError(f"Expected {n} visual_search_queries, got {len(queries or [])}")
-            for i, q in enumerate(queries):
+            if not isinstance(queries, list) or len(queries) < n:
+                raise ValueError(f"Expected at least {n} visual_search_queries, got {len(queries or [])}")
+            data["visual_search_queries"] = queries[:n]
+            for i, q in enumerate(data["visual_search_queries"]):
                 if not isinstance(q, str) or not q.strip():
                     raise ValueError(f"visual_search_query {i} is empty")
 
@@ -279,16 +281,18 @@ STRICT RULES:
 
 def _assert_multivariant_valid(data: dict[str, Any], variants: list, n: int) -> None:
     prompts = data.get("image_prompts")
-    if not isinstance(prompts, list) or len(prompts) != n:
-        raise ValueError(f"Expected {n} image_prompts, got {len(prompts or [])}")
-    for i, p in enumerate(prompts):
+    if not isinstance(prompts, list) or len(prompts) < n:
+        raise ValueError(f"Expected at least {n} image_prompts, got {len(prompts or [])}")
+    data["image_prompts"] = prompts[:n]
+    for i, p in enumerate(data["image_prompts"]):
         if not isinstance(p, str) or not p.strip():
             raise ValueError(f"image_prompt {i} is empty")
             
     queries = data.get("visual_search_queries")
-    if not isinstance(queries, list) or len(queries) != n:
-        raise ValueError(f"Expected {n} visual_search_queries, got {len(queries or [])}")
-    for i, q in enumerate(queries):
+    if not isinstance(queries, list) or len(queries) < n:
+        raise ValueError(f"Expected at least {n} visual_search_queries, got {len(queries or [])}")
+    data["visual_search_queries"] = queries[:n]
+    for i, q in enumerate(data["visual_search_queries"]):
         if not isinstance(q, str) or not q.strip():
             raise ValueError(f"visual_search_query {i} is empty")
 
