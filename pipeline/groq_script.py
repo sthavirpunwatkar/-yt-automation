@@ -16,7 +16,7 @@ from groq import Groq
 from pipeline.channel_presets import ChannelPreset
 from pipeline.story_history import history_prompt_block
 
-GROQ_MODEL = os.environ.get("GROQ_MODEL", "llama-3.3-70b-versatile")
+GROQ_MODEL = os.environ.get("GROQ_MODEL", "llama-3.1-8b-instant")
 
 
 # ── Language-specific word-count guidance ──────────────────────────────
