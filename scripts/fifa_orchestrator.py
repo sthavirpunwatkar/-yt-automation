@@ -174,6 +174,8 @@ if __name__ == "__main__":
         REPO_ROOT = Path(__file__).resolve().parent.parent
         sys.path.append(str(REPO_ROOT / "scripts"))
         try:
+            # Force the upload flag so the fallback actually publishes to YouTube!
+            sys.argv = [sys.argv[0], "--upload"]
             import run_slideshow
             run_slideshow.main()
             print("Ultimate goal pipeline completed successfully using slideshow fallback!")
