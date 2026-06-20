@@ -39,16 +39,16 @@ else:
 def search_fifa_video():
     print("Searching for FIFA videos...")
     if IN_GITHUB_ACTIONS:
-        cmd = [sys.executable, "-m", "yt_dlp", "ytsearch10:fifa 2026", "-J"]
+        cmd = [sys.executable, "-m", "yt_dlp", "ytsearch20:fifa 2026 highlights", "-J"]
     else:
-        cmd = [YT_DLP_PATH, "ytsearch10:fifa 2026", "-J"]
+        cmd = [YT_DLP_PATH, "ytsearch20:fifa 2026 highlights", "-J"]
     result = subprocess.run(cmd, capture_output=True, text=True)
     try:
         playlist = json.loads(result.stdout)
         entries = playlist.get("entries", [])
         for data in entries:
             duration = data.get("duration", 0)
-            if 600 <= duration <= 1200: # 10 to 20 minutes
+            if 180 <= duration <= 3600: # 3 minutes to 60 minutes
                 video_url = data.get("webpage_url") or f"https://www.youtube.com/watch?v={data['id']}"
                 print(f"Found suitable video: {video_url} (Duration: {duration}s)")
                 return video_url
