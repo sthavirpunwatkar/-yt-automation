@@ -1,0 +1,1323 @@
+generate-and-upload	Set up job	﻿2026-06-20T21:25:32.5254796Z Current runner version: '2.335.1'
+generate-and-upload	Set up job	2026-06-20T21:25:32.5279893Z ##[group]Runner Image Provisioner
+generate-and-upload	Set up job	2026-06-20T21:25:32.5281204Z Hosted Compute Agent
+generate-and-upload	Set up job	2026-06-20T21:25:32.5281865Z Version: 20260611.554
+generate-and-upload	Set up job	2026-06-20T21:25:32.5282645Z Commit: 5e0782fdc9014723d3be820dd114dd31555c2bd1
+generate-and-upload	Set up job	2026-06-20T21:25:32.5283458Z Build Date: 2026-06-11T21:40:46Z
+generate-and-upload	Set up job	2026-06-20T21:25:32.5284229Z Worker ID: {adc00942-e08c-4403-8162-c8778a89b5ba}
+generate-and-upload	Set up job	2026-06-20T21:25:32.5285042Z Azure Region: westus
+generate-and-upload	Set up job	2026-06-20T21:25:32.5285655Z ##[endgroup]
+generate-and-upload	Set up job	2026-06-20T21:25:32.5287245Z ##[group]Operating System
+generate-and-upload	Set up job	2026-06-20T21:25:32.5287986Z Ubuntu
+generate-and-upload	Set up job	2026-06-20T21:25:32.5288634Z 24.04.4
+generate-and-upload	Set up job	2026-06-20T21:25:32.5289229Z LTS
+generate-and-upload	Set up job	2026-06-20T21:25:32.5290360Z ##[endgroup]
+generate-and-upload	Set up job	2026-06-20T21:25:32.5291028Z ##[group]Runner Image
+generate-and-upload	Set up job	2026-06-20T21:25:32.5291714Z Image: ubuntu-24.04
+generate-and-upload	Set up job	2026-06-20T21:25:32.5292397Z Version: 20260615.205.1
+generate-and-upload	Set up job	2026-06-20T21:25:32.5293559Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20260615.205/images/ubuntu/Ubuntu2404-Readme.md
+generate-and-upload	Set up job	2026-06-20T21:25:32.5295405Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20260615.205
+generate-and-upload	Set up job	2026-06-20T21:25:32.5296441Z ##[endgroup]
+generate-and-upload	Set up job	2026-06-20T21:25:32.5297694Z ##[group]GITHUB_TOKEN Permissions
+generate-and-upload	Set up job	2026-06-20T21:25:32.5299905Z Contents: read
+generate-and-upload	Set up job	2026-06-20T21:25:32.5301008Z Metadata: read
+generate-and-upload	Set up job	2026-06-20T21:25:32.5301676Z Packages: read
+generate-and-upload	Set up job	2026-06-20T21:25:32.5302282Z ##[endgroup]
+generate-and-upload	Set up job	2026-06-20T21:25:32.5304425Z Secret source: Actions
+generate-and-upload	Set up job	2026-06-20T21:25:32.5305348Z Prepare workflow directory
+generate-and-upload	Set up job	2026-06-20T21:25:32.5831096Z Prepare all required actions
+generate-and-upload	Set up job	2026-06-20T21:25:32.5868224Z Getting action download info
+generate-and-upload	Set up job	2026-06-20T21:25:32.9728778Z Download action repository 'actions/checkout@v7' (SHA:9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0)
+generate-and-upload	Set up job	2026-06-20T21:25:33.3983847Z Download action repository 'actions/setup-python@v6' (SHA:a309ff8b426b58ec0e2a45f0f869d46889d02405)
+generate-and-upload	Set up job	2026-06-20T21:25:33.4691034Z Download action repository 'actions/cache@v5' (SHA:27d5ce7f107fe9357f9df03efb73ab90386fccae)
+generate-and-upload	Set up job	2026-06-20T21:25:33.6667326Z Complete job name: generate-and-upload
+generate-and-upload	Checkout	﻿2026-06-20T21:25:33.7353652Z ##[group]Run actions/checkout@v7
+generate-and-upload	Checkout	2026-06-20T21:25:33.7354764Z with:
+generate-and-upload	Checkout	2026-06-20T21:25:33.7355295Z   repository: sthavirpunwatkar/-yt-automation
+generate-and-upload	Checkout	2026-06-20T21:25:33.7359613Z   token: ***
+generate-and-upload	Checkout	2026-06-20T21:25:33.7360285Z   ssh-strict: true
+generate-and-upload	Checkout	2026-06-20T21:25:33.7360775Z   ssh-user: git
+generate-and-upload	Checkout	2026-06-20T21:25:33.7361247Z   persist-credentials: true
+generate-and-upload	Checkout	2026-06-20T21:25:33.7361773Z   clean: true
+generate-and-upload	Checkout	2026-06-20T21:25:33.7362258Z   sparse-checkout-cone-mode: true
+generate-and-upload	Checkout	2026-06-20T21:25:33.7362816Z   fetch-depth: 1
+generate-and-upload	Checkout	2026-06-20T21:25:33.7363288Z   fetch-tags: false
+generate-and-upload	Checkout	2026-06-20T21:25:33.7363761Z   show-progress: true
+generate-and-upload	Checkout	2026-06-20T21:25:33.7364251Z   lfs: false
+generate-and-upload	Checkout	2026-06-20T21:25:33.7364698Z   submodules: false
+generate-and-upload	Checkout	2026-06-20T21:25:33.7365177Z   set-safe-directory: true
+generate-and-upload	Checkout	2026-06-20T21:25:33.7365717Z   allow-unsafe-pr-checkout: false
+generate-and-upload	Checkout	2026-06-20T21:25:33.7366507Z env:
+generate-and-upload	Checkout	2026-06-20T21:25:33.7367206Z   GROQ_API_KEY: ***
+generate-and-upload	Checkout	2026-06-20T21:25:33.7367889Z   DEAPI_TOKEN: ***
+generate-and-upload	Checkout	2026-06-20T21:25:33.7368955Z   YT_CLIENT_ID: ***
+generate-and-upload	Checkout	2026-06-20T21:25:33.7369625Z   YT_CLIENT_SECRET_VALUE: ***
+generate-and-upload	Checkout	2026-06-20T21:25:33.7371003Z   YT_REFRESH_TOKEN: ***
+generate-and-upload	Checkout	2026-06-20T21:25:33.7371533Z   INSTAGRAM_ACCOUNT_ID: 
+generate-and-upload	Checkout	2026-06-20T21:25:33.7372043Z   INSTAGRAM_ACCESS_TOKEN: 
+generate-and-upload	Checkout	2026-06-20T21:25:33.7372558Z   FACEBOOK_PAGE_ID: 
+generate-and-upload	Checkout	2026-06-20T21:25:33.7373050Z   FACEBOOK_ACCESS_TOKEN: 
+generate-and-upload	Checkout	2026-06-20T21:25:33.7373567Z   EDGE_TTS_VOICE: en-US-GuyNeural
+generate-and-upload	Checkout	2026-06-20T21:25:33.7374113Z ##[endgroup]
+generate-and-upload	Checkout	2026-06-20T21:25:33.8351588Z Syncing repository: sthavirpunwatkar/-yt-automation
+generate-and-upload	Checkout	2026-06-20T21:25:33.8353718Z ##[group]Getting Git version info
+generate-and-upload	Checkout	2026-06-20T21:25:33.8354622Z Working directory is '/home/runner/work/-yt-automation/-yt-automation'
+generate-and-upload	Checkout	2026-06-20T21:25:33.8355885Z [command]/usr/bin/git version
+generate-and-upload	Checkout	2026-06-20T21:25:33.8455681Z git version 2.54.0
+generate-and-upload	Checkout	2026-06-20T21:25:33.8477044Z ##[endgroup]
+generate-and-upload	Checkout	2026-06-20T21:25:33.8487583Z Temporarily overriding HOME='/home/runner/work/_temp/78c31558-08ee-47e0-a470-fcdd43f9133a' before making global git config changes
+generate-and-upload	Checkout	2026-06-20T21:25:33.8490511Z Adding repository directory to the temporary git global config as a safe directory
+generate-and-upload	Checkout	2026-06-20T21:25:33.8502006Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/-yt-automation/-yt-automation
+generate-and-upload	Checkout	2026-06-20T21:25:33.8555122Z Deleting the contents of '/home/runner/work/-yt-automation/-yt-automation'
+generate-and-upload	Checkout	2026-06-20T21:25:33.8558683Z ##[group]Determining repository object format
+generate-and-upload	Checkout	2026-06-20T21:25:33.8560470Z ##[endgroup]
+generate-and-upload	Checkout	2026-06-20T21:25:33.8561381Z ##[group]Initializing the repository
+generate-and-upload	Checkout	2026-06-20T21:25:33.8564908Z [command]/usr/bin/git init /home/runner/work/-yt-automation/-yt-automation
+generate-and-upload	Checkout	2026-06-20T21:25:33.8704463Z hint: Using 'master' as the name for the initial branch. This default branch name
+generate-and-upload	Checkout	2026-06-20T21:25:33.8706073Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+generate-and-upload	Checkout	2026-06-20T21:25:33.8707268Z hint: to use in all of your new repositories, which will suppress this warning,
+generate-and-upload	Checkout	2026-06-20T21:25:33.8708142Z hint: call:
+generate-and-upload	Checkout	2026-06-20T21:25:33.8708645Z hint:
+generate-and-upload	Checkout	2026-06-20T21:25:33.8709646Z hint: 	git config --global init.defaultBranch <name>
+generate-and-upload	Checkout	2026-06-20T21:25:33.8711138Z hint:
+generate-and-upload	Checkout	2026-06-20T21:25:33.8712212Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+generate-and-upload	Checkout	2026-06-20T21:25:33.8713843Z hint: 'development'. The just-created branch can be renamed via this command:
+generate-and-upload	Checkout	2026-06-20T21:25:33.8714675Z hint:
+generate-and-upload	Checkout	2026-06-20T21:25:33.8715135Z hint: 	git branch -m <name>
+generate-and-upload	Checkout	2026-06-20T21:25:33.8715658Z hint:
+generate-and-upload	Checkout	2026-06-20T21:25:33.8716349Z hint: Disable this message with "git config set advice.defaultBranchName false"
+generate-and-upload	Checkout	2026-06-20T21:25:33.8717522Z Initialized empty Git repository in /home/runner/work/-yt-automation/-yt-automation/.git/
+generate-and-upload	Checkout	2026-06-20T21:25:33.8724197Z [command]/usr/bin/git remote add origin https://github.com/sthavirpunwatkar/-yt-automation
+generate-and-upload	Checkout	2026-06-20T21:25:33.8775448Z ##[endgroup]
+generate-and-upload	Checkout	2026-06-20T21:25:33.8776305Z ##[group]Disabling automatic garbage collection
+generate-and-upload	Checkout	2026-06-20T21:25:33.8780879Z [command]/usr/bin/git config --local gc.auto 0
+generate-and-upload	Checkout	2026-06-20T21:25:33.8810740Z ##[endgroup]
+generate-and-upload	Checkout	2026-06-20T21:25:33.8812258Z ##[group]Setting up auth
+generate-and-upload	Checkout	2026-06-20T21:25:33.8813554Z Removing SSH command configuration
+generate-and-upload	Checkout	2026-06-20T21:25:33.8817696Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+generate-and-upload	Checkout	2026-06-20T21:25:33.8852694Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+generate-and-upload	Checkout	2026-06-20T21:25:33.9234905Z Removing HTTP extra header
+generate-and-upload	Checkout	2026-06-20T21:25:33.9241785Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+generate-and-upload	Checkout	2026-06-20T21:25:33.9274283Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+generate-and-upload	Checkout	2026-06-20T21:25:33.9486980Z Removing includeIf entries pointing to credentials config files
+generate-and-upload	Checkout	2026-06-20T21:25:33.9492334Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+generate-and-upload	Checkout	2026-06-20T21:25:33.9522298Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+generate-and-upload	Checkout	2026-06-20T21:25:33.9742827Z [command]/usr/bin/git config --file /home/runner/work/_temp/git-credentials-a9c0f40f-fee2-4785-a880-afb8e8d2c367.config http.https://github.com/.extraheader AUTHORIZATION: basic ***
+generate-and-upload	Checkout	2026-06-20T21:25:33.9778153Z [command]/usr/bin/git config --local includeIf.gitdir:/home/runner/work/-yt-automation/-yt-automation/.git.path /home/runner/work/_temp/git-credentials-a9c0f40f-fee2-4785-a880-afb8e8d2c367.config
+generate-and-upload	Checkout	2026-06-20T21:25:33.9807996Z [command]/usr/bin/git config --local includeIf.gitdir:/home/runner/work/-yt-automation/-yt-automation/.git/worktrees/*.path /home/runner/work/_temp/git-credentials-a9c0f40f-fee2-4785-a880-afb8e8d2c367.config
+generate-and-upload	Checkout	2026-06-20T21:25:33.9844068Z [command]/usr/bin/git config --local includeIf.gitdir:/github/workspace/.git.path /github/runner_temp/git-credentials-a9c0f40f-fee2-4785-a880-afb8e8d2c367.config
+generate-and-upload	Checkout	2026-06-20T21:25:33.9876002Z [command]/usr/bin/git config --local includeIf.gitdir:/github/workspace/.git/worktrees/*.path /github/runner_temp/git-credentials-a9c0f40f-fee2-4785-a880-afb8e8d2c367.config
+generate-and-upload	Checkout	2026-06-20T21:25:33.9903458Z ##[endgroup]
+generate-and-upload	Checkout	2026-06-20T21:25:33.9904315Z ##[group]Fetching the repository
+generate-and-upload	Checkout	2026-06-20T21:25:33.9910468Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +0cda7c8f4f051adb36516d5f14f3723763cf1997:refs/remotes/origin/main
+generate-and-upload	Checkout	2026-06-20T21:25:34.5244695Z From https://github.com/sthavirpunwatkar/-yt-automation
+generate-and-upload	Checkout	2026-06-20T21:25:34.5246325Z  * [new ref]         0cda7c8f4f051adb36516d5f14f3723763cf1997 -> origin/main
+generate-and-upload	Checkout	2026-06-20T21:25:34.5295061Z [command]/usr/bin/git branch --list --remote origin/main
+generate-and-upload	Checkout	2026-06-20T21:25:34.5322786Z   origin/main
+generate-and-upload	Checkout	2026-06-20T21:25:34.5331130Z [command]/usr/bin/git rev-parse refs/remotes/origin/main
+generate-and-upload	Checkout	2026-06-20T21:25:34.5353082Z 0cda7c8f4f051adb36516d5f14f3723763cf1997
+generate-and-upload	Checkout	2026-06-20T21:25:34.5358235Z ##[endgroup]
+generate-and-upload	Checkout	2026-06-20T21:25:34.5359725Z ##[group]Determining the checkout info
+generate-and-upload	Checkout	2026-06-20T21:25:34.5362645Z ##[endgroup]
+generate-and-upload	Checkout	2026-06-20T21:25:34.5364273Z [command]/usr/bin/git sparse-checkout disable
+generate-and-upload	Checkout	2026-06-20T21:25:34.5413880Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+generate-and-upload	Checkout	2026-06-20T21:25:34.5445259Z ##[group]Checking out the ref
+generate-and-upload	Checkout	2026-06-20T21:25:34.5448175Z [command]/usr/bin/git checkout --progress --force -B main refs/remotes/origin/main
+generate-and-upload	Checkout	2026-06-20T21:25:34.5578317Z Switched to a new branch 'main'
+generate-and-upload	Checkout	2026-06-20T21:25:34.5581340Z branch 'main' set up to track 'origin/main'.
+generate-and-upload	Checkout	2026-06-20T21:25:34.5653441Z ##[endgroup]
+generate-and-upload	Checkout	2026-06-20T21:25:34.5657941Z [command]/usr/bin/git log -1 --format=%H
+generate-and-upload	Checkout	2026-06-20T21:25:34.5660385Z 0cda7c8f4f051adb36516d5f14f3723763cf1997
+generate-and-upload	Setup Python	﻿2026-06-20T21:25:34.6020521Z ##[group]Run actions/setup-python@v6
+generate-and-upload	Setup Python	2026-06-20T21:25:34.6021813Z with:
+generate-and-upload	Setup Python	2026-06-20T21:25:34.6022684Z   python-version: 3.12
+generate-and-upload	Setup Python	2026-06-20T21:25:34.6023692Z   cache: pip
+generate-and-upload	Setup Python	2026-06-20T21:25:34.6024575Z   check-latest: false
+generate-and-upload	Setup Python	2026-06-20T21:25:34.6036367Z   token: ***
+generate-and-upload	Setup Python	2026-06-20T21:25:34.6037330Z   update-environment: true
+generate-and-upload	Setup Python	2026-06-20T21:25:34.6038438Z   allow-prereleases: false
+generate-and-upload	Setup Python	2026-06-20T21:25:34.6039508Z   freethreaded: false
+generate-and-upload	Setup Python	2026-06-20T21:25:34.6040640Z env:
+generate-and-upload	Setup Python	2026-06-20T21:25:34.6042028Z   GROQ_API_KEY: ***
+generate-and-upload	Setup Python	2026-06-20T21:25:34.6043498Z   DEAPI_TOKEN: ***
+generate-and-upload	Setup Python	2026-06-20T21:25:34.6045243Z   YT_CLIENT_ID: ***
+generate-and-upload	Setup Python	2026-06-20T21:25:34.6046575Z   YT_CLIENT_SECRET_VALUE: ***
+generate-and-upload	Setup Python	2026-06-20T21:25:34.6049099Z   YT_REFRESH_TOKEN: ***
+generate-and-upload	Setup Python	2026-06-20T21:25:34.6050284Z   INSTAGRAM_ACCOUNT_ID: 
+generate-and-upload	Setup Python	2026-06-20T21:25:34.6051353Z   INSTAGRAM_ACCESS_TOKEN: 
+generate-and-upload	Setup Python	2026-06-20T21:25:34.6052401Z   FACEBOOK_PAGE_ID: 
+generate-and-upload	Setup Python	2026-06-20T21:25:34.6053375Z   FACEBOOK_ACCESS_TOKEN: 
+generate-and-upload	Setup Python	2026-06-20T21:25:34.6054444Z   EDGE_TTS_VOICE: en-US-GuyNeural
+generate-and-upload	Setup Python	2026-06-20T21:25:34.6055553Z ##[endgroup]
+generate-and-upload	Setup Python	2026-06-20T21:25:34.7363184Z ##[group]Installed versions
+generate-and-upload	Setup Python	2026-06-20T21:25:34.7470768Z Successfully set up CPython (3.12.13)
+generate-and-upload	Setup Python	2026-06-20T21:25:34.7472974Z ##[endgroup]
+generate-and-upload	Setup Python	2026-06-20T21:25:34.8032525Z [command]/opt/hostedtoolcache/Python/3.12.13/x64/bin/pip cache dir
+generate-and-upload	Setup Python	2026-06-20T21:25:35.1802749Z /home/runner/.cache/pip
+generate-and-upload	Setup Python	2026-06-20T21:25:35.4677306Z Cache hit for: setup-python-Linux-x64-24.04-Ubuntu-python-3.12.13-pip-ca87e80900b9816748139869a5a8c9acde2174a4252a533d6920b16460c480df
+generate-and-upload	Setup Python	2026-06-20T21:25:36.7982097Z Received 0 of 51088475 (0.0%), 0.0 MBs/sec
+generate-and-upload	Setup Python	2026-06-20T21:25:37.3190425Z Received 51088475 of 51088475 (100.0%), 32.0 MBs/sec
+generate-and-upload	Setup Python	2026-06-20T21:25:37.3192843Z Cache Size: ~49 MB (51088475 B)
+generate-and-upload	Setup Python	2026-06-20T21:25:37.3238560Z [command]/usr/bin/tar -xf /home/runner/work/_temp/41bedf12-4c20-46bf-86bf-b258ed65c3b1/cache.tzst -P -C /home/runner/work/-yt-automation/-yt-automation --use-compress-program unzstd
+generate-and-upload	Setup Python	2026-06-20T21:25:37.4413619Z Cache restored successfully
+generate-and-upload	Setup Python	2026-06-20T21:25:37.4442286Z Cache restored from key: setup-python-Linux-x64-24.04-Ubuntu-python-3.12.13-pip-ca87e80900b9816748139869a5a8c9acde2174a4252a533d6920b16460c480df
+generate-and-upload	Install ffmpeg	﻿2026-06-20T21:25:37.4603401Z ##[group]Run sudo apt-get update && sudo apt-get install -y ffmpeg
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:37.4604033Z ^[[36;1msudo apt-get update && sudo apt-get install -y ffmpeg^[[0m
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:37.4815695Z shell: /usr/bin/bash -e {0}
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:37.4816043Z env:
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:37.4816616Z   GROQ_API_KEY: ***
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:37.4817011Z   DEAPI_TOKEN: ***
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:37.4817455Z   YT_CLIENT_ID: ***
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:37.4817802Z   YT_CLIENT_SECRET_VALUE: ***
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:37.4818470Z   YT_REFRESH_TOKEN: ***
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:37.4818766Z   INSTAGRAM_ACCOUNT_ID: 
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:37.4819069Z   INSTAGRAM_ACCESS_TOKEN: 
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:37.4819348Z   FACEBOOK_PAGE_ID: 
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:37.4819619Z   FACEBOOK_ACCESS_TOKEN: 
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:37.4819900Z   EDGE_TTS_VOICE: en-US-GuyNeural
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:37.4820665Z   pythonLocation: /opt/hostedtoolcache/Python/3.12.13/x64
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:37.4821215Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.12.13/x64/lib/pkgconfig
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:37.4821743Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.13/x64
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:37.4822293Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.13/x64
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:37.4822758Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.13/x64
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:37.4823237Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.12.13/x64/lib
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:37.4823652Z ##[endgroup]
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:37.5893596Z Get:1 file:/etc/apt/apt-mirrors.txt Mirrorlist [144 B]
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:37.6245553Z Hit:2 http://azure.archive.ubuntu.com/ubuntu noble InRelease
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:37.6260625Z Get:3 http://azure.archive.ubuntu.com/ubuntu noble-updates InRelease [126 kB]
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:37.6311335Z Get:4 http://azure.archive.ubuntu.com/ubuntu noble-backports InRelease [126 kB]
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:37.6351222Z Get:5 http://azure.archive.ubuntu.com/ubuntu noble-security InRelease [126 kB]
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:37.6401543Z Get:6 https://dl.google.com/linux/chrome-stable/deb stable InRelease [1825 B]
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:37.6505273Z Hit:7 https://packages.microsoft.com/repos/azure-cli noble InRelease
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:37.6540865Z Get:8 https://packages.microsoft.com/ubuntu/24.04/prod noble InRelease [3600 B]
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:37.7489470Z Get:9 http://azure.archive.ubuntu.com/ubuntu noble-updates/main amd64 Packages [1031 kB]
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:37.7613867Z Get:10 http://azure.archive.ubuntu.com/ubuntu noble-updates/main Translation-en [259 kB]
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:37.7634167Z Get:11 http://azure.archive.ubuntu.com/ubuntu noble-updates/main amd64 Components [180 kB]
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:37.7648524Z Get:12 http://azure.archive.ubuntu.com/ubuntu noble-updates/main amd64 c-n-f Metadata [17.4 kB]
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:37.7657687Z Get:13 http://azure.archive.ubuntu.com/ubuntu noble-updates/universe amd64 Packages [1656 kB]
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:37.7741761Z Get:14 http://azure.archive.ubuntu.com/ubuntu noble-updates/universe Translation-en [326 kB]
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:37.7757449Z Get:15 http://azure.archive.ubuntu.com/ubuntu noble-updates/universe amd64 Components [388 kB]
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:37.7791405Z Get:16 http://azure.archive.ubuntu.com/ubuntu noble-updates/universe amd64 c-n-f Metadata [34.8 kB]
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:37.7801311Z Get:17 http://azure.archive.ubuntu.com/ubuntu noble-updates/multiverse amd64 Components [940 B]
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:37.8035974Z Get:18 http://azure.archive.ubuntu.com/ubuntu noble-backports/main amd64 Components [5760 B]
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:37.8481671Z Get:19 http://azure.archive.ubuntu.com/ubuntu noble-backports/universe amd64 Components [10.5 kB]
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:37.8571937Z Get:20 http://azure.archive.ubuntu.com/ubuntu noble-security/main amd64 Packages [779 kB]
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:37.8594730Z Get:21 http://azure.archive.ubuntu.com/ubuntu noble-security/main Translation-en [178 kB]
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:37.8613512Z Get:22 http://azure.archive.ubuntu.com/ubuntu noble-security/main amd64 Components [45.0 kB]
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:37.8625911Z Get:23 http://azure.archive.ubuntu.com/ubuntu noble-security/main amd64 c-n-f Metadata [11.5 kB]
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:37.8636021Z Get:24 http://azure.archive.ubuntu.com/ubuntu noble-security/universe amd64 Packages [1170 kB]
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:37.8711956Z Get:25 http://azure.archive.ubuntu.com/ubuntu noble-security/universe Translation-en [229 kB]
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:37.8733590Z Get:26 http://azure.archive.ubuntu.com/ubuntu noble-security/universe amd64 Components [76.2 kB]
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:37.8747379Z Get:27 http://azure.archive.ubuntu.com/ubuntu noble-security/universe amd64 c-n-f Metadata [24.1 kB]
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:37.9321749Z Get:28 https://dl.google.com/linux/chrome-stable/deb stable/main amd64 Packages [1214 B]
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:37.9966384Z Get:29 https://packages.microsoft.com/ubuntu/24.04/prod noble/main arm64 Packages [148 kB]
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:38.0009288Z Get:30 https://packages.microsoft.com/ubuntu/24.04/prod noble/main amd64 Packages [178 kB]
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:42.4351481Z Fetched 7133 kB in 1s (7886 kB/s)
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:43.0875181Z Reading package lists...
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:43.1171946Z Reading package lists...
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:43.2651956Z Building dependency tree...
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:43.2658951Z Reading state information...
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:43.4003400Z The following additional packages will be installed:
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:43.4004661Z   i965-va-driver intel-media-va-driver libaacs0 libass9 libasyncns0
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:43.4005789Z   libavc1394-0 libavcodec60 libavdevice60 libavfilter9 libavformat60
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:43.4006858Z   libavutil58 libbdplus0 libblas3 libbluray2 libbs2b0 libcaca0
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:43.4008052Z   libcdio-cdda2t64 libcdio-paranoia2t64 libcdio19t64 libchromaprint1 libcjson1
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:43.4009313Z   libcodec2-1.2 libdav1d7 libdc1394-25 libdecor-0-0 libdecor-0-plugin-1-gtk
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:43.4009994Z   libflac12t64 libflite1 libgme0 libgsm1 libhwy1t64 libiec61883-0 libigdgmm12
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:43.4011181Z   libjack-jackd2-0 libjxl0.7 liblapack3 liblilv-0-0 libmbedcrypto7t64
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:43.4012113Z   libmp3lame0 libmpg123-0t64 libmysofa1 libopenal-data libopenal1
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:43.4012847Z   libopenmpt0t64 libopus0 libplacebo338 libpocketsphinx3 libpostproc57
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:43.4013517Z   libpulse0 librav1e0 libraw1394-11 librist4 librsvg2-2 librsvg2-common
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:43.4014120Z   librubberband2 libsamplerate0 libsdl2-2.0-0 libserd-0-0 libshine3
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:43.4014751Z   libsndfile1 libsndio7.0 libsord-0-0 libsoxr0 libspeex1 libsphinxbase3t64
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:43.4015375Z   libsratom-0-0 libsrt1.5-gnutls libssh-gcrypt-4 libsvtav1enc1d1
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:43.4016208Z   libswresample4 libswscale7 libtheora0 libtwolame0 libudfread0 libunibreak5
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:43.4017213Z   libva-drm2 libva-x11-2 libva2 libvdpau1 libvidstab1.1 libvorbisenc2 libvpl2
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:43.4017861Z   libvpx9 libx264-164 libx265-199 libxcb-shape0 libxv1 libxvidcore4 libzimg2
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:43.4018501Z   libzix-0-0 libzvbi-common libzvbi0t64 mesa-va-drivers mesa-vdpau-drivers
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:43.4019143Z   ocl-icd-libopencl1 pocketsphinx-en-us va-driver-all vdpau-driver-all
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:43.4019636Z Suggested packages:
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:43.4020024Z   ffmpeg-doc i965-va-driver-shaders libcuda1 libnvcuvid1 libnvidia-encode1
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:43.4020868Z   libbluray-bdj jackd2 libportaudio2 opus-tools pulseaudio libraw1394-doc
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:43.4021358Z   librsvg2-bin serdi sndiod sordi speex opencl-icd libvdpau-va-gl1
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:43.4559998Z The following NEW packages will be installed:
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:43.4561263Z   ffmpeg i965-va-driver intel-media-va-driver libaacs0 libass9 libasyncns0
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:43.4562193Z   libavc1394-0 libavcodec60 libavdevice60 libavfilter9 libavformat60
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:43.4563031Z   libavutil58 libbdplus0 libblas3 libbluray2 libbs2b0 libcaca0
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:43.4563949Z   libcdio-cdda2t64 libcdio-paranoia2t64 libcdio19t64 libchromaprint1 libcjson1
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:43.4565012Z   libcodec2-1.2 libdav1d7 libdc1394-25 libdecor-0-0 libdecor-0-plugin-1-gtk
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:43.4566025Z   libflac12t64 libflite1 libgme0 libgsm1 libhwy1t64 libiec61883-0 libigdgmm12
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:43.4567001Z   libjack-jackd2-0 libjxl0.7 liblapack3 liblilv-0-0 libmbedcrypto7t64
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:43.4568582Z   libmp3lame0 libmpg123-0t64 libmysofa1 libopenal-data libopenal1
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:43.4569510Z   libopenmpt0t64 libopus0 libplacebo338 libpocketsphinx3 libpostproc57
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:43.4570696Z   libpulse0 librav1e0 libraw1394-11 librist4 librsvg2-2 librsvg2-common
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:43.4571572Z   librubberband2 libsamplerate0 libsdl2-2.0-0 libserd-0-0 libshine3
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:43.4572454Z   libsndfile1 libsndio7.0 libsord-0-0 libsoxr0 libspeex1 libsphinxbase3t64
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:43.4573321Z   libsratom-0-0 libsrt1.5-gnutls libssh-gcrypt-4 libsvtav1enc1d1
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:43.4574205Z   libswresample4 libswscale7 libtheora0 libtwolame0 libudfread0 libunibreak5
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:43.4575165Z   libva-drm2 libva-x11-2 libva2 libvdpau1 libvidstab1.1 libvorbisenc2 libvpl2
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:43.4576088Z   libvpx9 libx264-164 libx265-199 libxcb-shape0 libxv1 libxvidcore4 libzimg2
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:43.4576965Z   libzix-0-0 libzvbi-common libzvbi0t64 mesa-va-drivers mesa-vdpau-drivers
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:43.4577515Z   ocl-icd-libopencl1 pocketsphinx-en-us va-driver-all vdpau-driver-all
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:43.4774592Z 0 upgraded, 99 newly installed, 0 to remove and 13 not upgraded.
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:43.4775336Z Need to get 94.1 MB of archives.
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:43.4775970Z After this operation, 227 MB of additional disk space will be used.
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:43.4776727Z Get:1 file:/etc/apt/apt-mirrors.txt Mirrorlist [144 B]
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:43.5668358Z Get:2 http://azure.archive.ubuntu.com/ubuntu noble-updates/universe amd64 libva2 amd64 2.20.0-2ubuntu0.2 [66.4 kB]
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:43.6414182Z Get:3 http://azure.archive.ubuntu.com/ubuntu noble-updates/universe amd64 libva-drm2 amd64 2.20.0-2ubuntu0.2 [7124 B]
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:43.7138372Z Get:4 http://azure.archive.ubuntu.com/ubuntu noble-updates/universe amd64 libva-x11-2 amd64 2.20.0-2ubuntu0.2 [12.0 kB]
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:43.7864933Z Get:5 http://azure.archive.ubuntu.com/ubuntu noble/main amd64 libvdpau1 amd64 1.5-2build1 [27.8 kB]
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:43.8599699Z Get:6 http://azure.archive.ubuntu.com/ubuntu noble/universe amd64 libvpl2 amd64 2023.3.0-1build1 [99.8 kB]
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:43.9328697Z Get:7 http://azure.archive.ubuntu.com/ubuntu noble/universe amd64 ocl-icd-libopencl1 amd64 2.3.2-1build1 [38.5 kB]
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:44.0092489Z Get:8 http://azure.archive.ubuntu.com/ubuntu noble/universe amd64 libavutil58 amd64 7:6.1.1-3ubuntu5 [401 kB]
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:44.0851562Z Get:9 http://azure.archive.ubuntu.com/ubuntu noble/universe amd64 libcodec2-1.2 amd64 1.2.0-2build1 [8998 kB]
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:44.5958087Z Get:10 http://azure.archive.ubuntu.com/ubuntu noble/universe amd64 libdav1d7 amd64 1.4.1-1build1 [604 kB]
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:44.7397660Z Get:11 http://azure.archive.ubuntu.com/ubuntu noble/universe amd64 libgsm1 amd64 1.0.22-1build1 [27.8 kB]
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:44.8128088Z Get:12 http://azure.archive.ubuntu.com/ubuntu noble/universe amd64 libhwy1t64 amd64 1.0.7-8.1build1 [584 kB]
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:44.9565260Z Get:13 http://azure.archive.ubuntu.com/ubuntu noble-updates/universe amd64 libjxl0.7 amd64 0.7.0-10.2ubuntu6.1 [1001 kB]
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:45.1022715Z Get:14 http://azure.archive.ubuntu.com/ubuntu noble/main amd64 libmp3lame0 amd64 3.100-6build1 [142 kB]
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:45.1759498Z Get:15 http://azure.archive.ubuntu.com/ubuntu noble/main amd64 libopus0 amd64 1.4-1build1 [208 kB]
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:45.2498919Z Get:16 http://azure.archive.ubuntu.com/ubuntu noble/universe amd64 librav1e0 amd64 0.7.1-2 [1022 kB]
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:45.3967164Z Get:17 http://azure.archive.ubuntu.com/ubuntu noble/main amd64 librsvg2-2 amd64 2.58.0+dfsg-1build1 [2135 kB]
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:45.6144147Z Get:18 http://azure.archive.ubuntu.com/ubuntu noble/universe amd64 libshine3 amd64 3.1.1-2build1 [23.2 kB]
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:45.6872919Z Get:19 http://azure.archive.ubuntu.com/ubuntu noble-updates/main amd64 libspeex1 amd64 1.2.1-2ubuntu2.24.04.1 [59.6 kB]
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:45.7607340Z Get:20 http://azure.archive.ubuntu.com/ubuntu noble/universe amd64 libsvtav1enc1d1 amd64 1.7.0+dfsg-2build1 [2425 kB]
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:46.0464951Z Get:21 http://azure.archive.ubuntu.com/ubuntu noble/universe amd64 libsoxr0 amd64 0.1.3-4build3 [80.0 kB]
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:46.1196455Z Get:22 http://azure.archive.ubuntu.com/ubuntu noble/universe amd64 libswresample4 amd64 7:6.1.1-3ubuntu5 [63.8 kB]
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:46.1936570Z Get:23 http://azure.archive.ubuntu.com/ubuntu noble/main amd64 libtheora0 amd64 1.1.1+dfsg.1-16.1build3 [211 kB]
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:46.2677554Z Get:24 http://azure.archive.ubuntu.com/ubuntu noble/main amd64 libtwolame0 amd64 0.4.0-2build3 [52.3 kB]
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:46.3408396Z Get:25 http://azure.archive.ubuntu.com/ubuntu noble/main amd64 libvorbisenc2 amd64 1.3.7-1build3 [80.8 kB]
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:46.4142654Z Get:26 http://azure.archive.ubuntu.com/ubuntu noble-updates/main amd64 libvpx9 amd64 1.14.0-1ubuntu2.3 [1143 kB]
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:46.5620827Z Get:27 http://azure.archive.ubuntu.com/ubuntu noble/universe amd64 libx264-164 amd64 2:0.164.3108+git31e19f9-1 [604 kB]
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:46.6384009Z Get:28 http://azure.archive.ubuntu.com/ubuntu noble/universe amd64 libx265-199 amd64 3.5-2build1 [1226 kB]
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:46.7868834Z Get:29 http://azure.archive.ubuntu.com/ubuntu noble/universe amd64 libxvidcore4 amd64 2:1.3.7-1build1 [219 kB]
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:46.8603810Z Get:30 http://azure.archive.ubuntu.com/ubuntu noble/universe amd64 libzvbi-common all 0.2.42-2 [42.4 kB]
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:46.9333624Z Get:31 http://azure.archive.ubuntu.com/ubuntu noble/universe amd64 libzvbi0t64 amd64 0.2.42-2 [261 kB]
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:47.0077639Z Get:32 http://azure.archive.ubuntu.com/ubuntu noble/universe amd64 libavcodec60 amd64 7:6.1.1-3ubuntu5 [5851 kB]
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:47.3703826Z Get:33 http://azure.archive.ubuntu.com/ubuntu noble/main amd64 libraw1394-11 amd64 2.1.2-2build3 [26.2 kB]
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:47.4429743Z Get:34 http://azure.archive.ubuntu.com/ubuntu noble/main amd64 libavc1394-0 amd64 0.5.4-5build3 [15.4 kB]
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:47.5154412Z Get:35 http://azure.archive.ubuntu.com/ubuntu noble/universe amd64 libunibreak5 amd64 5.1-2build1 [25.0 kB]
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:47.5878836Z Get:36 http://azure.archive.ubuntu.com/ubuntu noble/universe amd64 libass9 amd64 1:0.17.1-2build1 [104 kB]
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:47.6606944Z Get:37 http://azure.archive.ubuntu.com/ubuntu noble/universe amd64 libudfread0 amd64 1.1.2-1build1 [19.0 kB]
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:47.7336502Z Get:38 http://azure.archive.ubuntu.com/ubuntu noble/universe amd64 libbluray2 amd64 1:1.3.4-1build1 [159 kB]
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:47.8070507Z Get:39 http://azure.archive.ubuntu.com/ubuntu noble/universe amd64 libchromaprint1 amd64 1.5.1-5 [30.5 kB]
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:47.8799012Z Get:40 http://azure.archive.ubuntu.com/ubuntu noble/universe amd64 libgme0 amd64 0.6.3-7build1 [134 kB]
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:47.9536270Z Get:41 http://azure.archive.ubuntu.com/ubuntu noble-updates/main amd64 libmpg123-0t64 amd64 1.32.5-1ubuntu1.1 [169 kB]
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:48.0272078Z Get:42 http://azure.archive.ubuntu.com/ubuntu noble/universe amd64 libopenmpt0t64 amd64 0.7.3-1.1build3 [647 kB]
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:48.1713051Z Get:43 http://azure.archive.ubuntu.com/ubuntu noble/universe amd64 libcjson1 amd64 1.7.17-1 [24.8 kB]
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:48.2438460Z Get:44 http://azure.archive.ubuntu.com/ubuntu noble/universe amd64 libmbedcrypto7t64 amd64 2.28.8-1 [209 kB]
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:48.3176475Z Get:45 http://azure.archive.ubuntu.com/ubuntu noble/universe amd64 librist4 amd64 0.2.10+dfsg-2 [74.9 kB]
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:48.3906258Z Get:46 http://azure.archive.ubuntu.com/ubuntu noble/universe amd64 libsrt1.5-gnutls amd64 1.5.3-1build2 [316 kB]
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:48.4670468Z Get:47 http://azure.archive.ubuntu.com/ubuntu noble-updates/main amd64 libssh-gcrypt-4 amd64 0.10.6-2ubuntu0.4 [225 kB]
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:48.5429524Z Get:48 http://azure.archive.ubuntu.com/ubuntu noble/universe amd64 libavformat60 amd64 7:6.1.1-3ubuntu5 [1153 kB]
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:48.7579194Z Get:49 http://azure.archive.ubuntu.com/ubuntu noble/universe amd64 libbs2b0 amd64 3.1.0+dfsg-7build1 [10.6 kB]
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:48.8309602Z Get:50 http://azure.archive.ubuntu.com/ubuntu noble/universe amd64 libflite1 amd64 2.2-6build3 [13.6 MB]
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:49.4771942Z Get:51 http://azure.archive.ubuntu.com/ubuntu noble/universe amd64 libserd-0-0 amd64 0.32.2-1 [43.6 kB]
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:49.5504560Z Get:52 http://azure.archive.ubuntu.com/ubuntu noble/universe amd64 libzix-0-0 amd64 0.4.2-2build1 [23.6 kB]
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:49.6234192Z Get:53 http://azure.archive.ubuntu.com/ubuntu noble/universe amd64 libsord-0-0 amd64 0.16.16-2build1 [15.8 kB]
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:49.6968268Z Get:54 http://azure.archive.ubuntu.com/ubuntu noble/universe amd64 libsratom-0-0 amd64 0.6.16-1build1 [17.3 kB]
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:49.7699052Z Get:55 http://azure.archive.ubuntu.com/ubuntu noble/universe amd64 liblilv-0-0 amd64 0.24.22-1build1 [41.0 kB]
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:49.8433870Z Get:56 http://azure.archive.ubuntu.com/ubuntu noble/universe amd64 libmysofa1 amd64 1.3.2+dfsg-2ubuntu2 [1158 kB]
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:49.9917387Z Get:57 http://azure.archive.ubuntu.com/ubuntu noble/universe amd64 libplacebo338 amd64 6.338.2-2build1 [2654 kB]
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:50.2129106Z Get:58 http://azure.archive.ubuntu.com/ubuntu noble-updates/main amd64 libblas3 amd64 3.12.0-3build1.1 [238 kB]
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:50.2878706Z Get:59 http://azure.archive.ubuntu.com/ubuntu noble-updates/main amd64 liblapack3 amd64 3.12.0-3build1.1 [2646 kB]
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:50.4402953Z Get:60 http://azure.archive.ubuntu.com/ubuntu noble/main amd64 libasyncns0 amd64 0.8-6build4 [11.3 kB]
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:50.5135153Z Get:61 http://azure.archive.ubuntu.com/ubuntu noble/main amd64 libflac12t64 amd64 1.4.3+ds-2.1ubuntu2 [197 kB]
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:50.5874059Z Get:62 http://azure.archive.ubuntu.com/ubuntu noble-updates/main amd64 libsndfile1 amd64 1.2.2-1ubuntu5.24.04.1 [209 kB]
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:50.6615940Z Get:63 http://azure.archive.ubuntu.com/ubuntu noble-updates/main amd64 libpulse0 amd64 1:16.1+dfsg1-2ubuntu10.1 [292 kB]
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:50.7363744Z Get:64 http://azure.archive.ubuntu.com/ubuntu noble/universe amd64 libsphinxbase3t64 amd64 0.8+5prealpha+1-17build2 [126 kB]
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:50.8101750Z Get:65 http://azure.archive.ubuntu.com/ubuntu noble/universe amd64 libpocketsphinx3 amd64 0.8.0+real5prealpha+1-15ubuntu5 [133 kB]
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:50.8833859Z Get:66 http://azure.archive.ubuntu.com/ubuntu noble/universe amd64 libpostproc57 amd64 7:6.1.1-3ubuntu5 [49.9 kB]
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:50.9562752Z Get:67 http://azure.archive.ubuntu.com/ubuntu noble/main amd64 libsamplerate0 amd64 0.2.2-4build1 [1344 kB]
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:51.1066789Z Get:68 http://azure.archive.ubuntu.com/ubuntu noble/universe amd64 librubberband2 amd64 3.3.0+dfsg-2build1 [130 kB]
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:51.1802154Z Get:69 http://azure.archive.ubuntu.com/ubuntu noble/universe amd64 libswscale7 amd64 7:6.1.1-3ubuntu5 [193 kB]
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:51.2543963Z Get:70 http://azure.archive.ubuntu.com/ubuntu noble/universe amd64 libvidstab1.1 amd64 1.1.0-2build1 [38.5 kB]
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:51.3276897Z Get:71 http://azure.archive.ubuntu.com/ubuntu noble/universe amd64 libzimg2 amd64 3.0.5+ds1-1build1 [254 kB]
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:51.4021441Z Get:72 http://azure.archive.ubuntu.com/ubuntu noble/universe amd64 libavfilter9 amd64 7:6.1.1-3ubuntu5 [4235 kB]
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:51.6917236Z Get:73 http://azure.archive.ubuntu.com/ubuntu noble-updates/main amd64 libcaca0 amd64 0.99.beta20-4ubuntu0.2 [209 kB]
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:51.7656460Z Get:74 http://azure.archive.ubuntu.com/ubuntu noble-updates/main amd64 libcdio19t64 amd64 2.1.0-4.1ubuntu1.2 [62.4 kB]
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:51.8387729Z Get:75 http://azure.archive.ubuntu.com/ubuntu noble/main amd64 libcdio-cdda2t64 amd64 10.2+2.0.1-1.1build2 [16.5 kB]
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:51.9117201Z Get:76 http://azure.archive.ubuntu.com/ubuntu noble/main amd64 libcdio-paranoia2t64 amd64 10.2+2.0.1-1.1build2 [16.6 kB]
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:51.9844445Z Get:77 http://azure.archive.ubuntu.com/ubuntu noble/universe amd64 libdc1394-25 amd64 2.2.6-4build1 [90.1 kB]
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:52.0577488Z Get:78 http://azure.archive.ubuntu.com/ubuntu noble/main amd64 libiec61883-0 amd64 1.2.0-6build1 [24.5 kB]
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:52.1307720Z Get:79 http://azure.archive.ubuntu.com/ubuntu noble/main amd64 libjack-jackd2-0 amd64 1.9.21~dfsg-3ubuntu3 [289 kB]
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:52.2055277Z Get:80 http://azure.archive.ubuntu.com/ubuntu noble/universe amd64 libopenal-data all 1:1.23.1-4build1 [161 kB]
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:52.2794077Z Get:81 http://azure.archive.ubuntu.com/ubuntu noble/universe amd64 libsndio7.0 amd64 1.9.0-0.3build3 [29.6 kB]
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:52.3524548Z Get:82 http://azure.archive.ubuntu.com/ubuntu noble/universe amd64 libopenal1 amd64 1:1.23.1-4build1 [540 kB]
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:52.4284627Z Get:83 http://azure.archive.ubuntu.com/ubuntu noble/main amd64 libdecor-0-0 amd64 0.2.2-1build2 [16.5 kB]
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:52.5015576Z Get:84 http://azure.archive.ubuntu.com/ubuntu noble-updates/main amd64 libsdl2-2.0-0 amd64 2.30.0+dfsg-1ubuntu3.1 [686 kB]
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:52.6455663Z Get:85 http://azure.archive.ubuntu.com/ubuntu noble/main amd64 libxcb-shape0 amd64 1.15-1ubuntu2 [6100 B]
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:52.7182356Z Get:86 http://azure.archive.ubuntu.com/ubuntu noble/main amd64 libxv1 amd64 2:1.0.11-1.1build1 [10.7 kB]
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:52.7914028Z Get:87 http://azure.archive.ubuntu.com/ubuntu noble/universe amd64 libavdevice60 amd64 7:6.1.1-3ubuntu5 [82.3 kB]
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:52.8647604Z Get:88 http://azure.archive.ubuntu.com/ubuntu noble/universe amd64 ffmpeg amd64 7:6.1.1-3ubuntu5 [1879 kB]
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:53.0811761Z Get:89 http://azure.archive.ubuntu.com/ubuntu noble-updates/universe amd64 libigdgmm12 amd64 22.3.17+ds1-1ubuntu1 [145 kB]
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:53.1550727Z Get:90 http://azure.archive.ubuntu.com/ubuntu noble-updates/universe amd64 intel-media-va-driver amd64 24.1.0+dfsg1-1ubuntu0.2 [3163 kB]
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:53.4424211Z Get:91 http://azure.archive.ubuntu.com/ubuntu noble/universe amd64 libaacs0 amd64 0.11.1-2build1 [62.9 kB]
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:53.5151821Z Get:92 http://azure.archive.ubuntu.com/ubuntu noble/universe amd64 libbdplus0 amd64 0.2.0-3build1 [52.2 kB]
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:53.5880576Z Get:93 http://azure.archive.ubuntu.com/ubuntu noble/main amd64 libdecor-0-plugin-1-gtk amd64 0.2.2-1build2 [22.2 kB]
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:53.6624819Z Get:94 http://azure.archive.ubuntu.com/ubuntu noble/main amd64 librsvg2-common amd64 2.58.0+dfsg-1build1 [11.8 kB]
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:53.7355220Z Get:95 http://azure.archive.ubuntu.com/ubuntu noble-updates/universe amd64 mesa-va-drivers amd64 25.2.8-0ubuntu0.24.04.2 [6784 B]
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:53.8085784Z Get:96 http://azure.archive.ubuntu.com/ubuntu noble-updates/main amd64 mesa-vdpau-drivers amd64 25.2.8-0ubuntu0.24.04.2 [23.2 kB]
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:53.8816334Z Get:97 http://azure.archive.ubuntu.com/ubuntu noble-updates/universe amd64 i965-va-driver amd64 2.4.1+dfsg1-1ubuntu0.2 [332 kB]
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:53.9564378Z Get:98 http://azure.archive.ubuntu.com/ubuntu noble-updates/universe amd64 va-driver-all amd64 2.20.0-2ubuntu0.2 [5014 B]
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:54.0299545Z Get:99 http://azure.archive.ubuntu.com/ubuntu noble/main amd64 vdpau-driver-all amd64 1.5-2build1 [4414 B]
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:54.1035616Z Get:100 http://azure.archive.ubuntu.com/ubuntu noble/universe amd64 pocketsphinx-en-us all 0.8.0+real5prealpha+1-15ubuntu5 [27.4 MB]
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:55.0025432Z Fetched 94.1 MB in 11s (8393 kB/s)
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:55.0296330Z Selecting previously unselected package libva2:amd64.
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:55.0647899Z (Reading database ... 
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:55.0648684Z (Reading database ... 5%
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:55.0649521Z (Reading database ... 10%
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:55.0650612Z (Reading database ... 15%
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:55.0651174Z (Reading database ... 20%
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:55.0651585Z (Reading database ... 25%
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:55.0651983Z (Reading database ... 30%
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:55.0652376Z (Reading database ... 35%
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:55.0652765Z (Reading database ... 40%
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:55.0653754Z (Reading database ... 45%
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:55.0654181Z (Reading database ... 50%
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:55.0756978Z (Reading database ... 55%
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:55.1408000Z (Reading database ... 60%
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:55.3419578Z (Reading database ... 65%
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:55.5481202Z (Reading database ... 70%
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:55.6459261Z (Reading database ... 75%
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:55.6962910Z (Reading database ... 80%
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:55.8114054Z (Reading database ... 85%
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:55.9451369Z (Reading database ... 90%
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:56.0921877Z (Reading database ... 95%
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:56.0922455Z (Reading database ... 100%
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:56.0923111Z (Reading database ... 202324 files and directories currently installed.)
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:56.0964480Z Preparing to unpack .../00-libva2_2.20.0-2ubuntu0.2_amd64.deb ...
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:56.1006525Z Unpacking libva2:amd64 (2.20.0-2ubuntu0.2) ...
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:56.1238391Z Selecting previously unselected package libva-drm2:amd64.
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:56.1362115Z Preparing to unpack .../01-libva-drm2_2.20.0-2ubuntu0.2_amd64.deb ...
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:56.1374186Z Unpacking libva-drm2:amd64 (2.20.0-2ubuntu0.2) ...
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:56.1597820Z Selecting previously unselected package libva-x11-2:amd64.
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:56.1724984Z Preparing to unpack .../02-libva-x11-2_2.20.0-2ubuntu0.2_amd64.deb ...
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:56.1765576Z Unpacking libva-x11-2:amd64 (2.20.0-2ubuntu0.2) ...
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:56.1988365Z Selecting previously unselected package libvdpau1:amd64.
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:56.2111752Z Preparing to unpack .../03-libvdpau1_1.5-2build1_amd64.deb ...
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:56.2122945Z Unpacking libvdpau1:amd64 (1.5-2build1) ...
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:56.2346879Z Selecting previously unselected package libvpl2.
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:56.2471223Z Preparing to unpack .../04-libvpl2_2023.3.0-1build1_amd64.deb ...
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:56.2483068Z Unpacking libvpl2 (2023.3.0-1build1) ...
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:56.2724696Z Selecting previously unselected package ocl-icd-libopencl1:amd64.
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:56.2857735Z Preparing to unpack .../05-ocl-icd-libopencl1_2.3.2-1build1_amd64.deb ...
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:56.2908419Z Unpacking ocl-icd-libopencl1:amd64 (2.3.2-1build1) ...
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:56.3185473Z Selecting previously unselected package libavutil58:amd64.
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:56.3311688Z Preparing to unpack .../06-libavutil58_7%3a6.1.1-3ubuntu5_amd64.deb ...
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:56.3326123Z Unpacking libavutil58:amd64 (7:6.1.1-3ubuntu5) ...
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:56.3602151Z Selecting previously unselected package libcodec2-1.2:amd64.
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:56.3726639Z Preparing to unpack .../07-libcodec2-1.2_1.2.0-2build1_amd64.deb ...
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:56.3738511Z Unpacking libcodec2-1.2:amd64 (1.2.0-2build1) ...
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:56.4485307Z Selecting previously unselected package libdav1d7:amd64.
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:56.4607916Z Preparing to unpack .../08-libdav1d7_1.4.1-1build1_amd64.deb ...
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:56.4619445Z Unpacking libdav1d7:amd64 (1.4.1-1build1) ...
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:56.4912240Z Selecting previously unselected package libgsm1:amd64.
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:56.5035927Z Preparing to unpack .../09-libgsm1_1.0.22-1build1_amd64.deb ...
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:56.5087091Z Unpacking libgsm1:amd64 (1.0.22-1build1) ...
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:56.5311083Z Selecting previously unselected package libhwy1t64:amd64.
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:56.5434067Z Preparing to unpack .../10-libhwy1t64_1.0.7-8.1build1_amd64.deb ...
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:56.5446154Z Unpacking libhwy1t64:amd64 (1.0.7-8.1build1) ...
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:56.5789603Z Selecting previously unselected package libjxl0.7:amd64.
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:56.5914208Z Preparing to unpack .../11-libjxl0.7_0.7.0-10.2ubuntu6.1_amd64.deb ...
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:56.5924938Z Unpacking libjxl0.7:amd64 (0.7.0-10.2ubuntu6.1) ...
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:56.6304277Z Selecting previously unselected package libmp3lame0:amd64.
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:56.6427380Z Preparing to unpack .../12-libmp3lame0_3.100-6build1_amd64.deb ...
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:56.6439459Z Unpacking libmp3lame0:amd64 (3.100-6build1) ...
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:56.6669488Z Selecting previously unselected package libopus0:amd64.
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:56.6793784Z Preparing to unpack .../13-libopus0_1.4-1build1_amd64.deb ...
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:56.6809291Z Unpacking libopus0:amd64 (1.4-1build1) ...
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:56.7050824Z Selecting previously unselected package librav1e0:amd64.
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:56.7173976Z Preparing to unpack .../14-librav1e0_0.7.1-2_amd64.deb ...
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:56.7185210Z Unpacking librav1e0:amd64 (0.7.1-2) ...
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:56.7525067Z Selecting previously unselected package librsvg2-2:amd64.
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:56.7651600Z Preparing to unpack .../15-librsvg2-2_2.58.0+dfsg-1build1_amd64.deb ...
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:56.7661993Z Unpacking librsvg2-2:amd64 (2.58.0+dfsg-1build1) ...
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:56.8195796Z Selecting previously unselected package libshine3:amd64.
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:56.8321776Z Preparing to unpack .../16-libshine3_3.1.1-2build1_amd64.deb ...
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:56.8334349Z Unpacking libshine3:amd64 (3.1.1-2build1) ...
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:56.8571965Z Selecting previously unselected package libspeex1:amd64.
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:56.8695629Z Preparing to unpack .../17-libspeex1_1.2.1-2ubuntu2.24.04.1_amd64.deb ...
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:56.8706033Z Unpacking libspeex1:amd64 (1.2.1-2ubuntu2.24.04.1) ...
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:56.8924853Z Selecting previously unselected package libsvtav1enc1d1:amd64.
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:56.9047506Z Preparing to unpack .../18-libsvtav1enc1d1_1.7.0+dfsg-2build1_amd64.deb ...
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:56.9058538Z Unpacking libsvtav1enc1d1:amd64 (1.7.0+dfsg-2build1) ...
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:56.9535377Z Selecting previously unselected package libsoxr0:amd64.
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:56.9659100Z Preparing to unpack .../19-libsoxr0_0.1.3-4build3_amd64.deb ...
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:56.9668189Z Unpacking libsoxr0:amd64 (0.1.3-4build3) ...
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:56.9893199Z Selecting previously unselected package libswresample4:amd64.
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:57.0015854Z Preparing to unpack .../20-libswresample4_7%3a6.1.1-3ubuntu5_amd64.deb ...
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:57.0026002Z Unpacking libswresample4:amd64 (7:6.1.1-3ubuntu5) ...
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:57.0245484Z Selecting previously unselected package libtheora0:amd64.
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:57.0368746Z Preparing to unpack .../21-libtheora0_1.1.1+dfsg.1-16.1build3_amd64.deb ...
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:57.0379159Z Unpacking libtheora0:amd64 (1.1.1+dfsg.1-16.1build3) ...
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:57.0625225Z Selecting previously unselected package libtwolame0:amd64.
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:57.0748024Z Preparing to unpack .../22-libtwolame0_0.4.0-2build3_amd64.deb ...
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:57.0760345Z Unpacking libtwolame0:amd64 (0.4.0-2build3) ...
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:57.0983316Z Selecting previously unselected package libvorbisenc2:amd64.
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:57.1107246Z Preparing to unpack .../23-libvorbisenc2_1.3.7-1build3_amd64.deb ...
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:57.1119643Z Unpacking libvorbisenc2:amd64 (1.3.7-1build3) ...
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:57.1363864Z Selecting previously unselected package libvpx9:amd64.
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:57.1488260Z Preparing to unpack .../24-libvpx9_1.14.0-1ubuntu2.3_amd64.deb ...
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:57.1498290Z Unpacking libvpx9:amd64 (1.14.0-1ubuntu2.3) ...
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:57.1885002Z Selecting previously unselected package libx264-164:amd64.
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:57.2009706Z Preparing to unpack .../25-libx264-164_2%3a0.164.3108+git31e19f9-1_amd64.deb ...
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:57.2020351Z Unpacking libx264-164:amd64 (2:0.164.3108+git31e19f9-1) ...
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:57.2311149Z Selecting previously unselected package libx265-199:amd64.
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:57.2436513Z Preparing to unpack .../26-libx265-199_3.5-2build1_amd64.deb ...
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:57.2446879Z Unpacking libx265-199:amd64 (3.5-2build1) ...
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:57.3093557Z Selecting previously unselected package libxvidcore4:amd64.
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:57.3217711Z Preparing to unpack .../27-libxvidcore4_2%3a1.3.7-1build1_amd64.deb ...
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:57.3228431Z Unpacking libxvidcore4:amd64 (2:1.3.7-1build1) ...
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:57.3456724Z Selecting previously unselected package libzvbi-common.
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:57.3581321Z Preparing to unpack .../28-libzvbi-common_0.2.42-2_all.deb ...
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:57.3590584Z Unpacking libzvbi-common (0.2.42-2) ...
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:57.3934011Z Selecting previously unselected package libzvbi0t64:amd64.
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:57.4060496Z Preparing to unpack .../29-libzvbi0t64_0.2.42-2_amd64.deb ...
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:57.4072236Z Unpacking libzvbi0t64:amd64 (0.2.42-2) ...
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:57.4345796Z Selecting previously unselected package libavcodec60:amd64.
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:57.4476961Z Preparing to unpack .../30-libavcodec60_7%3a6.1.1-3ubuntu5_amd64.deb ...
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:57.4488463Z Unpacking libavcodec60:amd64 (7:6.1.1-3ubuntu5) ...
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:57.5300993Z Selecting previously unselected package libraw1394-11:amd64.
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:57.5426749Z Preparing to unpack .../31-libraw1394-11_2.1.2-2build3_amd64.deb ...
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:57.5437141Z Unpacking libraw1394-11:amd64 (2.1.2-2build3) ...
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:57.5653815Z Selecting previously unselected package libavc1394-0:amd64.
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:57.5778375Z Preparing to unpack .../32-libavc1394-0_0.5.4-5build3_amd64.deb ...
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:57.5792545Z Unpacking libavc1394-0:amd64 (0.5.4-5build3) ...
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:57.6013739Z Selecting previously unselected package libunibreak5:amd64.
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:57.6141243Z Preparing to unpack .../33-libunibreak5_5.1-2build1_amd64.deb ...
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:57.6153417Z Unpacking libunibreak5:amd64 (5.1-2build1) ...
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:57.6382122Z Selecting previously unselected package libass9:amd64.
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:57.6506535Z Preparing to unpack .../34-libass9_1%3a0.17.1-2build1_amd64.deb ...
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:57.6517936Z Unpacking libass9:amd64 (1:0.17.1-2build1) ...
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:57.6748419Z Selecting previously unselected package libudfread0:amd64.
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:57.6873510Z Preparing to unpack .../35-libudfread0_1.1.2-1build1_amd64.deb ...
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:57.6884124Z Unpacking libudfread0:amd64 (1.1.2-1build1) ...
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:57.7102686Z Selecting previously unselected package libbluray2:amd64.
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:57.7228682Z Preparing to unpack .../36-libbluray2_1%3a1.3.4-1build1_amd64.deb ...
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:57.7240095Z Unpacking libbluray2:amd64 (1:1.3.4-1build1) ...
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:57.7479543Z Selecting previously unselected package libchromaprint1:amd64.
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:57.7604055Z Preparing to unpack .../37-libchromaprint1_1.5.1-5_amd64.deb ...
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:57.7614313Z Unpacking libchromaprint1:amd64 (1.5.1-5) ...
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:57.7843927Z Selecting previously unselected package libgme0:amd64.
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:57.7968920Z Preparing to unpack .../38-libgme0_0.6.3-7build1_amd64.deb ...
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:57.7981384Z Unpacking libgme0:amd64 (0.6.3-7build1) ...
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:57.8215572Z Selecting previously unselected package libmpg123-0t64:amd64.
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:57.8343034Z Preparing to unpack .../39-libmpg123-0t64_1.32.5-1ubuntu1.1_amd64.deb ...
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:57.8353968Z Unpacking libmpg123-0t64:amd64 (1.32.5-1ubuntu1.1) ...
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:57.8593688Z Selecting previously unselected package libopenmpt0t64:amd64.
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:57.8717346Z Preparing to unpack .../40-libopenmpt0t64_0.7.3-1.1build3_amd64.deb ...
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:57.8729283Z Unpacking libopenmpt0t64:amd64 (0.7.3-1.1build3) ...
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:57.9009070Z Selecting previously unselected package libcjson1:amd64.
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:57.9134262Z Preparing to unpack .../41-libcjson1_1.7.17-1_amd64.deb ...
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:57.9145415Z Unpacking libcjson1:amd64 (1.7.17-1) ...
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:57.9370839Z Selecting previously unselected package libmbedcrypto7t64:amd64.
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:57.9496232Z Preparing to unpack .../42-libmbedcrypto7t64_2.28.8-1_amd64.deb ...
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:57.9508281Z Unpacking libmbedcrypto7t64:amd64 (2.28.8-1) ...
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:57.9752511Z Selecting previously unselected package librist4:amd64.
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:57.9876525Z Preparing to unpack .../43-librist4_0.2.10+dfsg-2_amd64.deb ...
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:57.9887299Z Unpacking librist4:amd64 (0.2.10+dfsg-2) ...
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:58.0110545Z Selecting previously unselected package libsrt1.5-gnutls:amd64.
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:58.0234190Z Preparing to unpack .../44-libsrt1.5-gnutls_1.5.3-1build2_amd64.deb ...
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:58.0245880Z Unpacking libsrt1.5-gnutls:amd64 (1.5.3-1build2) ...
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:58.0498196Z Selecting previously unselected package libssh-gcrypt-4:amd64.
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:58.0623447Z Preparing to unpack .../45-libssh-gcrypt-4_0.10.6-2ubuntu0.4_amd64.deb ...
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:58.0635672Z Unpacking libssh-gcrypt-4:amd64 (0.10.6-2ubuntu0.4) ...
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:58.0882754Z Selecting previously unselected package libavformat60:amd64.
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:58.1008255Z Preparing to unpack .../46-libavformat60_7%3a6.1.1-3ubuntu5_amd64.deb ...
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:58.1019569Z Unpacking libavformat60:amd64 (7:6.1.1-3ubuntu5) ...
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:58.1345752Z Selecting previously unselected package libbs2b0:amd64.
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:58.1470805Z Preparing to unpack .../47-libbs2b0_3.1.0+dfsg-7build1_amd64.deb ...
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:58.1481042Z Unpacking libbs2b0:amd64 (3.1.0+dfsg-7build1) ...
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:58.1723560Z Selecting previously unselected package libflite1:amd64.
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:58.1848569Z Preparing to unpack .../48-libflite1_2.2-6build3_amd64.deb ...
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:58.1860961Z Unpacking libflite1:amd64 (2.2-6build3) ...
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:58.2923110Z Selecting previously unselected package libserd-0-0:amd64.
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:58.3046871Z Preparing to unpack .../49-libserd-0-0_0.32.2-1_amd64.deb ...
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:58.3056130Z Unpacking libserd-0-0:amd64 (0.32.2-1) ...
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:58.3262024Z Selecting previously unselected package libzix-0-0:amd64.
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:58.3387647Z Preparing to unpack .../50-libzix-0-0_0.4.2-2build1_amd64.deb ...
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:58.3395780Z Unpacking libzix-0-0:amd64 (0.4.2-2build1) ...
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:58.3601452Z Selecting previously unselected package libsord-0-0:amd64.
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:58.3726435Z Preparing to unpack .../51-libsord-0-0_0.16.16-2build1_amd64.deb ...
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:58.3734440Z Unpacking libsord-0-0:amd64 (0.16.16-2build1) ...
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:58.3943735Z Selecting previously unselected package libsratom-0-0:amd64.
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:58.4069410Z Preparing to unpack .../52-libsratom-0-0_0.6.16-1build1_amd64.deb ...
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:58.4077528Z Unpacking libsratom-0-0:amd64 (0.6.16-1build1) ...
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:58.4282566Z Selecting previously unselected package liblilv-0-0:amd64.
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:58.4408512Z Preparing to unpack .../53-liblilv-0-0_0.24.22-1build1_amd64.deb ...
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:58.4417689Z Unpacking liblilv-0-0:amd64 (0.24.22-1build1) ...
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:58.4625428Z Selecting previously unselected package libmysofa1:amd64.
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:58.4748826Z Preparing to unpack .../54-libmysofa1_1.3.2+dfsg-2ubuntu2_amd64.deb ...
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:58.4757234Z Unpacking libmysofa1:amd64 (1.3.2+dfsg-2ubuntu2) ...
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:58.5008609Z Selecting previously unselected package libplacebo338:amd64.
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:58.5131731Z Preparing to unpack .../55-libplacebo338_6.338.2-2build1_amd64.deb ...
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:58.5140620Z Unpacking libplacebo338:amd64 (6.338.2-2build1) ...
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:58.5665197Z Selecting previously unselected package libblas3:amd64.
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:58.5791303Z Preparing to unpack .../56-libblas3_3.12.0-3build1.1_amd64.deb ...
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:58.5820954Z Unpacking libblas3:amd64 (3.12.0-3build1.1) ...
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:58.6103981Z Selecting previously unselected package liblapack3:amd64.
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:58.6229548Z Preparing to unpack .../57-liblapack3_3.12.0-3build1.1_amd64.deb ...
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:58.6262623Z Unpacking liblapack3:amd64 (3.12.0-3build1.1) ...
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:58.6741848Z Selecting previously unselected package libasyncns0:amd64.
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:58.6867087Z Preparing to unpack .../58-libasyncns0_0.8-6build4_amd64.deb ...
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:58.6875262Z Unpacking libasyncns0:amd64 (0.8-6build4) ...
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:58.7075641Z Selecting previously unselected package libflac12t64:amd64.
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:58.7202142Z Preparing to unpack .../59-libflac12t64_1.4.3+ds-2.1ubuntu2_amd64.deb ...
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:58.7211454Z Unpacking libflac12t64:amd64 (1.4.3+ds-2.1ubuntu2) ...
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:58.7434814Z Selecting previously unselected package libsndfile1:amd64.
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:58.7559261Z Preparing to unpack .../60-libsndfile1_1.2.2-1ubuntu5.24.04.1_amd64.deb ...
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:58.7567512Z Unpacking libsndfile1:amd64 (1.2.2-1ubuntu5.24.04.1) ...
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:58.7825064Z Selecting previously unselected package libpulse0:amd64.
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:58.7948045Z Preparing to unpack .../61-libpulse0_1%3a16.1+dfsg1-2ubuntu10.1_amd64.deb ...
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:58.8016168Z Unpacking libpulse0:amd64 (1:16.1+dfsg1-2ubuntu10.1) ...
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:58.8266316Z Selecting previously unselected package libsphinxbase3t64:amd64.
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:58.8390280Z Preparing to unpack .../62-libsphinxbase3t64_0.8+5prealpha+1-17build2_amd64.deb ...
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:58.8399744Z Unpacking libsphinxbase3t64:amd64 (0.8+5prealpha+1-17build2) ...
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:58.8615645Z Selecting previously unselected package libpocketsphinx3:amd64.
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:58.8738676Z Preparing to unpack .../63-libpocketsphinx3_0.8.0+real5prealpha+1-15ubuntu5_amd64.deb ...
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:58.8748430Z Unpacking libpocketsphinx3:amd64 (0.8.0+real5prealpha+1-15ubuntu5) ...
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:58.8962128Z Selecting previously unselected package libpostproc57:amd64.
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:58.9086144Z Preparing to unpack .../64-libpostproc57_7%3a6.1.1-3ubuntu5_amd64.deb ...
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:58.9094517Z Unpacking libpostproc57:amd64 (7:6.1.1-3ubuntu5) ...
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:58.9298923Z Selecting previously unselected package libsamplerate0:amd64.
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:58.9423340Z Preparing to unpack .../65-libsamplerate0_0.2.2-4build1_amd64.deb ...
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:58.9432096Z Unpacking libsamplerate0:amd64 (0.2.2-4build1) ...
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:58.9692234Z Selecting previously unselected package librubberband2:amd64.
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:58.9816250Z Preparing to unpack .../66-librubberband2_3.3.0+dfsg-2build1_amd64.deb ...
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:58.9825395Z Unpacking librubberband2:amd64 (3.3.0+dfsg-2build1) ...
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:59.0044534Z Selecting previously unselected package libswscale7:amd64.
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:59.0166668Z Preparing to unpack .../67-libswscale7_7%3a6.1.1-3ubuntu5_amd64.deb ...
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:59.0175920Z Unpacking libswscale7:amd64 (7:6.1.1-3ubuntu5) ...
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:59.0398413Z Selecting previously unselected package libvidstab1.1:amd64.
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:59.0522516Z Preparing to unpack .../68-libvidstab1.1_1.1.0-2build1_amd64.deb ...
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:59.0530741Z Unpacking libvidstab1.1:amd64 (1.1.0-2build1) ...
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:59.0743879Z Selecting previously unselected package libzimg2:amd64.
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:59.0867401Z Preparing to unpack .../69-libzimg2_3.0.5+ds1-1build1_amd64.deb ...
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:59.0876541Z Unpacking libzimg2:amd64 (3.0.5+ds1-1build1) ...
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:59.1116757Z Selecting previously unselected package libavfilter9:amd64.
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:59.1241217Z Preparing to unpack .../70-libavfilter9_7%3a6.1.1-3ubuntu5_amd64.deb ...
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:59.1249552Z Unpacking libavfilter9:amd64 (7:6.1.1-3ubuntu5) ...
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:59.1927851Z Selecting previously unselected package libcaca0:amd64.
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:59.2053064Z Preparing to unpack .../71-libcaca0_0.99.beta20-4ubuntu0.2_amd64.deb ...
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:59.2063425Z Unpacking libcaca0:amd64 (0.99.beta20-4ubuntu0.2) ...
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:59.2313967Z Selecting previously unselected package libcdio19t64:amd64.
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:59.2441271Z Preparing to unpack .../72-libcdio19t64_2.1.0-4.1ubuntu1.2_amd64.deb ...
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:59.2450490Z Unpacking libcdio19t64:amd64 (2.1.0-4.1ubuntu1.2) ...
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:59.2723190Z Selecting previously unselected package libcdio-cdda2t64:amd64.
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:59.2849590Z Preparing to unpack .../73-libcdio-cdda2t64_10.2+2.0.1-1.1build2_amd64.deb ...
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:59.2858889Z Unpacking libcdio-cdda2t64:amd64 (10.2+2.0.1-1.1build2) ...
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:59.3067790Z Selecting previously unselected package libcdio-paranoia2t64:amd64.
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:59.3192094Z Preparing to unpack .../74-libcdio-paranoia2t64_10.2+2.0.1-1.1build2_amd64.deb ...
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:59.3201153Z Unpacking libcdio-paranoia2t64:amd64 (10.2+2.0.1-1.1build2) ...
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:59.3439735Z Selecting previously unselected package libdc1394-25:amd64.
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:59.3564758Z Preparing to unpack .../75-libdc1394-25_2.2.6-4build1_amd64.deb ...
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:59.3574047Z Unpacking libdc1394-25:amd64 (2.2.6-4build1) ...
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:59.3808401Z Selecting previously unselected package libiec61883-0:amd64.
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:59.3933315Z Preparing to unpack .../76-libiec61883-0_1.2.0-6build1_amd64.deb ...
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:59.3943193Z Unpacking libiec61883-0:amd64 (1.2.0-6build1) ...
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:59.4150474Z Selecting previously unselected package libjack-jackd2-0:amd64.
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:59.4276050Z Preparing to unpack .../77-libjack-jackd2-0_1.9.21~dfsg-3ubuntu3_amd64.deb ...
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:59.4284534Z Unpacking libjack-jackd2-0:amd64 (1.9.21~dfsg-3ubuntu3) ...
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:59.4536778Z Selecting previously unselected package libopenal-data.
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:59.4661174Z Preparing to unpack .../78-libopenal-data_1%3a1.23.1-4build1_all.deb ...
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:59.4670256Z Unpacking libopenal-data (1:1.23.1-4build1) ...
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:59.4922578Z Selecting previously unselected package libsndio7.0:amd64.
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:59.5048264Z Preparing to unpack .../79-libsndio7.0_1.9.0-0.3build3_amd64.deb ...
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:59.5057383Z Unpacking libsndio7.0:amd64 (1.9.0-0.3build3) ...
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:59.5277442Z Selecting previously unselected package libopenal1:amd64.
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:59.5403218Z Preparing to unpack .../80-libopenal1_1%3a1.23.1-4build1_amd64.deb ...
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:59.5412022Z Unpacking libopenal1:amd64 (1:1.23.1-4build1) ...
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:59.5686934Z Selecting previously unselected package libdecor-0-0:amd64.
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:59.5813718Z Preparing to unpack .../81-libdecor-0-0_0.2.2-1build2_amd64.deb ...
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:59.5822456Z Unpacking libdecor-0-0:amd64 (0.2.2-1build2) ...
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:59.6038223Z Selecting previously unselected package libsdl2-2.0-0:amd64.
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:59.6163165Z Preparing to unpack .../82-libsdl2-2.0-0_2.30.0+dfsg-1ubuntu3.1_amd64.deb ...
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:59.6172240Z Unpacking libsdl2-2.0-0:amd64 (2.30.0+dfsg-1ubuntu3.1) ...
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:59.6585951Z Selecting previously unselected package libxcb-shape0:amd64.
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:59.6711432Z Preparing to unpack .../83-libxcb-shape0_1.15-1ubuntu2_amd64.deb ...
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:59.6722988Z Unpacking libxcb-shape0:amd64 (1.15-1ubuntu2) ...
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:59.6927296Z Selecting previously unselected package libxv1:amd64.
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:59.7050670Z Preparing to unpack .../84-libxv1_2%3a1.0.11-1.1build1_amd64.deb ...
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:59.7058602Z Unpacking libxv1:amd64 (2:1.0.11-1.1build1) ...
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:59.7287061Z Selecting previously unselected package libavdevice60:amd64.
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:59.7411383Z Preparing to unpack .../85-libavdevice60_7%3a6.1.1-3ubuntu5_amd64.deb ...
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:59.7420649Z Unpacking libavdevice60:amd64 (7:6.1.1-3ubuntu5) ...
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:59.7630601Z Selecting previously unselected package ffmpeg.
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:59.7755564Z Preparing to unpack .../86-ffmpeg_7%3a6.1.1-3ubuntu5_amd64.deb ...
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:59.7763967Z Unpacking ffmpeg (7:6.1.1-3ubuntu5) ...
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:59.8181849Z Selecting previously unselected package libigdgmm12:amd64.
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:59.8309709Z Preparing to unpack .../87-libigdgmm12_22.3.17+ds1-1ubuntu1_amd64.deb ...
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:59.8318147Z Unpacking libigdgmm12:amd64 (22.3.17+ds1-1ubuntu1) ...
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:59.8544161Z Selecting previously unselected package intel-media-va-driver:amd64.
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:59.8667424Z Preparing to unpack .../88-intel-media-va-driver_24.1.0+dfsg1-1ubuntu0.2_amd64.deb ...
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:59.8674596Z Unpacking intel-media-va-driver:amd64 (24.1.0+dfsg1-1ubuntu0.2) ...
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:59.9311933Z Selecting previously unselected package libaacs0:amd64.
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:59.9436811Z Preparing to unpack .../89-libaacs0_0.11.1-2build1_amd64.deb ...
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:59.9446280Z Unpacking libaacs0:amd64 (0.11.1-2build1) ...
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:59.9664507Z Selecting previously unselected package libbdplus0:amd64.
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:59.9789221Z Preparing to unpack .../90-libbdplus0_0.2.0-3build1_amd64.deb ...
+generate-and-upload	Install ffmpeg	2026-06-20T21:25:59.9801111Z Unpacking libbdplus0:amd64 (0.2.0-3build1) ...
+generate-and-upload	Install ffmpeg	2026-06-20T21:26:00.0003861Z Selecting previously unselected package libdecor-0-plugin-1-gtk:amd64.
+generate-and-upload	Install ffmpeg	2026-06-20T21:26:00.0128314Z Preparing to unpack .../91-libdecor-0-plugin-1-gtk_0.2.2-1build2_amd64.deb ...
+generate-and-upload	Install ffmpeg	2026-06-20T21:26:00.0137617Z Unpacking libdecor-0-plugin-1-gtk:amd64 (0.2.2-1build2) ...
+generate-and-upload	Install ffmpeg	2026-06-20T21:26:00.0346609Z Selecting previously unselected package librsvg2-common:amd64.
+generate-and-upload	Install ffmpeg	2026-06-20T21:26:00.0477577Z Preparing to unpack .../92-librsvg2-common_2.58.0+dfsg-1build1_amd64.deb ...
+generate-and-upload	Install ffmpeg	2026-06-20T21:26:00.0487289Z Unpacking librsvg2-common:amd64 (2.58.0+dfsg-1build1) ...
+generate-and-upload	Install ffmpeg	2026-06-20T21:26:00.0866009Z Selecting previously unselected package mesa-va-drivers:amd64.
+generate-and-upload	Install ffmpeg	2026-06-20T21:26:00.0993863Z Preparing to unpack .../93-mesa-va-drivers_25.2.8-0ubuntu0.24.04.2_amd64.deb ...
+generate-and-upload	Install ffmpeg	2026-06-20T21:26:00.1004770Z Unpacking mesa-va-drivers:amd64 (25.2.8-0ubuntu0.24.04.2) ...
+generate-and-upload	Install ffmpeg	2026-06-20T21:26:00.1216496Z Selecting previously unselected package mesa-vdpau-drivers:amd64.
+generate-and-upload	Install ffmpeg	2026-06-20T21:26:00.1346690Z Preparing to unpack .../94-mesa-vdpau-drivers_25.2.8-0ubuntu0.24.04.2_amd64.deb ...
+generate-and-upload	Install ffmpeg	2026-06-20T21:26:00.1356803Z Unpacking mesa-vdpau-drivers:amd64 (25.2.8-0ubuntu0.24.04.2) ...
+generate-and-upload	Install ffmpeg	2026-06-20T21:26:00.1576678Z Selecting previously unselected package i965-va-driver:amd64.
+generate-and-upload	Install ffmpeg	2026-06-20T21:26:00.1700577Z Preparing to unpack .../95-i965-va-driver_2.4.1+dfsg1-1ubuntu0.2_amd64.deb ...
+generate-and-upload	Install ffmpeg	2026-06-20T21:26:00.1709383Z Unpacking i965-va-driver:amd64 (2.4.1+dfsg1-1ubuntu0.2) ...
+generate-and-upload	Install ffmpeg	2026-06-20T21:26:00.1966252Z Selecting previously unselected package va-driver-all:amd64.
+generate-and-upload	Install ffmpeg	2026-06-20T21:26:00.2091712Z Preparing to unpack .../96-va-driver-all_2.20.0-2ubuntu0.2_amd64.deb ...
+generate-and-upload	Install ffmpeg	2026-06-20T21:26:00.2100787Z Unpacking va-driver-all:amd64 (2.20.0-2ubuntu0.2) ...
+generate-and-upload	Install ffmpeg	2026-06-20T21:26:00.2291375Z Selecting previously unselected package vdpau-driver-all:amd64.
+generate-and-upload	Install ffmpeg	2026-06-20T21:26:00.2415882Z Preparing to unpack .../97-vdpau-driver-all_1.5-2build1_amd64.deb ...
+generate-and-upload	Install ffmpeg	2026-06-20T21:26:00.2424846Z Unpacking vdpau-driver-all:amd64 (1.5-2build1) ...
+generate-and-upload	Install ffmpeg	2026-06-20T21:26:00.2620358Z Selecting previously unselected package pocketsphinx-en-us.
+generate-and-upload	Install ffmpeg	2026-06-20T21:26:00.2746310Z Preparing to unpack .../98-pocketsphinx-en-us_0.8.0+real5prealpha+1-15ubuntu5_all.deb ...
+generate-and-upload	Install ffmpeg	2026-06-20T21:26:00.2755128Z Unpacking pocketsphinx-en-us (0.8.0+real5prealpha+1-15ubuntu5) ...
+generate-and-upload	Install ffmpeg	2026-06-20T21:26:00.4659004Z Setting up libgme0:amd64 (0.6.3-7build1) ...
+generate-and-upload	Install ffmpeg	2026-06-20T21:26:00.4685037Z Setting up libchromaprint1:amd64 (1.5.1-5) ...
+generate-and-upload	Install ffmpeg	2026-06-20T21:26:00.4710762Z Setting up libssh-gcrypt-4:amd64 (0.10.6-2ubuntu0.4) ...
+generate-and-upload	Install ffmpeg	2026-06-20T21:26:00.4734065Z Setting up libhwy1t64:amd64 (1.0.7-8.1build1) ...
+generate-and-upload	Install ffmpeg	2026-06-20T21:26:00.4756627Z Setting up libudfread0:amd64 (1.1.2-1build1) ...
+generate-and-upload	Install ffmpeg	2026-06-20T21:26:00.4778990Z Setting up libraw1394-11:amd64 (2.1.2-2build3) ...
+generate-and-upload	Install ffmpeg	2026-06-20T21:26:00.4802324Z Setting up libspeex1:amd64 (1.2.1-2ubuntu2.24.04.1) ...
+generate-and-upload	Install ffmpeg	2026-06-20T21:26:00.4824796Z Setting up libshine3:amd64 (3.1.1-2build1) ...
+generate-and-upload	Install ffmpeg	2026-06-20T21:26:00.4846240Z Setting up libcaca0:amd64 (0.99.beta20-4ubuntu0.2) ...
+generate-and-upload	Install ffmpeg	2026-06-20T21:26:00.4886441Z Setting up libvpl2 (2023.3.0-1build1) ...
+generate-and-upload	Install ffmpeg	2026-06-20T21:26:00.4911775Z Setting up libx264-164:amd64 (2:0.164.3108+git31e19f9-1) ...
+generate-and-upload	Install ffmpeg	2026-06-20T21:26:00.4932405Z Setting up libtwolame0:amd64 (0.4.0-2build3) ...
+generate-and-upload	Install ffmpeg	2026-06-20T21:26:00.4953522Z Setting up libmbedcrypto7t64:amd64 (2.28.8-1) ...
+generate-and-upload	Install ffmpeg	2026-06-20T21:26:00.4976631Z Setting up libgsm1:amd64 (1.0.22-1build1) ...
+generate-and-upload	Install ffmpeg	2026-06-20T21:26:00.5000430Z Setting up libsoxr0:amd64 (0.1.3-4build3) ...
+generate-and-upload	Install ffmpeg	2026-06-20T21:26:00.5025186Z Setting up libzix-0-0:amd64 (0.4.2-2build1) ...
+generate-and-upload	Install ffmpeg	2026-06-20T21:26:00.5046917Z Setting up libcodec2-1.2:amd64 (1.2.0-2build1) ...
+generate-and-upload	Install ffmpeg	2026-06-20T21:26:00.5068290Z Setting up libmysofa1:amd64 (1.3.2+dfsg-2ubuntu2) ...
+generate-and-upload	Install ffmpeg	2026-06-20T21:26:00.5090605Z Setting up libxcb-shape0:amd64 (1.15-1ubuntu2) ...
+generate-and-upload	Install ffmpeg	2026-06-20T21:26:00.5112199Z Setting up libcdio19t64:amd64 (2.1.0-4.1ubuntu1.2) ...
+generate-and-upload	Install ffmpeg	2026-06-20T21:26:00.5136465Z Setting up libsvtav1enc1d1:amd64 (1.7.0+dfsg-2build1) ...
+generate-and-upload	Install ffmpeg	2026-06-20T21:26:00.5169416Z Setting up libigdgmm12:amd64 (22.3.17+ds1-1ubuntu1) ...
+generate-and-upload	Install ffmpeg	2026-06-20T21:26:00.5195690Z Setting up libmpg123-0t64:amd64 (1.32.5-1ubuntu1.1) ...
+generate-and-upload	Install ffmpeg	2026-06-20T21:26:00.5219150Z Setting up libcjson1:amd64 (1.7.17-1) ...
+generate-and-upload	Install ffmpeg	2026-06-20T21:26:00.5246619Z Setting up libxvidcore4:amd64 (2:1.3.7-1build1) ...
+generate-and-upload	Install ffmpeg	2026-06-20T21:26:00.5269228Z Setting up librav1e0:amd64 (0.7.1-2) ...
+generate-and-upload	Install ffmpeg	2026-06-20T21:26:00.5291924Z Setting up libcdio-cdda2t64:amd64 (10.2+2.0.1-1.1build2) ...
+generate-and-upload	Install ffmpeg	2026-06-20T21:26:00.5316947Z Setting up librist4:amd64 (0.2.10+dfsg-2) ...
+generate-and-upload	Install ffmpeg	2026-06-20T21:26:00.5338369Z Setting up librsvg2-2:amd64 (2.58.0+dfsg-1build1) ...
+generate-and-upload	Install ffmpeg	2026-06-20T21:26:00.5366229Z Setting up libblas3:amd64 (3.12.0-3build1.1) ...
+generate-and-upload	Install ffmpeg	2026-06-20T21:26:00.5429995Z update-alternatives: using /usr/lib/x86_64-linux-gnu/blas/libblas.so.3 to provide /usr/lib/x86_64-linux-gnu/libblas.so.3 (libblas.so.3-x86_64-linux-gnu) in auto mode
+generate-and-upload	Install ffmpeg	2026-06-20T21:26:00.5446948Z Setting up libplacebo338:amd64 (6.338.2-2build1) ...
+generate-and-upload	Install ffmpeg	2026-06-20T21:26:00.5469001Z Setting up libva2:amd64 (2.20.0-2ubuntu0.2) ...
+generate-and-upload	Install ffmpeg	2026-06-20T21:26:00.5490946Z Setting up libopus0:amd64 (1.4-1build1) ...
+generate-and-upload	Install ffmpeg	2026-06-20T21:26:00.5516594Z Setting up libcdio-paranoia2t64:amd64 (10.2+2.0.1-1.1build2) ...
+generate-and-upload	Install ffmpeg	2026-06-20T21:26:00.5538312Z Setting up libdc1394-25:amd64 (2.2.6-4build1) ...
+generate-and-upload	Install ffmpeg	2026-06-20T21:26:00.5562931Z Setting up intel-media-va-driver:amd64 (24.1.0+dfsg1-1ubuntu0.2) ...
+generate-and-upload	Install ffmpeg	2026-06-20T21:26:00.5583444Z Setting up libxv1:amd64 (2:1.0.11-1.1build1) ...
+generate-and-upload	Install ffmpeg	2026-06-20T21:26:00.5603720Z Setting up libunibreak5:amd64 (5.1-2build1) ...
+generate-and-upload	Install ffmpeg	2026-06-20T21:26:00.5627330Z Setting up libaacs0:amd64 (0.11.1-2build1) ...
+generate-and-upload	Install ffmpeg	2026-06-20T21:26:00.5647065Z Setting up libjxl0.7:amd64 (0.7.0-10.2ubuntu6.1) ...
+generate-and-upload	Install ffmpeg	2026-06-20T21:26:00.5672209Z Setting up librsvg2-common:amd64 (2.58.0+dfsg-1build1) ...
+generate-and-upload	Install ffmpeg	2026-06-20T21:26:00.5781410Z Setting up pocketsphinx-en-us (0.8.0+real5prealpha+1-15ubuntu5) ...
+generate-and-upload	Install ffmpeg	2026-06-20T21:26:00.5800499Z Setting up libx265-199:amd64 (3.5-2build1) ...
+generate-and-upload	Install ffmpeg	2026-06-20T21:26:00.5826369Z Setting up libsndio7.0:amd64 (1.9.0-0.3build3) ...
+generate-and-upload	Install ffmpeg	2026-06-20T21:26:00.5846793Z Setting up libbdplus0:amd64 (0.2.0-3build1) ...
+generate-and-upload	Install ffmpeg	2026-06-20T21:26:00.5867838Z Setting up libvidstab1.1:amd64 (1.1.0-2build1) ...
+generate-and-upload	Install ffmpeg	2026-06-20T21:26:00.5890642Z Setting up libvpx9:amd64 (1.14.0-1ubuntu2.3) ...
+generate-and-upload	Install ffmpeg	2026-06-20T21:26:00.5910665Z Setting up libsrt1.5-gnutls:amd64 (1.5.3-1build2) ...
+generate-and-upload	Install ffmpeg	2026-06-20T21:26:00.5930500Z Setting up libflite1:amd64 (2.2-6build3) ...
+generate-and-upload	Install ffmpeg	2026-06-20T21:26:00.5953678Z Setting up libdav1d7:amd64 (1.4.1-1build1) ...
+generate-and-upload	Install ffmpeg	2026-06-20T21:26:00.6008030Z Setting up libva-drm2:amd64 (2.20.0-2ubuntu0.2) ...
+generate-and-upload	Install ffmpeg	2026-06-20T21:26:00.6031669Z Setting up ocl-icd-libopencl1:amd64 (2.3.2-1build1) ...
+generate-and-upload	Install ffmpeg	2026-06-20T21:26:00.6055069Z Setting up libasyncns0:amd64 (0.8-6build4) ...
+generate-and-upload	Install ffmpeg	2026-06-20T21:26:00.6075777Z Setting up libvdpau1:amd64 (1.5-2build1) ...
+generate-and-upload	Install ffmpeg	2026-06-20T21:26:00.6106029Z Setting up libbs2b0:amd64 (3.1.0+dfsg-7build1) ...
+generate-and-upload	Install ffmpeg	2026-06-20T21:26:00.6126896Z Setting up libtheora0:amd64 (1.1.1+dfsg.1-16.1build3) ...
+generate-and-upload	Install ffmpeg	2026-06-20T21:26:00.6149042Z Setting up libdecor-0-0:amd64 (0.2.2-1build2) ...
+generate-and-upload	Install ffmpeg	2026-06-20T21:26:00.6173822Z Setting up libzimg2:amd64 (3.0.5+ds1-1build1) ...
+generate-and-upload	Install ffmpeg	2026-06-20T21:26:00.6194648Z Setting up libopenal-data (1:1.23.1-4build1) ...
+generate-and-upload	Install ffmpeg	2026-06-20T21:26:00.6224693Z Setting up libflac12t64:amd64 (1.4.3+ds-2.1ubuntu2) ...
+generate-and-upload	Install ffmpeg	2026-06-20T21:26:00.6248185Z Setting up mesa-va-drivers:amd64 (25.2.8-0ubuntu0.24.04.2) ...
+generate-and-upload	Install ffmpeg	2026-06-20T21:26:00.6272574Z Setting up libbluray2:amd64 (1:1.3.4-1build1) ...
+generate-and-upload	Install ffmpeg	2026-06-20T21:26:00.6297528Z Setting up libsamplerate0:amd64 (0.2.2-4build1) ...
+generate-and-upload	Install ffmpeg	2026-06-20T21:26:00.6322386Z Setting up libva-x11-2:amd64 (2.20.0-2ubuntu0.2) ...
+generate-and-upload	Install ffmpeg	2026-06-20T21:26:00.6344929Z Setting up libdecor-0-plugin-1-gtk:amd64 (0.2.2-1build2) ...
+generate-and-upload	Install ffmpeg	2026-06-20T21:26:00.6369662Z Setting up libopenmpt0t64:amd64 (0.7.3-1.1build3) ...
+generate-and-upload	Install ffmpeg	2026-06-20T21:26:00.6392217Z Setting up libzvbi-common (0.2.42-2) ...
+generate-and-upload	Install ffmpeg	2026-06-20T21:26:00.6413999Z Setting up libmp3lame0:amd64 (3.100-6build1) ...
+generate-and-upload	Install ffmpeg	2026-06-20T21:26:00.6437817Z Setting up i965-va-driver:amd64 (2.4.1+dfsg1-1ubuntu0.2) ...
+generate-and-upload	Install ffmpeg	2026-06-20T21:26:00.6465973Z Setting up libvorbisenc2:amd64 (1.3.7-1build3) ...
+generate-and-upload	Install ffmpeg	2026-06-20T21:26:00.6487555Z Setting up libiec61883-0:amd64 (1.2.0-6build1) ...
+generate-and-upload	Install ffmpeg	2026-06-20T21:26:00.6512980Z Setting up libserd-0-0:amd64 (0.32.2-1) ...
+generate-and-upload	Install ffmpeg	2026-06-20T21:26:00.6534504Z Setting up libavc1394-0:amd64 (0.5.4-5build3) ...
+generate-and-upload	Install ffmpeg	2026-06-20T21:26:00.6556417Z Setting up mesa-vdpau-drivers:amd64 (25.2.8-0ubuntu0.24.04.2) ...
+generate-and-upload	Install ffmpeg	2026-06-20T21:26:00.6579769Z Setting up liblapack3:amd64 (3.12.0-3build1.1) ...
+generate-and-upload	Install ffmpeg	2026-06-20T21:26:00.6641209Z update-alternatives: using /usr/lib/x86_64-linux-gnu/lapack/liblapack.so.3 to provide /usr/lib/x86_64-linux-gnu/liblapack.so.3 (liblapack.so.3-x86_64-linux-gnu) in auto mode
+generate-and-upload	Install ffmpeg	2026-06-20T21:26:00.6660952Z Setting up libzvbi0t64:amd64 (0.2.42-2) ...
+generate-and-upload	Install ffmpeg	2026-06-20T21:26:00.6686371Z Setting up libavutil58:amd64 (7:6.1.1-3ubuntu5) ...
+generate-and-upload	Install ffmpeg	2026-06-20T21:26:00.6708198Z Setting up libopenal1:amd64 (1:1.23.1-4build1) ...
+generate-and-upload	Install ffmpeg	2026-06-20T21:26:00.6729698Z Setting up libass9:amd64 (1:0.17.1-2build1) ...
+generate-and-upload	Install ffmpeg	2026-06-20T21:26:00.6751425Z Setting up libswresample4:amd64 (7:6.1.1-3ubuntu5) ...
+generate-and-upload	Install ffmpeg	2026-06-20T21:26:00.6783711Z Setting up va-driver-all:amd64 (2.20.0-2ubuntu0.2) ...
+generate-and-upload	Install ffmpeg	2026-06-20T21:26:00.6805883Z Setting up libavcodec60:amd64 (7:6.1.1-3ubuntu5) ...
+generate-and-upload	Install ffmpeg	2026-06-20T21:26:00.6828983Z Setting up librubberband2:amd64 (3.3.0+dfsg-2build1) ...
+generate-and-upload	Install ffmpeg	2026-06-20T21:26:00.6955816Z Setting up libjack-jackd2-0:amd64 (1.9.21~dfsg-3ubuntu3) ...
+generate-and-upload	Install ffmpeg	2026-06-20T21:26:00.6977753Z Setting up vdpau-driver-all:amd64 (1.5-2build1) ...
+generate-and-upload	Install ffmpeg	2026-06-20T21:26:00.6997706Z Setting up libsord-0-0:amd64 (0.16.16-2build1) ...
+generate-and-upload	Install ffmpeg	2026-06-20T21:26:00.7019268Z Setting up libpostproc57:amd64 (7:6.1.1-3ubuntu5) ...
+generate-and-upload	Install ffmpeg	2026-06-20T21:26:00.7042535Z Setting up libsratom-0-0:amd64 (0.6.16-1build1) ...
+generate-and-upload	Install ffmpeg	2026-06-20T21:26:00.7064542Z Setting up libsndfile1:amd64 (1.2.2-1ubuntu5.24.04.1) ...
+generate-and-upload	Install ffmpeg	2026-06-20T21:26:00.7110957Z Setting up liblilv-0-0:amd64 (0.24.22-1build1) ...
+generate-and-upload	Install ffmpeg	2026-06-20T21:26:00.7138012Z Setting up libswscale7:amd64 (7:6.1.1-3ubuntu5) ...
+generate-and-upload	Install ffmpeg	2026-06-20T21:26:00.7160339Z Setting up libpulse0:amd64 (1:16.1+dfsg1-2ubuntu10.1) ...
+generate-and-upload	Install ffmpeg	2026-06-20T21:26:00.7237766Z Setting up libavformat60:amd64 (7:6.1.1-3ubuntu5) ...
+generate-and-upload	Install ffmpeg	2026-06-20T21:26:00.7258992Z Setting up libsphinxbase3t64:amd64 (0.8+5prealpha+1-17build2) ...
+generate-and-upload	Install ffmpeg	2026-06-20T21:26:00.7281512Z Setting up libsdl2-2.0-0:amd64 (2.30.0+dfsg-1ubuntu3.1) ...
+generate-and-upload	Install ffmpeg	2026-06-20T21:26:00.7304950Z Setting up libpocketsphinx3:amd64 (0.8.0+real5prealpha+1-15ubuntu5) ...
+generate-and-upload	Install ffmpeg	2026-06-20T21:26:00.7325731Z Setting up libavfilter9:amd64 (7:6.1.1-3ubuntu5) ...
+generate-and-upload	Install ffmpeg	2026-06-20T21:26:00.7347126Z Setting up libavdevice60:amd64 (7:6.1.1-3ubuntu5) ...
+generate-and-upload	Install ffmpeg	2026-06-20T21:26:00.7369047Z Setting up ffmpeg (7:6.1.1-3ubuntu5) ...
+generate-and-upload	Install ffmpeg	2026-06-20T21:26:00.7395134Z Processing triggers for man-db (2.12.0-4build2) ...
+generate-and-upload	Install ffmpeg	2026-06-20T21:26:00.7419279Z Not building database; man-db/auto-update is not 'true'.
+generate-and-upload	Install ffmpeg	2026-06-20T21:26:00.7434283Z Processing triggers for libgdk-pixbuf-2.0-0:amd64 (2.42.10+dfsg-3ubuntu3.3) ...
+generate-and-upload	Install ffmpeg	2026-06-20T21:26:00.8063774Z Processing triggers for libc-bin (2.39-0ubuntu8.7) ...
+generate-and-upload	Install ffmpeg	2026-06-20T21:26:01.5022903Z 
+generate-and-upload	Install ffmpeg	2026-06-20T21:26:01.5023486Z Running kernel seems to be up-to-date.
+generate-and-upload	Install ffmpeg	2026-06-20T21:26:01.5023921Z 
+generate-and-upload	Install ffmpeg	2026-06-20T21:26:01.5024130Z No services need to be restarted.
+generate-and-upload	Install ffmpeg	2026-06-20T21:26:01.5024466Z 
+generate-and-upload	Install ffmpeg	2026-06-20T21:26:01.5024670Z No containers need to be restarted.
+generate-and-upload	Install ffmpeg	2026-06-20T21:26:01.5025015Z 
+generate-and-upload	Install ffmpeg	2026-06-20T21:26:01.5025269Z No user sessions are running outdated binaries.
+generate-and-upload	Install ffmpeg	2026-06-20T21:26:01.5025683Z 
+generate-and-upload	Install ffmpeg	2026-06-20T21:26:01.5026105Z No VM guests are running outdated hypervisor (qemu) binaries on this host.
+generate-and-upload	Install Python deps	﻿2026-06-20T21:26:02.2718035Z ##[group]Run pip install -r requirements.txt
+generate-and-upload	Install Python deps	2026-06-20T21:26:02.2718474Z ^[[36;1mpip install -r requirements.txt^[[0m
+generate-and-upload	Install Python deps	2026-06-20T21:26:02.2752427Z shell: /usr/bin/bash -e {0}
+generate-and-upload	Install Python deps	2026-06-20T21:26:02.2752699Z env:
+generate-and-upload	Install Python deps	2026-06-20T21:26:02.2753138Z   GROQ_API_KEY: ***
+generate-and-upload	Install Python deps	2026-06-20T21:26:02.2753506Z   DEAPI_TOKEN: ***
+generate-and-upload	Install Python deps	2026-06-20T21:26:02.2753925Z   YT_CLIENT_ID: ***
+generate-and-upload	Install Python deps	2026-06-20T21:26:02.2754249Z   YT_CLIENT_SECRET_VALUE: ***
+generate-and-upload	Install Python deps	2026-06-20T21:26:02.2754859Z   YT_REFRESH_TOKEN: ***
+generate-and-upload	Install Python deps	2026-06-20T21:26:02.2755275Z   INSTAGRAM_ACCOUNT_ID: 
+generate-and-upload	Install Python deps	2026-06-20T21:26:02.2755522Z   INSTAGRAM_ACCESS_TOKEN: 
+generate-and-upload	Install Python deps	2026-06-20T21:26:02.2755766Z   FACEBOOK_PAGE_ID: 
+generate-and-upload	Install Python deps	2026-06-20T21:26:02.2756004Z   FACEBOOK_ACCESS_TOKEN: 
+generate-and-upload	Install Python deps	2026-06-20T21:26:02.2756255Z   EDGE_TTS_VOICE: en-US-GuyNeural
+generate-and-upload	Install Python deps	2026-06-20T21:26:02.2756589Z   pythonLocation: /opt/hostedtoolcache/Python/3.12.13/x64
+generate-and-upload	Install Python deps	2026-06-20T21:26:02.2757044Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.12.13/x64/lib/pkgconfig
+generate-and-upload	Install Python deps	2026-06-20T21:26:02.2757479Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.13/x64
+generate-and-upload	Install Python deps	2026-06-20T21:26:02.2757905Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.13/x64
+generate-and-upload	Install Python deps	2026-06-20T21:26:02.2758307Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.13/x64
+generate-and-upload	Install Python deps	2026-06-20T21:26:02.2758704Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.12.13/x64/lib
+generate-and-upload	Install Python deps	2026-06-20T21:26:02.2759052Z ##[endgroup]
+generate-and-upload	Install Python deps	2026-06-20T21:26:02.9371631Z Collecting groq>=0.4.0 (from -r requirements.txt (line 1))
+generate-and-upload	Install Python deps	2026-06-20T21:26:02.9385374Z   Using cached groq-1.4.0-py3-none-any.whl.metadata (16 kB)
+generate-and-upload	Install Python deps	2026-06-20T21:26:02.9524684Z Collecting httpx>=0.27.0 (from -r requirements.txt (line 2))
+generate-and-upload	Install Python deps	2026-06-20T21:26:02.9536724Z   Using cached httpx-0.28.1-py3-none-any.whl.metadata (7.1 kB)
+generate-and-upload	Install Python deps	2026-06-20T21:26:02.9748228Z Collecting edge-tts>=6.1.0 (from -r requirements.txt (line 3))
+generate-and-upload	Install Python deps	2026-06-20T21:26:02.9760299Z   Using cached edge_tts-7.2.8-py3-none-any.whl.metadata (5.5 kB)
+generate-and-upload	Install Python deps	2026-06-20T21:26:02.9875580Z Collecting python-dotenv>=1.0.0 (from -r requirements.txt (line 4))
+generate-and-upload	Install Python deps	2026-06-20T21:26:02.9886964Z   Using cached python_dotenv-1.2.2-py3-none-any.whl.metadata (27 kB)
+generate-and-upload	Install Python deps	2026-06-20T21:26:03.0233257Z Collecting google-api-python-client>=2.130.0 (from -r requirements.txt (line 5))
+generate-and-upload	Install Python deps	2026-06-20T21:26:03.0246359Z   Using cached google_api_python_client-2.197.0-py3-none-any.whl.metadata (7.0 kB)
+generate-and-upload	Install Python deps	2026-06-20T21:26:03.0347912Z Collecting google-auth-oauthlib>=1.2.0 (from -r requirements.txt (line 6))
+generate-and-upload	Install Python deps	2026-06-20T21:26:03.0359492Z   Using cached google_auth_oauthlib-1.4.0-py3-none-any.whl.metadata (2.6 kB)
+generate-and-upload	Install Python deps	2026-06-20T21:26:03.0438826Z Collecting google-auth-httplib2>=0.2.0 (from -r requirements.txt (line 7))
+generate-and-upload	Install Python deps	2026-06-20T21:26:03.0451136Z   Using cached google_auth_httplib2-0.4.0-py3-none-any.whl.metadata (3.0 kB)
+generate-and-upload	Install Python deps	2026-06-20T21:26:03.1207264Z Collecting yt-dlp (from -r requirements.txt (line 8))
+generate-and-upload	Install Python deps	2026-06-20T21:26:03.1220404Z   Using cached yt_dlp-2026.6.9-py3-none-any.whl.metadata (183 kB)
+generate-and-upload	Install Python deps	2026-06-20T21:26:03.1476496Z Collecting ddgs>=9.0.0 (from -r requirements.txt (line 9))
+generate-and-upload	Install Python deps	2026-06-20T21:26:03.1488539Z   Using cached ddgs-9.14.4-py3-none-any.whl.metadata (20 kB)
+generate-and-upload	Install Python deps	2026-06-20T21:26:03.1654396Z Collecting anyio<5,>=3.5.0 (from groq>=0.4.0->-r requirements.txt (line 1))
+generate-and-upload	Install Python deps	2026-06-20T21:26:03.1665942Z   Using cached anyio-4.14.0-py3-none-any.whl.metadata (4.6 kB)
+generate-and-upload	Install Python deps	2026-06-20T21:26:03.1744991Z Collecting distro<2,>=1.7.0 (from groq>=0.4.0->-r requirements.txt (line 1))
+generate-and-upload	Install Python deps	2026-06-20T21:26:03.1756725Z   Using cached distro-1.9.0-py3-none-any.whl.metadata (6.8 kB)
+generate-and-upload	Install Python deps	2026-06-20T21:26:03.2718310Z Collecting pydantic<3,>=1.9.0 (from groq>=0.4.0->-r requirements.txt (line 1))
+generate-and-upload	Install Python deps	2026-06-20T21:26:03.2731444Z   Using cached pydantic-2.13.4-py3-none-any.whl.metadata (109 kB)
+generate-and-upload	Install Python deps	2026-06-20T21:26:03.2839565Z Collecting sniffio (from groq>=0.4.0->-r requirements.txt (line 1))
+generate-and-upload	Install Python deps	2026-06-20T21:26:03.2851732Z   Using cached sniffio-1.3.1-py3-none-any.whl.metadata (3.9 kB)
+generate-and-upload	Install Python deps	2026-06-20T21:26:03.2970024Z Collecting typing-extensions<5,>=4.14 (from groq>=0.4.0->-r requirements.txt (line 1))
+generate-and-upload	Install Python deps	2026-06-20T21:26:03.2982450Z   Using cached typing_extensions-4.15.0-py3-none-any.whl.metadata (3.3 kB)
+generate-and-upload	Install Python deps	2026-06-20T21:26:03.3134042Z Collecting certifi (from httpx>=0.27.0->-r requirements.txt (line 2))
+generate-and-upload	Install Python deps	2026-06-20T21:26:03.3145939Z   Using cached certifi-2026.6.17-py3-none-any.whl.metadata (2.5 kB)
+generate-and-upload	Install Python deps	2026-06-20T21:26:03.3262111Z Collecting httpcore==1.* (from httpx>=0.27.0->-r requirements.txt (line 2))
+generate-and-upload	Install Python deps	2026-06-20T21:26:03.3274728Z   Using cached httpcore-1.0.9-py3-none-any.whl.metadata (21 kB)
+generate-and-upload	Install Python deps	2026-06-20T21:26:03.3394073Z Collecting idna (from httpx>=0.27.0->-r requirements.txt (line 2))
+generate-and-upload	Install Python deps	2026-06-20T21:26:03.3406034Z   Using cached idna-3.18-py3-none-any.whl.metadata (6.1 kB)
+generate-and-upload	Install Python deps	2026-06-20T21:26:03.3513136Z Collecting h11>=0.16 (from httpcore==1.*->httpx>=0.27.0->-r requirements.txt (line 2))
+generate-and-upload	Install Python deps	2026-06-20T21:26:03.3524900Z   Using cached h11-0.16.0-py3-none-any.whl.metadata (8.3 kB)
+generate-and-upload	Install Python deps	2026-06-20T21:26:03.3605616Z Collecting annotated-types>=0.6.0 (from pydantic<3,>=1.9.0->groq>=0.4.0->-r requirements.txt (line 1))
+generate-and-upload	Install Python deps	2026-06-20T21:26:03.3617378Z   Using cached annotated_types-0.7.0-py3-none-any.whl.metadata (15 kB)
+generate-and-upload	Install Python deps	2026-06-20T21:26:03.9689654Z Collecting pydantic-core==2.46.4 (from pydantic<3,>=1.9.0->groq>=0.4.0->-r requirements.txt (line 1))
+generate-and-upload	Install Python deps	2026-06-20T21:26:03.9703984Z   Using cached pydantic_core-2.46.4-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (6.6 kB)
+generate-and-upload	Install Python deps	2026-06-20T21:26:03.9788979Z Collecting typing-inspection>=0.4.2 (from pydantic<3,>=1.9.0->groq>=0.4.0->-r requirements.txt (line 1))
+generate-and-upload	Install Python deps	2026-06-20T21:26:03.9801739Z   Using cached typing_inspection-0.4.2-py3-none-any.whl.metadata (2.6 kB)
+generate-and-upload	Install Python deps	2026-06-20T21:26:04.4131908Z Collecting aiohttp<4.0.0,>=3.8.0 (from edge-tts>=6.1.0->-r requirements.txt (line 3))
+generate-and-upload	Install Python deps	2026-06-20T21:26:04.4145807Z   Using cached aiohttp-3.14.1-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (8.3 kB)
+generate-and-upload	Install Python deps	2026-06-20T21:26:04.4261633Z Collecting tabulate<1.0.0,>=0.4.4 (from edge-tts>=6.1.0->-r requirements.txt (line 3))
+generate-and-upload	Install Python deps	2026-06-20T21:26:04.4484530Z   Using cached tabulate-0.10.0-py3-none-any.whl.metadata (40 kB)
+generate-and-upload	Install Python deps	2026-06-20T21:26:04.4633247Z Collecting aiohappyeyeballs>=2.5.0 (from aiohttp<4.0.0,>=3.8.0->edge-tts>=6.1.0->-r requirements.txt (line 3))
+generate-and-upload	Install Python deps	2026-06-20T21:26:04.4644616Z   Using cached aiohappyeyeballs-2.6.2-py3-none-any.whl.metadata (5.9 kB)
+generate-and-upload	Install Python deps	2026-06-20T21:26:04.4745803Z Collecting aiosignal>=1.4.0 (from aiohttp<4.0.0,>=3.8.0->edge-tts>=6.1.0->-r requirements.txt (line 3))
+generate-and-upload	Install Python deps	2026-06-20T21:26:04.4757250Z   Using cached aiosignal-1.4.0-py3-none-any.whl.metadata (3.7 kB)
+generate-and-upload	Install Python deps	2026-06-20T21:26:04.4861676Z Collecting attrs>=17.3.0 (from aiohttp<4.0.0,>=3.8.0->edge-tts>=6.1.0->-r requirements.txt (line 3))
+generate-and-upload	Install Python deps	2026-06-20T21:26:04.4873205Z   Using cached attrs-26.1.0-py3-none-any.whl.metadata (8.8 kB)
+generate-and-upload	Install Python deps	2026-06-20T21:26:04.5436906Z Collecting frozenlist>=1.1.1 (from aiohttp<4.0.0,>=3.8.0->edge-tts>=6.1.0->-r requirements.txt (line 3))
+generate-and-upload	Install Python deps	2026-06-20T21:26:04.5450238Z   Using cached frozenlist-1.8.0-cp312-cp312-manylinux1_x86_64.manylinux_2_28_x86_64.manylinux_2_5_x86_64.whl.metadata (20 kB)
+generate-and-upload	Install Python deps	2026-06-20T21:26:04.7455880Z Collecting multidict<7.0,>=4.5 (from aiohttp<4.0.0,>=3.8.0->edge-tts>=6.1.0->-r requirements.txt (line 3))
+generate-and-upload	Install Python deps	2026-06-20T21:26:04.7469471Z   Using cached multidict-6.7.1-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (5.3 kB)
+generate-and-upload	Install Python deps	2026-06-20T21:26:04.7976179Z Collecting propcache>=0.2.0 (from aiohttp<4.0.0,>=3.8.0->edge-tts>=6.1.0->-r requirements.txt (line 3))
+generate-and-upload	Install Python deps	2026-06-20T21:26:04.7989947Z   Using cached propcache-0.5.2-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (16 kB)
+generate-and-upload	Install Python deps	2026-06-20T21:26:05.0217846Z Collecting yarl<2.0,>=1.17.0 (from aiohttp<4.0.0,>=3.8.0->edge-tts>=6.1.0->-r requirements.txt (line 3))
+generate-and-upload	Install Python deps	2026-06-20T21:26:05.0232246Z   Using cached yarl-1.24.2-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (94 kB)
+generate-and-upload	Install Python deps	2026-06-20T21:26:05.0471535Z Collecting httplib2<1.0.0,>=0.19.0 (from google-api-python-client>=2.130.0->-r requirements.txt (line 5))
+generate-and-upload	Install Python deps	2026-06-20T21:26:05.0484982Z   Using cached httplib2-0.31.2-py3-none-any.whl.metadata (2.2 kB)
+generate-and-upload	Install Python deps	2026-06-20T21:26:05.0751152Z Collecting google-auth!=2.24.0,!=2.25.0,<3.0.0,>=1.32.0 (from google-api-python-client>=2.130.0->-r requirements.txt (line 5))
+generate-and-upload	Install Python deps	2026-06-20T21:26:05.0763859Z   Using cached google_auth-2.55.0-py3-none-any.whl.metadata (5.1 kB)
+generate-and-upload	Install Python deps	2026-06-20T21:26:05.1071840Z Collecting google-api-core!=2.0.*,!=2.1.*,!=2.2.*,!=2.3.0,<3.0.0,>=1.31.5 (from google-api-python-client>=2.130.0->-r requirements.txt (line 5))
+generate-and-upload	Install Python deps	2026-06-20T21:26:05.1084275Z   Using cached google_api_core-2.31.0-py3-none-any.whl.metadata (3.2 kB)
+generate-and-upload	Install Python deps	2026-06-20T21:26:05.1178336Z Collecting uritemplate<5,>=3.0.1 (from google-api-python-client>=2.130.0->-r requirements.txt (line 5))
+generate-and-upload	Install Python deps	2026-06-20T21:26:05.1189900Z   Using cached uritemplate-4.2.0-py3-none-any.whl.metadata (2.6 kB)
+generate-and-upload	Install Python deps	2026-06-20T21:26:05.1332098Z Collecting googleapis-common-protos<2.0.0,>=1.63.2 (from google-api-core!=2.0.*,!=2.1.*,!=2.2.*,!=2.3.0,<3.0.0,>=1.31.5->google-api-python-client>=2.130.0->-r requirements.txt (line 5))
+generate-and-upload	Install Python deps	2026-06-20T21:26:05.1343276Z   Using cached googleapis_common_protos-1.75.0-py3-none-any.whl.metadata (8.6 kB)
+generate-and-upload	Install Python deps	2026-06-20T21:26:05.2961167Z Collecting protobuf<8.0.0,>=5.29.6 (from google-api-core!=2.0.*,!=2.1.*,!=2.2.*,!=2.3.0,<3.0.0,>=1.31.5->google-api-python-client>=2.130.0->-r requirements.txt (line 5))
+generate-and-upload	Install Python deps	2026-06-20T21:26:05.2975044Z   Using cached protobuf-7.35.1-cp310-abi3-manylinux2014_x86_64.whl.metadata (595 bytes)
+generate-and-upload	Install Python deps	2026-06-20T21:26:05.3096765Z Collecting proto-plus<2.0.0,>=1.24.0 (from google-api-core!=2.0.*,!=2.1.*,!=2.2.*,!=2.3.0,<3.0.0,>=1.31.5->google-api-python-client>=2.130.0->-r requirements.txt (line 5))
+generate-and-upload	Install Python deps	2026-06-20T21:26:05.3108109Z   Using cached proto_plus-1.28.0-py3-none-any.whl.metadata (2.2 kB)
+generate-and-upload	Install Python deps	2026-06-20T21:26:05.3317074Z Collecting requests<3.0.0,>=2.33.0 (from google-api-core!=2.0.*,!=2.1.*,!=2.2.*,!=2.3.0,<3.0.0,>=1.31.5->google-api-python-client>=2.130.0->-r requirements.txt (line 5))
+generate-and-upload	Install Python deps	2026-06-20T21:26:05.3327778Z   Using cached requests-2.34.2-py3-none-any.whl.metadata (4.8 kB)
+generate-and-upload	Install Python deps	2026-06-20T21:26:05.3495099Z Collecting pyasn1-modules>=0.2.1 (from google-auth!=2.24.0,!=2.25.0,<3.0.0,>=1.32.0->google-api-python-client>=2.130.0->-r requirements.txt (line 5))
+generate-and-upload	Install Python deps	2026-06-20T21:26:05.3506781Z   Using cached pyasn1_modules-0.4.2-py3-none-any.whl.metadata (3.5 kB)
+generate-and-upload	Install Python deps	2026-06-20T21:26:05.5128102Z Collecting cryptography>=38.0.3 (from google-auth!=2.24.0,!=2.25.0,<3.0.0,>=1.32.0->google-api-python-client>=2.130.0->-r requirements.txt (line 5))
+generate-and-upload	Install Python deps	2026-06-20T21:26:05.5142887Z   Using cached cryptography-49.0.0-cp311-abi3-manylinux_2_34_x86_64.whl.metadata (4.3 kB)
+generate-and-upload	Install Python deps	2026-06-20T21:26:05.5385448Z Collecting pyparsing<4,>=3.1 (from httplib2<1.0.0,>=0.19.0->google-api-python-client>=2.130.0->-r requirements.txt (line 5))
+generate-and-upload	Install Python deps	2026-06-20T21:26:05.5398180Z   Using cached pyparsing-3.3.2-py3-none-any.whl.metadata (5.8 kB)
+generate-and-upload	Install Python deps	2026-06-20T21:26:05.6257050Z Collecting charset_normalizer<4,>=2 (from requests<3.0.0,>=2.33.0->google-api-core!=2.0.*,!=2.1.*,!=2.2.*,!=2.3.0,<3.0.0,>=1.31.5->google-api-python-client>=2.130.0->-r requirements.txt (line 5))
+generate-and-upload	Install Python deps	2026-06-20T21:26:05.6271512Z   Using cached charset_normalizer-3.4.7-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (40 kB)
+generate-and-upload	Install Python deps	2026-06-20T21:26:05.6486271Z Collecting urllib3<3,>=1.26 (from requests<3.0.0,>=2.33.0->google-api-core!=2.0.*,!=2.1.*,!=2.2.*,!=2.3.0,<3.0.0,>=1.31.5->google-api-python-client>=2.130.0->-r requirements.txt (line 5))
+generate-and-upload	Install Python deps	2026-06-20T21:26:05.6498621Z   Using cached urllib3-2.7.0-py3-none-any.whl.metadata (6.9 kB)
+generate-and-upload	Install Python deps	2026-06-20T21:26:05.6689394Z Collecting requests-oauthlib>=0.7.0 (from google-auth-oauthlib>=1.2.0->-r requirements.txt (line 6))
+generate-and-upload	Install Python deps	2026-06-20T21:26:05.6701192Z   Using cached requests_oauthlib-2.0.0-py2.py3-none-any.whl.metadata (11 kB)
+generate-and-upload	Install Python deps	2026-06-20T21:26:05.6835448Z Collecting click>=8.1.8 (from ddgs>=9.0.0->-r requirements.txt (line 9))
+generate-and-upload	Install Python deps	2026-06-20T21:26:05.6849405Z   Using cached click-8.4.1-py3-none-any.whl.metadata (2.6 kB)
+generate-and-upload	Install Python deps	2026-06-20T21:26:05.7126552Z Collecting primp>=1.2.3 (from ddgs>=9.0.0->-r requirements.txt (line 9))
+generate-and-upload	Install Python deps	2026-06-20T21:26:05.7139471Z   Using cached primp-1.3.1-cp310-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (3.7 kB)
+generate-and-upload	Install Python deps	2026-06-20T21:26:05.9628776Z Collecting lxml>=4.9.4 (from ddgs>=9.0.0->-r requirements.txt (line 9))
+generate-and-upload	Install Python deps	2026-06-20T21:26:05.9642846Z   Using cached lxml-6.1.1-cp312-cp312-manylinux_2_26_x86_64.manylinux_2_28_x86_64.whl.metadata (3.5 kB)
+generate-and-upload	Install Python deps	2026-06-20T21:26:05.9751715Z Collecting fake-useragent>=2.2.0 (from ddgs>=9.0.0->-r requirements.txt (line 9))
+generate-and-upload	Install Python deps	2026-06-20T21:26:05.9763749Z   Using cached fake_useragent-2.2.0-py3-none-any.whl.metadata (17 kB)
+generate-and-upload	Install Python deps	2026-06-20T21:26:06.0698666Z Collecting cffi>=2.0.0 (from cryptography>=38.0.3->google-auth!=2.24.0,!=2.25.0,<3.0.0,>=1.32.0->google-api-python-client>=2.130.0->-r requirements.txt (line 5))
+generate-and-upload	Install Python deps	2026-06-20T21:26:06.0712654Z   Using cached cffi-2.0.0-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (2.6 kB)
+generate-and-upload	Install Python deps	2026-06-20T21:26:06.0803057Z Collecting pycparser (from cffi>=2.0.0->cryptography>=38.0.3->google-auth!=2.24.0,!=2.25.0,<3.0.0,>=1.32.0->google-api-python-client>=2.130.0->-r requirements.txt (line 5))
+generate-and-upload	Install Python deps	2026-06-20T21:26:06.0814615Z   Using cached pycparser-3.0-py3-none-any.whl.metadata (8.2 kB)
+generate-and-upload	Install Python deps	2026-06-20T21:26:06.1119550Z Collecting brotli (from httpx[brotli,http2,socks]>=0.28.1->ddgs>=9.0.0->-r requirements.txt (line 9))
+generate-and-upload	Install Python deps	2026-06-20T21:26:06.1133590Z   Using cached brotli-1.2.0-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (6.1 kB)
+generate-and-upload	Install Python deps	2026-06-20T21:26:06.1253436Z Collecting h2<5,>=3 (from httpx[brotli,http2,socks]>=0.28.1->ddgs>=9.0.0->-r requirements.txt (line 9))
+generate-and-upload	Install Python deps	2026-06-20T21:26:06.1266711Z   Using cached h2-4.3.0-py3-none-any.whl.metadata (5.1 kB)
+generate-and-upload	Install Python deps	2026-06-20T21:26:06.1355369Z Collecting socksio==1.* (from httpx[brotli,http2,socks]>=0.28.1->ddgs>=9.0.0->-r requirements.txt (line 9))
+generate-and-upload	Install Python deps	2026-06-20T21:26:06.1367545Z   Using cached socksio-1.0.0-py3-none-any.whl.metadata (6.1 kB)
+generate-and-upload	Install Python deps	2026-06-20T21:26:06.1467235Z Collecting hyperframe<7,>=6.1 (from h2<5,>=3->httpx[brotli,http2,socks]>=0.28.1->ddgs>=9.0.0->-r requirements.txt (line 9))
+generate-and-upload	Install Python deps	2026-06-20T21:26:06.1479177Z   Using cached hyperframe-6.1.0-py3-none-any.whl.metadata (4.3 kB)
+generate-and-upload	Install Python deps	2026-06-20T21:26:06.1554911Z Collecting hpack<5,>=4.1 (from h2<5,>=3->httpx[brotli,http2,socks]>=0.28.1->ddgs>=9.0.0->-r requirements.txt (line 9))
+generate-and-upload	Install Python deps	2026-06-20T21:26:06.1566078Z   Using cached hpack-4.1.0-py3-none-any.whl.metadata (4.6 kB)
+generate-and-upload	Install Python deps	2026-06-20T21:26:06.1773953Z Collecting pyasn1<0.7.0,>=0.6.1 (from pyasn1-modules>=0.2.1->google-auth!=2.24.0,!=2.25.0,<3.0.0,>=1.32.0->google-api-python-client>=2.130.0->-r requirements.txt (line 5))
+generate-and-upload	Install Python deps	2026-06-20T21:26:06.1784600Z   Using cached pyasn1-0.6.3-py3-none-any.whl.metadata (8.4 kB)
+generate-and-upload	Install Python deps	2026-06-20T21:26:06.1890721Z Collecting oauthlib>=3.0.0 (from requests-oauthlib>=0.7.0->google-auth-oauthlib>=1.2.0->-r requirements.txt (line 6))
+generate-and-upload	Install Python deps	2026-06-20T21:26:06.1901900Z   Using cached oauthlib-3.3.1-py3-none-any.whl.metadata (7.9 kB)
+generate-and-upload	Install Python deps	2026-06-20T21:26:06.1990249Z Using cached groq-1.4.0-py3-none-any.whl (143 kB)
+generate-and-upload	Install Python deps	2026-06-20T21:26:06.2002219Z Using cached httpx-0.28.1-py3-none-any.whl (73 kB)
+generate-and-upload	Install Python deps	2026-06-20T21:26:06.2013450Z Using cached anyio-4.14.0-py3-none-any.whl (123 kB)
+generate-and-upload	Install Python deps	2026-06-20T21:26:06.2024887Z Using cached distro-1.9.0-py3-none-any.whl (20 kB)
+generate-and-upload	Install Python deps	2026-06-20T21:26:06.2035847Z Using cached httpcore-1.0.9-py3-none-any.whl (78 kB)
+generate-and-upload	Install Python deps	2026-06-20T21:26:06.2047022Z Using cached pydantic-2.13.4-py3-none-any.whl (472 kB)
+generate-and-upload	Install Python deps	2026-06-20T21:26:06.2060257Z Using cached pydantic_core-2.46.4-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (2.1 MB)
+generate-and-upload	Install Python deps	2026-06-20T21:26:06.2079029Z Using cached typing_extensions-4.15.0-py3-none-any.whl (44 kB)
+generate-and-upload	Install Python deps	2026-06-20T21:26:06.2090009Z Using cached edge_tts-7.2.8-py3-none-any.whl (31 kB)
+generate-and-upload	Install Python deps	2026-06-20T21:26:06.2101878Z Using cached aiohttp-3.14.1-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (1.8 MB)
+generate-and-upload	Install Python deps	2026-06-20T21:26:06.2119987Z Using cached multidict-6.7.1-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (256 kB)
+generate-and-upload	Install Python deps	2026-06-20T21:26:06.2131714Z Using cached tabulate-0.10.0-py3-none-any.whl (39 kB)
+generate-and-upload	Install Python deps	2026-06-20T21:26:06.2143160Z Using cached yarl-1.24.2-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (105 kB)
+generate-and-upload	Install Python deps	2026-06-20T21:26:06.2154426Z Using cached python_dotenv-1.2.2-py3-none-any.whl (22 kB)
+generate-and-upload	Install Python deps	2026-06-20T21:26:06.2165472Z Using cached google_api_python_client-2.197.0-py3-none-any.whl (15.3 MB)
+generate-and-upload	Install Python deps	2026-06-20T21:26:06.2235516Z Using cached google_auth_httplib2-0.4.0-py3-none-any.whl (9.5 kB)
+generate-and-upload	Install Python deps	2026-06-20T21:26:06.2246535Z Using cached google_api_core-2.31.0-py3-none-any.whl (173 kB)
+generate-and-upload	Install Python deps	2026-06-20T21:26:06.2257968Z Using cached google_auth-2.55.0-py3-none-any.whl (252 kB)
+generate-and-upload	Install Python deps	2026-06-20T21:26:06.2269832Z Using cached googleapis_common_protos-1.75.0-py3-none-any.whl (300 kB)
+generate-and-upload	Install Python deps	2026-06-20T21:26:06.2282208Z Using cached httplib2-0.31.2-py3-none-any.whl (91 kB)
+generate-and-upload	Install Python deps	2026-06-20T21:26:06.2293431Z Using cached proto_plus-1.28.0-py3-none-any.whl (50 kB)
+generate-and-upload	Install Python deps	2026-06-20T21:26:06.2304750Z Using cached protobuf-7.35.1-cp310-abi3-manylinux2014_x86_64.whl (327 kB)
+generate-and-upload	Install Python deps	2026-06-20T21:26:06.2316797Z Using cached pyparsing-3.3.2-py3-none-any.whl (122 kB)
+generate-and-upload	Install Python deps	2026-06-20T21:26:06.2328024Z Using cached requests-2.34.2-py3-none-any.whl (73 kB)
+generate-and-upload	Install Python deps	2026-06-20T21:26:06.2339943Z Using cached charset_normalizer-3.4.7-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (216 kB)
+generate-and-upload	Install Python deps	2026-06-20T21:26:06.2351228Z Using cached idna-3.18-py3-none-any.whl (65 kB)
+generate-and-upload	Install Python deps	2026-06-20T21:26:06.2362415Z Using cached uritemplate-4.2.0-py3-none-any.whl (11 kB)
+generate-and-upload	Install Python deps	2026-06-20T21:26:06.2373789Z Using cached urllib3-2.7.0-py3-none-any.whl (131 kB)
+generate-and-upload	Install Python deps	2026-06-20T21:26:06.2384891Z Using cached google_auth_oauthlib-1.4.0-py3-none-any.whl (19 kB)
+generate-and-upload	Install Python deps	2026-06-20T21:26:06.2395775Z Using cached yt_dlp-2026.6.9-py3-none-any.whl (3.2 MB)
+generate-and-upload	Install Python deps	2026-06-20T21:26:06.2417703Z Using cached ddgs-9.14.4-py3-none-any.whl (70 kB)
+generate-and-upload	Install Python deps	2026-06-20T21:26:06.2428943Z Using cached aiohappyeyeballs-2.6.2-py3-none-any.whl (15 kB)
+generate-and-upload	Install Python deps	2026-06-20T21:26:06.2440144Z Using cached aiosignal-1.4.0-py3-none-any.whl (7.5 kB)
+generate-and-upload	Install Python deps	2026-06-20T21:26:06.2450966Z Using cached annotated_types-0.7.0-py3-none-any.whl (13 kB)
+generate-and-upload	Install Python deps	2026-06-20T21:26:06.2462014Z Using cached attrs-26.1.0-py3-none-any.whl (67 kB)
+generate-and-upload	Install Python deps	2026-06-20T21:26:06.2473127Z Using cached certifi-2026.6.17-py3-none-any.whl (133 kB)
+generate-and-upload	Install Python deps	2026-06-20T21:26:06.2484480Z Using cached click-8.4.1-py3-none-any.whl (116 kB)
+generate-and-upload	Install Python deps	2026-06-20T21:26:06.2496133Z Using cached cryptography-49.0.0-cp311-abi3-manylinux_2_34_x86_64.whl (4.7 MB)
+generate-and-upload	Install Python deps	2026-06-20T21:26:06.2525088Z Using cached cffi-2.0.0-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (219 kB)
+generate-and-upload	Install Python deps	2026-06-20T21:26:06.2536363Z Using cached fake_useragent-2.2.0-py3-none-any.whl (161 kB)
+generate-and-upload	Install Python deps	2026-06-20T21:26:06.2548356Z Using cached frozenlist-1.8.0-cp312-cp312-manylinux1_x86_64.manylinux_2_28_x86_64.manylinux_2_5_x86_64.whl (242 kB)
+generate-and-upload	Install Python deps	2026-06-20T21:26:06.2559710Z Using cached h11-0.16.0-py3-none-any.whl (37 kB)
+generate-and-upload	Install Python deps	2026-06-20T21:26:06.2570866Z Using cached h2-4.3.0-py3-none-any.whl (61 kB)
+generate-and-upload	Install Python deps	2026-06-20T21:26:06.2582196Z Using cached hpack-4.1.0-py3-none-any.whl (34 kB)
+generate-and-upload	Install Python deps	2026-06-20T21:26:06.2593257Z Using cached hyperframe-6.1.0-py3-none-any.whl (13 kB)
+generate-and-upload	Install Python deps	2026-06-20T21:26:06.2604241Z Using cached socksio-1.0.0-py3-none-any.whl (12 kB)
+generate-and-upload	Install Python deps	2026-06-20T21:26:06.2615600Z Using cached lxml-6.1.1-cp312-cp312-manylinux_2_26_x86_64.manylinux_2_28_x86_64.whl (5.2 MB)
+generate-and-upload	Install Python deps	2026-06-20T21:26:06.2645871Z Using cached primp-1.3.1-cp310-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (5.3 MB)
+generate-and-upload	Install Python deps	2026-06-20T21:26:06.2677674Z Using cached propcache-0.5.2-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (61 kB)
+generate-and-upload	Install Python deps	2026-06-20T21:26:06.2689136Z Using cached pyasn1_modules-0.4.2-py3-none-any.whl (181 kB)
+generate-and-upload	Install Python deps	2026-06-20T21:26:06.2700506Z Using cached pyasn1-0.6.3-py3-none-any.whl (83 kB)
+generate-and-upload	Install Python deps	2026-06-20T21:26:06.2712049Z Using cached requests_oauthlib-2.0.0-py2.py3-none-any.whl (24 kB)
+generate-and-upload	Install Python deps	2026-06-20T21:26:06.2722971Z Using cached oauthlib-3.3.1-py3-none-any.whl (160 kB)
+generate-and-upload	Install Python deps	2026-06-20T21:26:06.2734478Z Using cached typing_inspection-0.4.2-py3-none-any.whl (14 kB)
+generate-and-upload	Install Python deps	2026-06-20T21:26:06.2745838Z Using cached brotli-1.2.0-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (1.4 MB)
+generate-and-upload	Install Python deps	2026-06-20T21:26:06.2762067Z Using cached pycparser-3.0-py3-none-any.whl (48 kB)
+generate-and-upload	Install Python deps	2026-06-20T21:26:06.2773155Z Using cached sniffio-1.3.1-py3-none-any.whl (10 kB)
+generate-and-upload	Install Python deps	2026-06-20T21:26:06.4801063Z Installing collected packages: brotli, yt-dlp, urllib3, uritemplate, typing-extensions, tabulate, socksio, sniffio, python-dotenv, pyparsing, pycparser, pyasn1, protobuf, propcache, primp, oauthlib, multidict, lxml, idna, hyperframe, hpack, h11, frozenlist, fake-useragent, distro, click, charset_normalizer, certifi, attrs, annotated-types, aiohappyeyeballs, yarl, typing-inspection, requests, pydantic-core, pyasn1-modules, proto-plus, httplib2, httpcore, h2, googleapis-common-protos, cffi, anyio, aiosignal, requests-oauthlib, pydantic, httpx, cryptography, aiohttp, groq, google-auth, edge-tts, google-auth-oauthlib, google-auth-httplib2, google-api-core, ddgs, google-api-python-client
+generate-and-upload	Install Python deps	2026-06-20T21:26:11.8186782Z 
+generate-and-upload	Install Python deps	2026-06-20T21:26:11.8236061Z Successfully installed aiohappyeyeballs-2.6.2 aiohttp-3.14.1 aiosignal-1.4.0 annotated-types-0.7.0 anyio-4.14.0 attrs-26.1.0 brotli-1.2.0 certifi-2026.6.17 cffi-2.0.0 charset_normalizer-3.4.7 click-8.4.1 cryptography-49.0.0 ddgs-9.14.4 distro-1.9.0 edge-tts-7.2.8 fake-useragent-2.2.0 frozenlist-1.8.0 google-api-core-2.31.0 google-api-python-client-2.197.0 google-auth-2.55.0 google-auth-httplib2-0.4.0 google-auth-oauthlib-1.4.0 googleapis-common-protos-1.75.0 groq-1.4.0 h11-0.16.0 h2-4.3.0 hpack-4.1.0 httpcore-1.0.9 httplib2-0.31.2 httpx-0.28.1 hyperframe-6.1.0 idna-3.18 lxml-6.1.1 multidict-6.7.1 oauthlib-3.3.1 primp-1.3.1 propcache-0.5.2 proto-plus-1.28.0 protobuf-7.35.1 pyasn1-0.6.3 pyasn1-modules-0.4.2 pycparser-3.0 pydantic-2.13.4 pydantic-core-2.46.4 pyparsing-3.3.2 python-dotenv-1.2.2 requests-2.34.2 requests-oauthlib-2.0.0 sniffio-1.3.1 socksio-1.0.0 tabulate-0.10.0 typing-extensions-4.15.0 typing-inspection-0.4.2 uritemplate-4.2.0 urllib3-2.7.0 yarl-1.24.2 yt-dlp-2026.6.9
+generate-and-upload	Update FIFA 2026 match data	﻿2026-06-20T21:26:11.9960373Z ##[group]Run python scripts/update_wc_data.py
+generate-and-upload	Update FIFA 2026 match data	2026-06-20T21:26:11.9960803Z ^[[36;1mpython scripts/update_wc_data.py^[[0m
+generate-and-upload	Update FIFA 2026 match data	2026-06-20T21:26:11.9992544Z shell: /usr/bin/bash -e {0}
+generate-and-upload	Update FIFA 2026 match data	2026-06-20T21:26:11.9992814Z env:
+generate-and-upload	Update FIFA 2026 match data	2026-06-20T21:26:11.9993256Z   GROQ_API_KEY: ***
+generate-and-upload	Update FIFA 2026 match data	2026-06-20T21:26:11.9993734Z   DEAPI_TOKEN: ***
+generate-and-upload	Update FIFA 2026 match data	2026-06-20T21:26:11.9994153Z   YT_CLIENT_ID: ***
+generate-and-upload	Update FIFA 2026 match data	2026-06-20T21:26:11.9994475Z   YT_CLIENT_SECRET_VALUE: ***
+generate-and-upload	Update FIFA 2026 match data	2026-06-20T21:26:11.9995113Z   YT_REFRESH_TOKEN: ***
+generate-and-upload	Update FIFA 2026 match data	2026-06-20T21:26:11.9995365Z   INSTAGRAM_ACCOUNT_ID: 
+generate-and-upload	Update FIFA 2026 match data	2026-06-20T21:26:11.9995618Z   INSTAGRAM_ACCESS_TOKEN: 
+generate-and-upload	Update FIFA 2026 match data	2026-06-20T21:26:11.9995878Z   FACEBOOK_PAGE_ID: 
+generate-and-upload	Update FIFA 2026 match data	2026-06-20T21:26:11.9996114Z   FACEBOOK_ACCESS_TOKEN: 
+generate-and-upload	Update FIFA 2026 match data	2026-06-20T21:26:11.9996369Z   EDGE_TTS_VOICE: en-US-GuyNeural
+generate-and-upload	Update FIFA 2026 match data	2026-06-20T21:26:11.9996708Z   pythonLocation: /opt/hostedtoolcache/Python/3.12.13/x64
+generate-and-upload	Update FIFA 2026 match data	2026-06-20T21:26:11.9997172Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.12.13/x64/lib/pkgconfig
+generate-and-upload	Update FIFA 2026 match data	2026-06-20T21:26:11.9997618Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.13/x64
+generate-and-upload	Update FIFA 2026 match data	2026-06-20T21:26:11.9998056Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.13/x64
+generate-and-upload	Update FIFA 2026 match data	2026-06-20T21:26:11.9998453Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.13/x64
+generate-and-upload	Update FIFA 2026 match data	2026-06-20T21:26:11.9998848Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.12.13/x64/lib
+generate-and-upload	Update FIFA 2026 match data	2026-06-20T21:26:11.9999188Z ##[endgroup]
+generate-and-upload	Update FIFA 2026 match data	2026-06-20T21:26:12.5921436Z === FIFA World Cup 2026 Data Update ===
+generate-and-upload	Update FIFA 2026 match data	2026-06-20T21:26:12.5922237Z Before: 7/104 matches completed locally
+generate-and-upload	Update FIFA 2026 match data	2026-06-20T21:26:12.5923190Z   [OK] worldcup.json — 104 entries
+generate-and-upload	Update FIFA 2026 match data	2026-06-20T21:26:12.5923910Z   [OK] worldcup.groups.json — 12 entries
+generate-and-upload	Update FIFA 2026 match data	2026-06-20T21:26:12.5924903Z   [SKIP] worldcup.teams.json — 'list' object has no attribute 'get'
+generate-and-upload	Update FIFA 2026 match data	2026-06-20T21:26:12.5925909Z   [SKIP] worldcup.squads.json — 'list' object has no attribute 'get'
+generate-and-upload	Update FIFA 2026 match data	2026-06-20T21:26:12.5926413Z After:  33/104 matches completed
+generate-and-upload	Update FIFA 2026 match data	2026-06-20T21:26:12.5926638Z 
+generate-and-upload	Update FIFA 2026 match data	2026-06-20T21:26:12.5926966Z Updated 2/4 files. Data saved to /home/runner/work/-yt-automation/-yt-automation/2026/
+generate-and-upload	Restore history cache	﻿2026-06-20T21:26:12.6092217Z ##[group]Run actions/cache/restore@v5
+generate-and-upload	Restore history cache	2026-06-20T21:26:12.6092532Z with:
+generate-and-upload	Restore history cache	2026-06-20T21:26:12.6092755Z   path: output/history/
+generate-and-upload	Restore history cache	2026-06-20T21:26:12.6093015Z   key: story-history-fifa_2026-27884331199
+generate-and-upload	Restore history cache	2026-06-20T21:26:12.6093332Z   restore-keys: story-history-fifa_2026-
+generate-and-upload	Restore history cache	
+generate-and-upload	Restore history cache	2026-06-20T21:26:12.6093636Z   enableCrossOsArchive: false
+generate-and-upload	Restore history cache	2026-06-20T21:26:12.6093910Z   fail-on-cache-miss: false
+generate-and-upload	Restore history cache	2026-06-20T21:26:12.6094165Z   lookup-only: false
+generate-and-upload	Restore history cache	2026-06-20T21:26:12.6094391Z env:
+generate-and-upload	Restore history cache	2026-06-20T21:26:12.6094941Z   GROQ_API_KEY: ***
+generate-and-upload	Restore history cache	2026-06-20T21:26:12.6095294Z   DEAPI_TOKEN: ***
+generate-and-upload	Restore history cache	2026-06-20T21:26:12.6095902Z   YT_CLIENT_ID: ***
+generate-and-upload	Restore history cache	2026-06-20T21:26:12.6096247Z   YT_CLIENT_SECRET_VALUE: ***
+generate-and-upload	Restore history cache	2026-06-20T21:26:12.6096842Z   YT_REFRESH_TOKEN: ***
+generate-and-upload	Restore history cache	2026-06-20T21:26:12.6097083Z   INSTAGRAM_ACCOUNT_ID: 
+generate-and-upload	Restore history cache	2026-06-20T21:26:12.6097326Z   INSTAGRAM_ACCESS_TOKEN: 
+generate-and-upload	Restore history cache	2026-06-20T21:26:12.6097572Z   FACEBOOK_PAGE_ID: 
+generate-and-upload	Restore history cache	2026-06-20T21:26:12.6097805Z   FACEBOOK_ACCESS_TOKEN: 
+generate-and-upload	Restore history cache	2026-06-20T21:26:12.6098054Z   EDGE_TTS_VOICE: en-US-GuyNeural
+generate-and-upload	Restore history cache	2026-06-20T21:26:12.6098421Z   pythonLocation: /opt/hostedtoolcache/Python/3.12.13/x64
+generate-and-upload	Restore history cache	2026-06-20T21:26:12.6098876Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.12.13/x64/lib/pkgconfig
+generate-and-upload	Restore history cache	2026-06-20T21:26:12.6099317Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.13/x64
+generate-and-upload	Restore history cache	2026-06-20T21:26:12.6099722Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.13/x64
+generate-and-upload	Restore history cache	2026-06-20T21:26:12.6100409Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.13/x64
+generate-and-upload	Restore history cache	2026-06-20T21:26:12.6100842Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.12.13/x64/lib
+generate-and-upload	Restore history cache	2026-06-20T21:26:12.6101191Z ##[endgroup]
+generate-and-upload	Restore history cache	2026-06-20T21:26:13.0098581Z Cache hit for restore-key: story-history-fifa_2026-27884006806
+generate-and-upload	Restore history cache	2026-06-20T21:26:13.6237456Z Received 1645 of 1645 (100.0%), 0.0 MBs/sec
+generate-and-upload	Restore history cache	2026-06-20T21:26:13.6237938Z Cache Size: ~0 MB (1645 B)
+generate-and-upload	Restore history cache	2026-06-20T21:26:13.6266320Z [command]/usr/bin/tar -xf /home/runner/work/_temp/3beefe8e-bbc7-4416-aabe-1d5ac65c0fd5/cache.tzst -P -C /home/runner/work/-yt-automation/-yt-automation --use-compress-program unzstd
+generate-and-upload	Restore history cache	2026-06-20T21:26:13.6315609Z Cache restored successfully
+generate-and-upload	Restore history cache	2026-06-20T21:26:13.6392587Z Cache restored from key: story-history-fifa_2026-27884006806
+generate-and-upload	Generate & upload Short	﻿2026-06-20T21:26:13.6479554Z ##[group]Run CHANNEL="fifa_2026"
+generate-and-upload	Generate & upload Short	2026-06-20T21:26:13.6479912Z ^[[36;1mCHANNEL="fifa_2026"^[[0m
+generate-and-upload	Generate & upload Short	2026-06-20T21:26:13.6480534Z ^[[36;1mTOPIC=""^[[0m
+generate-and-upload	Generate & upload Short	2026-06-20T21:26:13.6480960Z ^[[36;1mif [ -n "$TOPIC" ]; then^[[0m
+generate-and-upload	Generate & upload Short	2026-06-20T21:26:13.6481829Z ^[[36;1m  python -u scripts/run_short_ltx.py --channel "$CHANNEL" --topic "$TOPIC" --upload --privacy private^[[0m
+generate-and-upload	Generate & upload Short	2026-06-20T21:26:13.6482388Z ^[[36;1melse^[[0m
+generate-and-upload	Generate & upload Short	2026-06-20T21:26:13.6482793Z ^[[36;1m  python -u scripts/run_short_ltx.py --channel "$CHANNEL" --upload --privacy private^[[0m
+generate-and-upload	Generate & upload Short	2026-06-20T21:26:13.6483245Z ^[[36;1mfi^[[0m
+generate-and-upload	Generate & upload Short	2026-06-20T21:26:13.6514727Z shell: /usr/bin/bash -e {0}
+generate-and-upload	Generate & upload Short	2026-06-20T21:26:13.6514999Z env:
+generate-and-upload	Generate & upload Short	2026-06-20T21:26:13.6515452Z   GROQ_API_KEY: ***
+generate-and-upload	Generate & upload Short	2026-06-20T21:26:13.6515830Z   DEAPI_TOKEN: ***
+generate-and-upload	Generate & upload Short	2026-06-20T21:26:13.6516256Z   YT_CLIENT_ID: ***
+generate-and-upload	Generate & upload Short	2026-06-20T21:26:13.6516594Z   YT_CLIENT_SECRET_VALUE: ***
+generate-and-upload	Generate & upload Short	2026-06-20T21:26:13.6517226Z   YT_REFRESH_TOKEN: ***
+generate-and-upload	Generate & upload Short	2026-06-20T21:26:13.6517473Z   INSTAGRAM_ACCOUNT_ID: 
+generate-and-upload	Generate & upload Short	2026-06-20T21:26:13.6517729Z   INSTAGRAM_ACCESS_TOKEN: 
+generate-and-upload	Generate & upload Short	2026-06-20T21:26:13.6518005Z   FACEBOOK_PAGE_ID: 
+generate-and-upload	Generate & upload Short	2026-06-20T21:26:13.6518245Z   FACEBOOK_ACCESS_TOKEN: 
+generate-and-upload	Generate & upload Short	2026-06-20T21:26:13.6518529Z   EDGE_TTS_VOICE: en-US-GuyNeural
+generate-and-upload	Generate & upload Short	2026-06-20T21:26:13.6518874Z   pythonLocation: /opt/hostedtoolcache/Python/3.12.13/x64
+generate-and-upload	Generate & upload Short	2026-06-20T21:26:13.6519336Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.12.13/x64/lib/pkgconfig
+generate-and-upload	Generate & upload Short	2026-06-20T21:26:13.6519817Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.13/x64
+generate-and-upload	Generate & upload Short	2026-06-20T21:26:13.6520532Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.13/x64
+generate-and-upload	Generate & upload Short	2026-06-20T21:26:13.6520959Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.13/x64
+generate-and-upload	Generate & upload Short	2026-06-20T21:26:13.6521380Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.12.13/x64/lib
+generate-and-upload	Generate & upload Short	2026-06-20T21:26:13.6521734Z ##[endgroup]
+generate-and-upload	Generate & upload Short	2026-06-20T21:26:14.0844280Z [FIFA 2026] Content angle selected: "FIFA 2026 Group D Standings Update: USA leads — who qualifies, who's in danger, and what each team needs"
+generate-and-upload	Generate & upload Short	2026-06-20T21:26:14.0845110Z 
+generate-and-upload	Generate & upload Short	2026-06-20T21:26:14.0845449Z ① Groq: generating script with 8 segments...
+generate-and-upload	Generate & upload Short	2026-06-20T21:26:15.4722852Z    Title: FIFA World Cup 2026 Group D Standings Update
+generate-and-upload	Generate & upload Short	2026-06-20T21:26:15.4723541Z    Narration: 112 words
+generate-and-upload	Generate & upload Short	2026-06-20T21:26:15.4723985Z    Video prompts generated: 8
+generate-and-upload	Generate & upload Short	2026-06-20T21:26:15.4724304Z 
+generate-and-upload	Generate & upload Short	2026-06-20T21:26:15.4724754Z ② Edge TTS (en-US-GuyNeural)...
+generate-and-upload	Generate & upload Short	2026-06-20T21:26:17.9766429Z    Audio: 37.2s (5 sentences)
+generate-and-upload	Generate & upload Short	2026-06-20T21:26:17.9767105Z 
+generate-and-upload	Generate & upload Short	2026-06-20T21:26:17.9767664Z ③ Captions (SRT)...
+generate-and-upload	Generate & upload Short	2026-06-20T21:26:17.9771356Z 
+generate-and-upload	Generate & upload Short	2026-06-20T21:26:17.9771985Z ④ DeAPI Video Generation: 8 clips (10s cooldown between submissions)...
+generate-and-upload	Generate & upload Short	2026-06-20T21:26:17.9944528Z    [Clip 1/8] Submitting prompt: Packed MetLife Stadium in New York/New Jersey during a FIFA World Cup 2026 match...
+generate-and-upload	Generate & upload Short	2026-06-20T21:26:17.9945345Z       Submitting via token: 1296...cdee
+generate-and-upload	Generate & upload Short	2026-06-20T21:26:18.8908371Z       Token 1296...cdee hit limits. Rotating to next token...
+generate-and-upload	Generate & upload Short	2026-06-20T21:26:20.8909971Z       Submitting via token: vvQB...2e0e
+generate-and-upload	Generate & upload Short	2026-06-20T21:26:21.2295163Z       Token vvQB...2e0e hit limits. Rotating to next token...
+generate-and-upload	Generate & upload Short	2026-06-20T21:26:23.2297059Z       Submitting via token: Cmoq...2c68
+generate-and-upload	Generate & upload Short	2026-06-20T21:26:23.7820117Z       Job ID: f3e44061-b42e-409d-ae8a-236bb964a5ab
+generate-and-upload	Generate & upload Short	2026-06-20T21:26:24.1342793Z    Poll 1: status=pending
+generate-and-upload	Generate & upload Short	2026-06-20T21:26:29.5489456Z    Poll 2: status=processing
+generate-and-upload	Generate & upload Short	2026-06-20T21:26:35.4743451Z    Poll 3: status=processing
+generate-and-upload	Generate & upload Short	2026-06-20T21:26:40.8637215Z    Poll 4: status=processing
+generate-and-upload	Generate & upload Short	2026-06-20T21:26:46.2290995Z    Poll 5: status=processing
+generate-and-upload	Generate & upload Short	2026-06-20T21:26:52.2251290Z    Poll 6: status=done
+generate-and-upload	Generate & upload Short	2026-06-20T21:26:53.4385368Z       Saved raw clip to: /home/runner/work/-yt-automation/-yt-automation/output/runs/fifa_2026_ltx_20260620_212614/videos/raw_clip_01.mp4 (332KB)
+generate-and-upload	Generate & upload Short	2026-06-20T21:26:53.4386375Z       Waiting 10s cooldown...
+generate-and-upload	Generate & upload Short	2026-06-20T21:27:03.4387278Z    [Clip 2/8] Submitting prompt: The USA team celebrating their win against Australia at the Seattle stadium., FI...
+generate-and-upload	Generate & upload Short	2026-06-20T21:27:03.4388839Z       Submitting via token: Cmoq...2c68
+generate-and-upload	Generate & upload Short	2026-06-20T21:27:04.3608696Z       Token Cmoq...2c68 hit limits. Rotating to next token...
+generate-and-upload	Generate & upload Short	2026-06-20T21:27:06.3610766Z       Submitting via token: cHwR...3eaa
+generate-and-upload	Generate & upload Short	2026-06-20T21:27:06.9425656Z       Job ID: c411306e-d156-4535-a098-27b75f75f5d6
+generate-and-upload	Generate & upload Short	2026-06-20T21:27:07.3256729Z    Poll 1: status=pending
+generate-and-upload	Generate & upload Short	2026-06-20T21:27:13.1662842Z    Poll 2: status=processing
+generate-and-upload	Generate & upload Short	2026-06-20T21:27:19.0452705Z    Poll 3: status=processing
+generate-and-upload	Generate & upload Short	2026-06-20T21:27:24.4221627Z    Poll 4: status=processing
+generate-and-upload	Generate & upload Short	2026-06-20T21:27:30.3356046Z    Poll 5: status=processing
+generate-and-upload	Generate & upload Short	2026-06-20T21:27:35.7529760Z    Poll 6: status=processing
+generate-and-upload	Generate & upload Short	2026-06-20T21:27:41.2286559Z    Poll 7: status=processing
+generate-and-upload	Generate & upload Short	2026-06-20T21:27:46.6150764Z    Poll 8: status=processing
+generate-and-upload	Generate & upload Short	2026-06-20T21:27:51.9815013Z    Poll 9: status=processing
+generate-and-upload	Generate & upload Short	2026-06-20T21:27:57.4496452Z    Poll 10: status=processing
+generate-and-upload	Generate & upload Short	2026-06-20T21:28:02.8274842Z    Poll 11: status=processing
+generate-and-upload	Generate & upload Short	2026-06-20T21:28:08.2216622Z    Poll 12: status=processing
+generate-and-upload	Generate & upload Short	2026-06-20T21:28:13.6171209Z    Poll 13: status=processing
+generate-and-upload	Generate & upload Short	2026-06-20T21:28:19.0224862Z    Poll 14: status=processing
+generate-and-upload	Generate & upload Short	2026-06-20T21:28:24.8933148Z    Poll 15: status=processing
+generate-and-upload	Generate & upload Short	2026-06-20T21:28:30.2623580Z    Poll 16: status=processing
+generate-and-upload	Generate & upload Short	2026-06-20T21:28:35.7021922Z    Poll 17: status=done
+generate-and-upload	Generate & upload Short	2026-06-20T21:28:37.1393725Z       Saved raw clip to: /home/runner/work/-yt-automation/-yt-automation/output/runs/fifa_2026_ltx_20260620_212614/videos/raw_clip_02.mp4 (965KB)
+generate-and-upload	Generate & upload Short	2026-06-20T21:28:37.1394611Z       Waiting 10s cooldown...
+generate-and-upload	Generate & upload Short	2026-06-20T21:28:47.1396205Z    [Clip 3/8] Submitting prompt: The Netherlands' Brian Brobbey scoring a goal against Sweden at the Houston stad...
+generate-and-upload	Generate & upload Short	2026-06-20T21:28:47.1397414Z       Submitting via token: cHwR...3eaa
+generate-and-upload	Generate & upload Short	2026-06-20T21:28:47.7271155Z       Job ID: 2a543794-815a-4f3d-ae94-754720800648
+generate-and-upload	Generate & upload Short	2026-06-20T21:28:48.0840050Z    Poll 1: status=pending
+generate-and-upload	Generate & upload Short	2026-06-20T21:28:53.4428931Z    Poll 2: status=processing
+generate-and-upload	Generate & upload Short	2026-06-20T21:28:58.8359864Z    Poll 3: status=processing
+generate-and-upload	Generate & upload Short	2026-06-20T21:29:04.2161781Z    Poll 4: status=processing
+generate-and-upload	Generate & upload Short	2026-06-20T21:29:09.5858805Z    Poll 5: status=processing
+generate-and-upload	Generate & upload Short	2026-06-20T21:29:14.9429107Z    Poll 6: status=processing
+generate-and-upload	Generate & upload Short	2026-06-20T21:29:20.3100461Z    Poll 7: status=processing
+generate-and-upload	Generate & upload Short	2026-06-20T21:29:25.6817328Z    Poll 8: status=processing
+generate-and-upload	Generate & upload Short	2026-06-20T21:29:31.6208303Z    Poll 9: status=processing
+generate-and-upload	Generate & upload Short	2026-06-20T21:29:37.0557504Z    Poll 10: status=processing
+generate-and-upload	Generate & upload Short	2026-06-20T21:29:42.9265072Z    Poll 11: status=processing
+generate-and-upload	Generate & upload Short	2026-06-20T21:29:48.7784114Z    Poll 12: status=processing
+generate-and-upload	Generate & upload Short	2026-06-20T21:29:54.1493090Z    Poll 13: status=processing
+generate-and-upload	Generate & upload Short	2026-06-20T21:29:59.7528992Z    Poll 14: status=done
+generate-and-upload	Generate & upload Short	2026-06-20T21:30:00.9911535Z       Saved raw clip to: /home/runner/work/-yt-automation/-yt-automation/output/runs/fifa_2026_ltx_20260620_212614/videos/raw_clip_03.mp4 (537KB)
+generate-and-upload	Generate & upload Short	2026-06-20T21:30:00.9912516Z       Waiting 10s cooldown...
+generate-and-upload	Generate & upload Short	2026-06-20T21:30:10.9913084Z    [Clip 4/8] Submitting prompt: A packed stadium in the United States watching a FIFA World Cup 2026 match., FIF...
+generate-and-upload	Generate & upload Short	2026-06-20T21:30:10.9914740Z       Submitting via token: cHwR...3eaa
+generate-and-upload	Generate & upload Short	2026-06-20T21:30:11.5823274Z       Job ID: dc5a5076-707f-4348-b635-4a970f624e82
+generate-and-upload	Generate & upload Short	2026-06-20T21:30:11.9264127Z    Poll 1: status=pending
+generate-and-upload	Generate & upload Short	2026-06-20T21:30:17.2975791Z    Poll 2: status=processing
+generate-and-upload	Generate & upload Short	2026-06-20T21:30:22.7028466Z    Poll 3: status=processing
+generate-and-upload	Generate & upload Short	2026-06-20T21:30:28.0836839Z    Poll 4: status=processing
+generate-and-upload	Generate & upload Short	2026-06-20T21:30:33.4525759Z    Poll 5: status=processing
+generate-and-upload	Generate & upload Short	2026-06-20T21:30:38.8270565Z    Poll 6: status=processing
+generate-and-upload	Generate & upload Short	2026-06-20T21:30:44.6738998Z    Poll 7: status=processing
+generate-and-upload	Generate & upload Short	2026-06-20T21:30:50.5689757Z    Poll 8: status=processing
+generate-and-upload	Generate & upload Short	2026-06-20T21:30:55.9417256Z    Poll 9: status=processing
+generate-and-upload	Generate & upload Short	2026-06-20T21:31:01.8571394Z    Poll 10: status=processing
+generate-and-upload	Generate & upload Short	2026-06-20T21:31:07.7778173Z    Poll 11: status=processing
+generate-and-upload	Generate & upload Short	2026-06-20T21:31:13.2211341Z    Poll 12: status=done
+generate-and-upload	Generate & upload Short	2026-06-20T21:31:14.4217990Z       Saved raw clip to: /home/runner/work/-yt-automation/-yt-automation/output/runs/fifa_2026_ltx_20260620_212614/videos/raw_clip_04.mp4 (410KB)
+generate-and-upload	Generate & upload Short	2026-06-20T21:31:14.4218941Z       Waiting 10s cooldown...
+generate-and-upload	Generate & upload Short	2026-06-20T21:31:24.4220560Z    [Clip 5/8] Submitting prompt: The USA team in action against Australia at the Seattle stadium., FIFA World Cup...
+generate-and-upload	Generate & upload Short	2026-06-20T21:31:24.4222753Z       Submitting via token: cHwR...3eaa
+generate-and-upload	Generate & upload Short	2026-06-20T21:31:25.0236809Z       Job ID: 129eaf53-f4bb-4212-bbdd-ce96602a2058
+generate-and-upload	Generate & upload Short	2026-06-20T21:31:25.3771271Z    Poll 1: status=pending
+generate-and-upload	Generate & upload Short	2026-06-20T21:31:31.2493670Z    Poll 2: status=processing
+generate-and-upload	Generate & upload Short	2026-06-20T21:31:36.6579893Z    Poll 3: status=processing
+generate-and-upload	Generate & upload Short	2026-06-20T21:31:42.0346172Z    Poll 4: status=processing
+generate-and-upload	Generate & upload Short	2026-06-20T21:31:47.8954763Z    Poll 5: status=processing
+generate-and-upload	Generate & upload Short	2026-06-20T21:31:53.2616682Z    Poll 6: status=processing
+generate-and-upload	Generate & upload Short	2026-06-20T21:31:58.6657936Z    Poll 7: status=processing
+generate-and-upload	Generate & upload Short	2026-06-20T21:32:04.9456858Z    Poll 8: status=processing
+generate-and-upload	Generate & upload Short	2026-06-20T21:32:10.3195977Z    Poll 9: status=processing
+generate-and-upload	Generate & upload Short	2026-06-20T21:32:16.2790826Z    Poll 10: status=processing
+generate-and-upload	Generate & upload Short	2026-06-20T21:32:22.3592509Z    Poll 11: status=processing
+generate-and-upload	Generate & upload Short	2026-06-20T21:32:27.7827114Z    Poll 12: status=done
+generate-and-upload	Generate & upload Short	2026-06-20T21:32:29.1927495Z       Saved raw clip to: /home/runner/work/-yt-automation/-yt-automation/output/runs/fifa_2026_ltx_20260620_212614/videos/raw_clip_05.mp4 (802KB)
+generate-and-upload	Generate & upload Short	2026-06-20T21:32:29.1928497Z       Waiting 10s cooldown...
+generate-and-upload	Generate & upload Short	2026-06-20T21:32:39.1930513Z    [Clip 6/8] Submitting prompt: The Netherlands' Cody Gakpo celebrating his goal against Sweden at the Houston s...
+generate-and-upload	Generate & upload Short	2026-06-20T21:32:39.1931565Z       Submitting via token: cHwR...3eaa
+generate-and-upload	Generate & upload Short	2026-06-20T21:32:39.7574827Z       Job ID: 2e9ea15e-e3c5-4d97-b2a0-f59fd735824c
+generate-and-upload	Generate & upload Short	2026-06-20T21:32:40.0990501Z    Poll 1: status=pending
+generate-and-upload	Generate & upload Short	2026-06-20T21:32:46.0340502Z    Poll 2: status=processing
+generate-and-upload	Generate & upload Short	2026-06-20T21:32:51.4022007Z    Poll 3: status=processing
+generate-and-upload	Generate & upload Short	2026-06-20T21:32:56.7652932Z    Poll 4: status=processing
+generate-and-upload	Generate & upload Short	2026-06-20T21:33:02.7111545Z    Poll 5: status=processing
+generate-and-upload	Generate & upload Short	2026-06-20T21:33:08.1324475Z    Poll 6: status=done
+generate-and-upload	Generate & upload Short	2026-06-20T21:33:09.4372428Z       Saved raw clip to: /home/runner/work/-yt-automation/-yt-automation/output/runs/fifa_2026_ltx_20260620_212614/videos/raw_clip_06.mp4 (723KB)
+generate-and-upload	Generate & upload Short	2026-06-20T21:33:09.4373372Z       Waiting 10s cooldown...
+generate-and-upload	Generate & upload Short	2026-06-20T21:33:19.4375133Z    [Clip 7/8] Submitting prompt: A close-up shot of the FIFA World Cup 2026 trophy., FIFA World Cup atmosphere, p...
+generate-and-upload	Generate & upload Short	2026-06-20T21:33:19.4376113Z       Submitting via token: cHwR...3eaa
+generate-and-upload	Generate & upload Short	2026-06-20T21:33:19.8466401Z       Token cHwR...3eaa hit limits. Rotating to next token...
+generate-and-upload	Generate & upload Short	2026-06-20T21:33:21.8468509Z       Submitting via token: kLc4...f81d
+generate-and-upload	Generate & upload Short	2026-06-20T21:33:22.4509088Z       Job ID: 4b20b4fc-aa7a-45b6-81d2-c3ff0cd0486a
+generate-and-upload	Generate & upload Short	2026-06-20T21:33:22.8008702Z    Poll 1: status=pending
+generate-and-upload	Generate & upload Short	2026-06-20T21:33:28.2033159Z    Poll 2: status=processing
+generate-and-upload	Generate & upload Short	2026-06-20T21:33:34.2403625Z    Poll 3: status=processing
+generate-and-upload	Generate & upload Short	2026-06-20T21:33:39.6153412Z    Poll 4: status=processing
+generate-and-upload	Generate & upload Short	2026-06-20T21:33:44.9895506Z    Poll 5: status=processing
+generate-and-upload	Generate & upload Short	2026-06-20T21:33:50.3806618Z    Poll 6: status=done
+generate-and-upload	Generate & upload Short	2026-06-20T21:33:51.5091907Z       Saved raw clip to: /home/runner/work/-yt-automation/-yt-automation/output/runs/fifa_2026_ltx_20260620_212614/videos/raw_clip_07.mp4 (434KB)
+generate-and-upload	Generate & upload Short	2026-06-20T21:33:51.5092999Z       Waiting 10s cooldown...
+generate-and-upload	Generate & upload Short	2026-06-20T21:34:01.5093317Z    [Clip 8/8] Submitting prompt: The USA team lining up before a match in the FIFA World Cup 2026 tournament., FI...
+generate-and-upload	Generate & upload Short	2026-06-20T21:34:01.5094888Z       Submitting via token: kLc4...f81d
+generate-and-upload	Generate & upload Short	2026-06-20T21:34:02.4133861Z       Token kLc4...f81d hit limits. Rotating to next token...
+generate-and-upload	Generate & upload Short	2026-06-20T21:34:04.4135555Z       Submitting via token: iSWC...3c98
+generate-and-upload	Generate & upload Short	2026-06-20T21:34:04.9636256Z       Job ID: 0d255089-4e0e-431e-946f-d274ca0b54cf
+generate-and-upload	Generate & upload Short	2026-06-20T21:34:05.3281090Z    Poll 1: status=pending
+generate-and-upload	Generate & upload Short	2026-06-20T21:34:11.2288226Z    Poll 2: status=processing
+generate-and-upload	Generate & upload Short	2026-06-20T21:34:16.5880270Z    Poll 3: status=processing
+generate-and-upload	Generate & upload Short	2026-06-20T21:34:21.9610094Z    Poll 4: status=processing
+generate-and-upload	Generate & upload Short	2026-06-20T21:34:27.4184713Z    Poll 5: status=processing
+generate-and-upload	Generate & upload Short	2026-06-20T21:34:32.8495830Z    Poll 6: status=done
+generate-and-upload	Generate & upload Short	2026-06-20T21:34:34.2172813Z       Saved raw clip to: /home/runner/work/-yt-automation/-yt-automation/output/runs/fifa_2026_ltx_20260620_212614/videos/raw_clip_08.mp4 (724KB)
+generate-and-upload	Generate & upload Short	2026-06-20T21:34:34.2173818Z 
+generate-and-upload	Generate & upload Short	2026-06-20T21:34:34.2174434Z ⑤ Pre-processing clips (scaling, cropping to 1080x1920, and adjusting speed)...
+generate-and-upload	Generate & upload Short	2026-06-20T21:34:34.2175004Z    Target duration per clip: 5.05s
+generate-and-upload	Generate & upload Short	2026-06-20T21:34:35.2581210Z    Processed clip 1/8
+generate-and-upload	Generate & upload Short	2026-06-20T21:34:36.4233851Z    Processed clip 2/8
+generate-and-upload	Generate & upload Short	2026-06-20T21:34:37.5322530Z    Processed clip 3/8
+generate-and-upload	Generate & upload Short	2026-06-20T21:34:38.6248337Z    Processed clip 4/8
+generate-and-upload	Generate & upload Short	2026-06-20T21:34:39.7046787Z    Processed clip 5/8
+generate-and-upload	Generate & upload Short	2026-06-20T21:34:40.7804549Z    Processed clip 6/8
+generate-and-upload	Generate & upload Short	2026-06-20T21:34:41.8604227Z    Processed clip 7/8
+generate-and-upload	Generate & upload Short	2026-06-20T21:34:42.9024952Z    Processed clip 8/8
+generate-and-upload	Generate & upload Short	2026-06-20T21:34:42.9025360Z 
+generate-and-upload	Generate & upload Short	2026-06-20T21:34:42.9025833Z ⑥ Stitching and rendering final short video...
+generate-and-upload	Generate & upload Short	2026-06-20T21:34:42.9342793Z    Stitch: Using transition style 'dissolve'
+generate-and-upload	Generate & upload Short	2026-06-20T21:34:43.0993476Z [mp3 @ 0x55cfb410bb00] Estimating duration from bitrate, this may be inaccurate
+generate-and-upload	Generate & upload Short	2026-06-20T21:34:43.3024367Z [aac @ 0x55cfb690a740] Too many bits 8192.000000 > 6144 per frame requested, clamping to max
+generate-and-upload	Generate & upload Short	2026-06-20T21:35:23.6312414Z 
+generate-and-upload	Generate & upload Short	2026-06-20T21:35:23.6313500Z [OK] Video successfully rendered: /home/runner/work/-yt-automation/-yt-automation/output/runs/fifa_2026_ltx_20260620_212614/short.mp4
+generate-and-upload	Generate & upload Short	2026-06-20T21:35:24.0975115Z 
+generate-and-upload	Generate & upload Short	2026-06-20T21:35:24.0976122Z ⑦ YouTube: uploading (YT_REFRESH_TOKEN)...
+generate-and-upload	Generate & upload Short	2026-06-20T21:35:24.4814691Z    [YouTube] Upload failed: <HttpError 403 when requesting None returned "Access forbidden. The request may not be properly authorized.". Details: "[{'message': 'Access forbidden. The request may not be properly authorized.', 'domain': 'youtube.common', 'reason': 'forbidden'}]">
+generate-and-upload	Generate & upload Short	2026-06-20T21:35:24.4816844Z Traceback (most recent call last):
+generate-and-upload	Generate & upload Short	2026-06-20T21:35:24.4826026Z   File "/home/runner/work/-yt-automation/-yt-automation/scripts/run_short_ltx.py", line 504, in <module>
+generate-and-upload	Generate & upload Short	2026-06-20T21:35:24.4826659Z     main()
+generate-and-upload	Generate & upload Short	2026-06-20T21:35:24.4827148Z   File "/home/runner/work/-yt-automation/-yt-automation/scripts/run_short_ltx.py", line 465, in main
+generate-and-upload	Generate & upload Short	2026-06-20T21:35:24.4827810Z     raise e
+generate-and-upload	Generate & upload Short	2026-06-20T21:35:24.4828480Z   File "/home/runner/work/-yt-automation/-yt-automation/scripts/run_short_ltx.py", line 457, in main
+generate-and-upload	Generate & upload Short	2026-06-20T21:35:24.4829005Z     vid = upload_short(
+generate-and-upload	Generate & upload Short	2026-06-20T21:35:24.4829260Z           ^^^^^^^^^^^^^
+generate-and-upload	Generate & upload Short	2026-06-20T21:35:24.4829788Z   File "/home/runner/work/-yt-automation/-yt-automation/pipeline/youtube_upload.py", line 124, in upload_short
+generate-and-upload	Generate & upload Short	2026-06-20T21:35:24.4830622Z     _, response = req.next_chunk()
+generate-and-upload	Generate & upload Short	2026-06-20T21:35:24.4830902Z                   ^^^^^^^^^^^^^^^^
+generate-and-upload	Generate & upload Short	2026-06-20T21:35:24.4831535Z   File "/opt/hostedtoolcache/Python/3.12.13/x64/lib/python3.12/site-packages/googleapiclient/_helpers.py", line 130, in positional_wrapper
+generate-and-upload	Generate & upload Short	2026-06-20T21:35:24.4832544Z     return wrapped(*args, **kwargs)
+generate-and-upload	Generate & upload Short	2026-06-20T21:35:24.4832820Z            ^^^^^^^^^^^^^^^^^^^^^^^^
+generate-and-upload	Generate & upload Short	2026-06-20T21:35:24.4833396Z   File "/opt/hostedtoolcache/Python/3.12.13/x64/lib/python3.12/site-packages/googleapiclient/http.py", line 1022, in next_chunk
+generate-and-upload	Generate & upload Short	2026-06-20T21:35:24.4834036Z     raise ResumableUploadError(resp, content)
+generate-and-upload	Generate & upload Short	2026-06-20T21:35:24.4835226Z googleapiclient.errors.ResumableUploadError: <HttpError 403 when requesting None returned "Access forbidden. The request may not be properly authorized.". Details: "[{'message': 'Access forbidden. The request may not be properly authorized.', 'domain': 'youtube.common', 'reason': 'forbidden'}]">
+generate-and-upload	Generate & upload Short	2026-06-20T21:35:24.5716025Z ##[error]Process completed with exit code 1.
+generate-and-upload	Save history cache	﻿2026-06-20T21:35:24.5778140Z ##[group]Run actions/cache/save@v5
+generate-and-upload	Save history cache	2026-06-20T21:35:24.5778455Z with:
+generate-and-upload	Save history cache	2026-06-20T21:35:24.5778672Z   path: output/history/
+generate-and-upload	Save history cache	2026-06-20T21:35:24.5778939Z   key: story-history-fifa_2026-27884331199
+generate-and-upload	Save history cache	2026-06-20T21:35:24.5779263Z   enableCrossOsArchive: false
+generate-and-upload	Save history cache	2026-06-20T21:35:24.5779518Z env:
+generate-and-upload	Save history cache	2026-06-20T21:35:24.5779913Z   GROQ_API_KEY: ***
+generate-and-upload	Save history cache	2026-06-20T21:35:24.5780648Z   DEAPI_TOKEN: ***
+generate-and-upload	Save history cache	2026-06-20T21:35:24.5781078Z   YT_CLIENT_ID: ***
+generate-and-upload	Save history cache	2026-06-20T21:35:24.5781397Z   YT_CLIENT_SECRET_VALUE: ***
+generate-and-upload	Save history cache	2026-06-20T21:35:24.5782018Z   YT_REFRESH_TOKEN: ***
+generate-and-upload	Save history cache	2026-06-20T21:35:24.5782264Z   INSTAGRAM_ACCOUNT_ID: 
+generate-and-upload	Save history cache	2026-06-20T21:35:24.5782514Z   INSTAGRAM_ACCESS_TOKEN: 
+generate-and-upload	Save history cache	2026-06-20T21:35:24.5782760Z   FACEBOOK_PAGE_ID: 
+generate-and-upload	Save history cache	2026-06-20T21:35:24.5782993Z   FACEBOOK_ACCESS_TOKEN: 
+generate-and-upload	Save history cache	2026-06-20T21:35:24.5783248Z   EDGE_TTS_VOICE: en-US-GuyNeural
+generate-and-upload	Save history cache	2026-06-20T21:35:24.5783583Z   pythonLocation: /opt/hostedtoolcache/Python/3.12.13/x64
+generate-and-upload	Save history cache	2026-06-20T21:35:24.5784044Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.12.13/x64/lib/pkgconfig
+generate-and-upload	Save history cache	2026-06-20T21:35:24.5784517Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.13/x64
+generate-and-upload	Save history cache	2026-06-20T21:35:24.5784925Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.13/x64
+generate-and-upload	Save history cache	2026-06-20T21:35:24.5785334Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.13/x64
+generate-and-upload	Save history cache	2026-06-20T21:35:24.5785744Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.12.13/x64/lib
+generate-and-upload	Save history cache	2026-06-20T21:35:24.5786083Z ##[endgroup]
+generate-and-upload	Save history cache	2026-06-20T21:35:24.7226058Z [command]/usr/bin/tar --posix -cf cache.tzst --exclude cache.tzst -P -C /home/runner/work/-yt-automation/-yt-automation --files-from manifest.txt --use-compress-program zstdmt
+generate-and-upload	Save history cache	2026-06-20T21:35:25.3063530Z Sent 1654 of 1654 (100.0%), 0.0 MBs/sec
+generate-and-upload	Save history cache	2026-06-20T21:35:25.5804031Z Cache saved with key: story-history-fifa_2026-27884331199
+generate-and-upload	Post Checkout	﻿2026-06-20T21:35:25.5981545Z Post job cleanup.
+generate-and-upload	Post Checkout	2026-06-20T21:35:25.6827181Z [command]/usr/bin/git version
+generate-and-upload	Post Checkout	2026-06-20T21:35:25.6865538Z git version 2.54.0
+generate-and-upload	Post Checkout	2026-06-20T21:35:25.6903394Z Temporarily overriding HOME='/home/runner/work/_temp/7b5a1fe1-32cc-4e98-98df-13ebf1782691' before making global git config changes
+generate-and-upload	Post Checkout	2026-06-20T21:35:25.6908550Z Adding repository directory to the temporary git global config as a safe directory
+generate-and-upload	Post Checkout	2026-06-20T21:35:25.6909952Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/-yt-automation/-yt-automation
+generate-and-upload	Post Checkout	2026-06-20T21:35:25.6941561Z Removing SSH command configuration
+generate-and-upload	Post Checkout	2026-06-20T21:35:25.6947689Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+generate-and-upload	Post Checkout	2026-06-20T21:35:25.6981925Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+generate-and-upload	Post Checkout	2026-06-20T21:35:25.7214712Z Removing HTTP extra header
+generate-and-upload	Post Checkout	2026-06-20T21:35:25.7217502Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+generate-and-upload	Post Checkout	2026-06-20T21:35:25.7254870Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+generate-and-upload	Post Checkout	2026-06-20T21:35:25.7496936Z Removing includeIf entries pointing to credentials config files
+generate-and-upload	Post Checkout	2026-06-20T21:35:25.7504406Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+generate-and-upload	Post Checkout	2026-06-20T21:35:25.7535836Z includeif.gitdir:/home/runner/work/-yt-automation/-yt-automation/.git.path
+generate-and-upload	Post Checkout	2026-06-20T21:35:25.7537096Z includeif.gitdir:/home/runner/work/-yt-automation/-yt-automation/.git/worktrees/*.path
+generate-and-upload	Post Checkout	2026-06-20T21:35:25.7538195Z includeif.gitdir:/github/workspace/.git.path
+generate-and-upload	Post Checkout	2026-06-20T21:35:25.7539051Z includeif.gitdir:/github/workspace/.git/worktrees/*.path
+generate-and-upload	Post Checkout	2026-06-20T21:35:25.7544481Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/home/runner/work/-yt-automation/-yt-automation/.git.path
+generate-and-upload	Post Checkout	2026-06-20T21:35:25.7566923Z /home/runner/work/_temp/git-credentials-a9c0f40f-fee2-4785-a880-afb8e8d2c367.config
+generate-and-upload	Post Checkout	2026-06-20T21:35:25.7577525Z [command]/usr/bin/git config --local --unset includeif.gitdir:/home/runner/work/-yt-automation/-yt-automation/.git.path /home/runner/work/_temp/git-credentials-a9c0f40f-fee2-4785-a880-afb8e8d2c367.config
+generate-and-upload	Post Checkout	2026-06-20T21:35:25.7614244Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/home/runner/work/-yt-automation/-yt-automation/.git/worktrees/*.path
+generate-and-upload	Post Checkout	2026-06-20T21:35:25.7636532Z /home/runner/work/_temp/git-credentials-a9c0f40f-fee2-4785-a880-afb8e8d2c367.config
+generate-and-upload	Post Checkout	2026-06-20T21:35:25.7645920Z [command]/usr/bin/git config --local --unset includeif.gitdir:/home/runner/work/-yt-automation/-yt-automation/.git/worktrees/*.path /home/runner/work/_temp/git-credentials-a9c0f40f-fee2-4785-a880-afb8e8d2c367.config
+generate-and-upload	Post Checkout	2026-06-20T21:35:25.7685212Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/github/workspace/.git.path
+generate-and-upload	Post Checkout	2026-06-20T21:35:25.7707615Z /github/runner_temp/git-credentials-a9c0f40f-fee2-4785-a880-afb8e8d2c367.config
+generate-and-upload	Post Checkout	2026-06-20T21:35:25.7719188Z [command]/usr/bin/git config --local --unset includeif.gitdir:/github/workspace/.git.path /github/runner_temp/git-credentials-a9c0f40f-fee2-4785-a880-afb8e8d2c367.config
+generate-and-upload	Post Checkout	2026-06-20T21:35:25.7752076Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/github/workspace/.git/worktrees/*.path
+generate-and-upload	Post Checkout	2026-06-20T21:35:25.7773193Z /github/runner_temp/git-credentials-a9c0f40f-fee2-4785-a880-afb8e8d2c367.config
+generate-and-upload	Post Checkout	2026-06-20T21:35:25.7783411Z [command]/usr/bin/git config --local --unset includeif.gitdir:/github/workspace/.git/worktrees/*.path /github/runner_temp/git-credentials-a9c0f40f-fee2-4785-a880-afb8e8d2c367.config
+generate-and-upload	Post Checkout	2026-06-20T21:35:25.7816582Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+generate-and-upload	Post Checkout	2026-06-20T21:35:25.8048410Z Removing credentials config '/home/runner/work/_temp/git-credentials-a9c0f40f-fee2-4785-a880-afb8e8d2c367.config'
+generate-and-upload	Complete job	﻿2026-06-20T21:35:25.8186404Z Cleaning up orphan processes
