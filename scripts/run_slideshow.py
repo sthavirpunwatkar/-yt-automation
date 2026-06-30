@@ -34,6 +34,7 @@ load_dotenv(REPO_ROOT / "scripts" / ".env")
 
 from pipeline.captions import build_srt
 from pipeline.channel_presets import get_preset, list_channel_ids
+from pipeline.downloader import download_manual_images
 from pipeline.edge_tts_synth import synthesize_full
 from pipeline.groq_script import generate_short_pack
 from pipeline.story_history import save_title
@@ -48,6 +49,7 @@ def main() -> None:
     ap.add_argument("--instagram", action="store_true", help="Upload to Instagram Reels after render.")
     ap.add_argument("--facebook", action="store_true", help="Upload to Facebook Page Reels after render.")
     ap.add_argument("--privacy", default="private", choices=["private", "unlisted", "public"])
+    ap.add_argument("--image-urls", default=os.environ.get("IMAGE_URLS", ""), help="Comma-separated image URLs to download (bypasses DuckDuckGo search)")
     args = ap.parse_args()
 
     # Get preset and override segment_count to 5 (good for ~60s short)
@@ -101,29 +103,38 @@ def main() -> None:
     build_srt(sentence_timings, srt_path, total_dur)
 
     # 4. Fetch Images
-    print(f"\n④ Fetching {len(search_queries)} web images...")
     image_paths = []
-    
-    for i, query in enumerate(search_queries, 1):
-        # Force strict football context so DuckDuckGo doesn't return vague/generic images
-        strict_query = f"{query} FIFA World Cup football match"
-        print(f"   [Image {i}/{len(search_queries)}] Searching: {strict_query}")
-        out_path = img_dir / f"img_{i:02d}.jpg"
-        status, detail = fetch_web_image(strict_query, out_path)
-        if status == "ok":
-            print(f"      Saved: {detail}")
-            image_paths.append(out_path)
-        else:
-            print(f"      Failed to fetch image: {detail}")
-            # we can fallback or duplicate the last image if it fails
-            if len(image_paths) > 0:
-                print("      Falling back to previous image...")
-                fallback = img_dir / f"img_{i:02d}_fallback.jpg"
-                shutil.copyfile(image_paths[-1], fallback)
-                image_paths.append(fallback)
+    if args.image_urls:
+        try:
+            print(f"\n④ Downloading manual images from: {args.image_urls}…")
+            image_paths = download_manual_images(args.image_urls, img_dir)
+        except Exception as dl_err:
+            print(f"   [Fallback Warning] Manual download failed: {dl_err}. Falling back to automatic search...")
 
     if not image_paths:
-        print("ERROR: All image fetches failed.")
+        print(f"\n④ Fetching {len(search_queries)} web images...")
+        image_paths = []
+        
+        for i, query in enumerate(search_queries, 1):
+            # Force strict football context so DuckDuckGo doesn't return vague/generic images
+            strict_query = f"{query} FIFA World Cup football match"
+            print(f"   [Image {i}/{len(search_queries)}] Searching: {strict_query}")
+            out_path = img_dir / f"img_{i:02d}.jpg"
+            status, detail = fetch_web_image(strict_query, out_path)
+            if status == "ok":
+                print(f"      Saved: {detail}")
+                image_paths.append(out_path)
+            else:
+                print(f"      Failed to fetch image: {detail}")
+                # we can fallback or duplicate the last image if it fails
+                if len(image_paths) > 0:
+                    print("      Falling back to previous image...")
+                    fallback = img_dir / f"img_{i:02d}_fallback.jpg"
+                    shutil.copyfile(image_paths[-1], fallback)
+                    image_paths.append(fallback)
+
+    if not image_paths:
+        print("ERROR: All image fetches/downloads failed.")
         sys.exit(1)
 
     # 5. Render final video

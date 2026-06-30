@@ -49,6 +49,7 @@ load_dotenv(REPO_ROOT / "scripts" / ".env")
 
 from pipeline.captions import build_srt
 from pipeline.channel_presets import get_preset, list_channel_ids
+from pipeline.downloader import download_manual_images
 from pipeline.edge_tts_synth import synthesize_full
 from pipeline.groq_script import generate_short_pack
 from pipeline.images import DEFAULT_NEGATIVE, full_visual_prompt, save_scene_image
@@ -108,6 +109,14 @@ def _render_and_upload(
     else:
         print("   (skip upload — pass --upload)")
 
+    import shutil
+    upload_folder = REPO_ROOT / "upload yt"
+    upload_folder.mkdir(exist_ok=True)
+    safe_title = "".join(c if c.isalnum() or c in " _-" else "_" for c in title).strip()
+    dest_path = upload_folder / f"{safe_title}{suffix}.mp4"
+    shutil.copy2(video_path, dest_path)
+    print(f"   → Routed for manual upload: {dest_path}")
+
     return video_path
 
 
@@ -119,6 +128,7 @@ def main() -> None:
     ap.add_argument("--instagram", action="store_true", help="Upload to Instagram Reels after render.")
     ap.add_argument("--facebook", action="store_true", help="Upload to Facebook Page Reels after render.")
     ap.add_argument("--privacy", default="private", choices=["private", "unlisted", "public"])
+    ap.add_argument("--image-urls", default=os.environ.get("IMAGE_URLS", ""), help="Comma-separated image URLs to download (bypasses DeAPI image generation)")
     args = ap.parse_args()
 
     preset = get_preset(args.channel)
@@ -166,7 +176,7 @@ def main() -> None:
     )
     (run_dir / "script.json").write_text(json.dumps(pack, indent=2, ensure_ascii=False), encoding="utf-8")
 
-    image_prompts = pack["image_prompts"]
+    image_prompts = pack.get("visual_search_queries") or pack["image_prompts"]
 
     if variants:
         # Bilingual mode: each lang gets its own audio/SRT/video
@@ -190,28 +200,37 @@ def main() -> None:
         history_narration = narration
 
     # ── 2. Images via DeAPI (generated ONCE, shared by all variants) ──
-    w = int(os.environ.get("DEAPI_IMAGE_WIDTH", "768"))
-    h = int(os.environ.get("DEAPI_IMAGE_HEIGHT", "768"))
-    style_suffix = preset.get("image_style_suffix")
-    negative = (
-        os.environ.get("IMAGE_NEGATIVE_PROMPT")
-        or preset.get("image_negative_prompt")
-        or DEFAULT_NEGATIVE
-    )
-    cooldown = int(os.environ.get("DEAPI_COOLDOWN", "10"))
-
-    print(f"③ Images: {len(image_prompts)} scenes ({cooldown}s cooldown)…")
     image_paths: list[Path] = []
-    for i, ip in enumerate(image_prompts):
-        prompt = full_visual_prompt(ip, style_suffix=style_suffix)
-        out = img_dir / f"scene_{i + 1:02d}.png"
-        st, detail = save_scene_image(i + 1, prompt, out, width=w, height=h, negative=negative)
-        if st != "ok":
-            raise RuntimeError(f"Image {i + 1} failed: {detail}")
-        print(f"   scene {i + 1}/{len(image_prompts)}: {detail}")
-        image_paths.append(out)
-        if i < len(image_prompts) - 1:
-            time.sleep(cooldown)
+    if args.image_urls:
+        try:
+            print(f"③ Downloading manual images from: {args.image_urls}…")
+            image_paths = download_manual_images(args.image_urls, img_dir)
+        except Exception as dl_err:
+            print(f"   [Fallback Warning] Manual download failed: {dl_err}. Falling back to automatic generation...")
+
+    if not image_paths:
+        w = int(os.environ.get("DEAPI_IMAGE_WIDTH", "768"))
+        h = int(os.environ.get("DEAPI_IMAGE_HEIGHT", "768"))
+        style_suffix = preset.get("image_style_suffix")
+        negative = (
+            os.environ.get("IMAGE_NEGATIVE_PROMPT")
+            or preset.get("image_negative_prompt")
+            or DEFAULT_NEGATIVE
+        )
+        cooldown = int(os.environ.get("DEAPI_COOLDOWN", "10"))
+
+        print(f"③ Images: {len(image_prompts)} scenes ({cooldown}s cooldown)…")
+        image_paths = []
+        for i, ip in enumerate(image_prompts):
+            prompt = full_visual_prompt(ip, style_suffix=style_suffix)
+            out = img_dir / f"scene_{i + 1:02d}.png"
+            st, detail = save_scene_image(i + 1, prompt, out, width=w, height=h, negative=negative)
+            if st != "ok":
+                raise RuntimeError(f"Image {i + 1} failed: {detail}")
+            print(f"   scene {i + 1}/{len(image_prompts)}: {detail}")
+            image_paths.append(out)
+            if i < len(image_prompts) - 1:
+                time.sleep(cooldown)
 
     # ── 4-6. Render (per variant) ────────────────────────────────────
     if variants:

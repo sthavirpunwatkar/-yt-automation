@@ -101,6 +101,7 @@ Edit `.github/workflows/daily_short.yml`:
 | `school_story` | School drama / storytime |
 | `psych_tradeoff` | Psychology / habits |
 | `history_micro` | One moment in history |
+| `football_history` | Historical Football Stories & Tragedies |
 
 Add your own in `pipeline/channel_presets.py`.
 

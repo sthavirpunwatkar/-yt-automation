@@ -184,13 +184,13 @@ def render_vertical_short(
 
     force_style = (
         f"FontName={rendered_font_name},"
-        f"FontSize=20,"                       # slightly larger for Shorts readability
+        f"FontSize=40,"                       # massive font for 1-word captions
         f"PrimaryColour=&H00FFFFFF,"          # white text
         f"OutlineColour=&H00000000,"          # black outline
-        f"BackColour=&HA0000000,"             # semi-transparent dark background
-        f"BorderStyle=4,Outline=2,Bold=1,"
-        f"Shadow=0,Alignment=2,"             # bottom center
-        f"MarginV=40,MarginL=30,MarginR=30"  # breathing room from edges
+        f"BackColour=&H80000000,"             # black shadow
+        f"BorderStyle=1,Outline=4,Bold=1,"    # thicker outline
+        f"Shadow=3,Alignment=5,"              # middle center
+        f"MarginV=0,MarginL=40,MarginR=40"    # centered, so MarginV=0
     )
 
     # ── 4. Build xfade chain + subtitles ─────────────────────────────────────
@@ -276,13 +276,13 @@ def render_video_background_short(
 
     force_style = (
         f"FontName={rendered_font_name},"
-        f"FontSize=20,"
+        f"FontSize=40,"
         f"PrimaryColour=&H00FFFFFF,"
         f"OutlineColour=&H00000000,"
-        f"BackColour=&HA0000000,"
-        f"BorderStyle=4,Outline=2,Bold=1,"
-        f"Shadow=0,Alignment=2,"
-        f"MarginV=40,MarginL=30,MarginR=30"
+        f"BackColour=&H80000000,"
+        f"BorderStyle=1,Outline=4,Bold=1,"
+        f"Shadow=3,Alignment=5,"
+        f"MarginV=0,MarginL=40,MarginR=40"
     )
 
     # Remove stream_loop to prevent lag, enforce 30fps

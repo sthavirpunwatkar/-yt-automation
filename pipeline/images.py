@@ -1,4 +1,4 @@
-"""Image generation via DeAPI.ai (async: submit → poll → download)."""
+"""Image fetching via DuckDuckGo Image Search."""
 from __future__ import annotations
 
 import os
@@ -7,109 +7,58 @@ import time
 from pathlib import Path
 
 import httpx
+from ddgs import DDGS
 
-DEAPI_SUBMIT_URL = "https://api.deapi.ai/api/v1/client/txt2img"
-DEAPI_POLL_URL = "https://api.deapi.ai/api/v1/client/request-status"
-
-STYLE_SUFFIX = (
-    ", cinematic digital illustration, detailed scene art, strong composition, "
-    "professional youtube visual quality, no text, no captions, no watermark, no logos"
-)
-
-DEFAULT_NEGATIVE = (
-    "blurry, low quality, watermark, logo, text, title, signature, ugly, grainy, "
-    "gore, blood, nudity, child-unsafe"
-)
-
+STYLE_SUFFIX = " high quality photograph"
+DEFAULT_NEGATIVE = ""
 
 def full_visual_prompt(scene: str, style_suffix: str | None = None) -> str:
-    """Combine the scene description with a channel-specific style suffix."""
-    return f"{scene.strip()}{(style_suffix or STYLE_SUFFIX)}"
+    """Return the raw search query without appending AI style suffixes, but append site exclusions to avoid watermarks."""
+    exclusions = "-site:gettyimages.com -site:alamy.com -site:shutterstock.com -site:istockphoto.com"
+    return f"{scene.strip()} {exclusions}"
 
 
-def _deapi_generate(
-    prompt: str,
-    *,
-    api_key: str,
-    width: int,
-    height: int,
-    model: str,
-    max_polls: int = 30,
-    poll_interval: float = 3.0,
-) -> bytes:
-    """Submit image job, poll until done, download result."""
-    headers = {
-        "Authorization": f"Bearer {api_key}",
-        "Content-Type": "application/json",
-        "Accept": "application/json",
-    }
+def _search_and_download(prompt: str) -> bytes:
+    """Search DDG for images and download the first successful one."""
+    print(f"      DDG Search: {prompt}")
+    try:
+        with DDGS() as ddgs:
+            # We request a few results so we can fallback if a URL is broken
+            results = list(ddgs.images(
+                prompt,
+                safesearch="moderate",
+                size="Large",
+                max_results=5,
+            ))
+    except Exception as e:
+        raise RuntimeError(f"DDG Search failed: {e}")
 
-    # Step 1: Submit
-    payload = {
-        "prompt": prompt,
-        "model": model,
-        "width": width,
-        "height": height,
-        "steps": 4,
-        "seed": random.randint(1, 999999),
-    }
+    if not results:
+        raise RuntimeError(f"No image results found for: {prompt}")
 
-    with httpx.Client(timeout=60.0) as client:
-        # Submit with retry on 429
-        for submit_try in range(5):
-            resp = client.post(DEAPI_SUBMIT_URL, json=payload, headers=headers)
-            if resp.status_code == 429:
-                wait = 15 * (submit_try + 1)
-                print(f"      DeAPI 429 on submit — waiting {wait}s (try {submit_try + 1}/5)…")
-                time.sleep(wait)
+    with httpx.Client(timeout=15.0, follow_redirects=True) as client:
+        for res in results:
+            img_url = res.get("image")
+            if not img_url:
                 continue
-            resp.raise_for_status()
-            break
-        else:
-            raise RuntimeError("DeAPI: 429 on submit after 5 retries")
+            try:
+                # Add a browser-like User-Agent to avoid 403s
+                headers = {
+                    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 Safari/537.36"
+                }
+                resp = client.get(img_url, headers=headers)
+                resp.raise_for_status()
+                # Verify it's actually an image
+                content_type = resp.headers.get("Content-Type", "")
+                if "text/html" in content_type:
+                    continue
+                print(f"      Downloaded: {img_url}")
+                return resp.content
+            except Exception as e:
+                print(f"      Failed to download {img_url}: {e}")
+                continue
 
-        data = resp.json()
-
-        request_id = data.get("data", {}).get("request_id")
-        if not request_id:
-            raise RuntimeError(f"No request_id in DeAPI response: {data}")
-        print(f"      DeAPI submitted (id: {request_id})")
-
-        # Step 2: Poll
-        poll_headers = {
-            "Authorization": f"Bearer {api_key}",
-            "Accept": "application/json",
-        }
-
-        for attempt in range(1, max_polls + 1):
-            time.sleep(poll_interval)
-
-            poll_resp = client.get(
-                f"{DEAPI_POLL_URL}/{request_id}",
-                headers=poll_headers,
-                timeout=30.0,
-            )
-            poll_resp.raise_for_status()
-            poll_data = poll_resp.json()
-
-            status = poll_data.get("data", {}).get("status", "")
-
-            if status in ("completed", "success", "done"):
-                image_url = poll_data["data"].get("result_url")
-                if not image_url:
-                    raise RuntimeError(f"Completed but no result_url: {poll_data}")
-
-                img_resp = client.get(image_url, timeout=60.0)
-                img_resp.raise_for_status()
-                print(f"      DeAPI done (polled {attempt}x)")
-                return img_resp.content
-
-            if status in ("failed", "error"):
-                raise RuntimeError(f"DeAPI image failed: {poll_data}")
-
-            # Still processing — keep polling
-
-        raise RuntimeError(f"DeAPI timed out after {max_polls} polls for {request_id}")
+    raise RuntimeError(f"Failed to download any images for: {prompt}")
 
 
 def save_scene_image(
@@ -121,24 +70,25 @@ def save_scene_image(
     height: int = 768,
     negative: str = DEFAULT_NEGATIVE,
 ) -> tuple[str, str]:
-    """Generate and save one image. Returns (status, detail)."""
-    api_key = os.environ.get("DEAPI_TOKEN", "").strip()
-    if not api_key:
-        return "fail", "DEAPI_TOKEN not set"
-
-    model = os.environ.get("DEAPI_MODEL", "Flux_2_Klein_4B_BF16")
+    """Fetch and save one image from the internet. Returns (status, detail)."""
     out_path = Path(out_path)
     out_path.parent.mkdir(parents=True, exist_ok=True)
 
     try:
-        img_bytes = _deapi_generate(
-            prompt,
-            api_key=api_key,
-            width=width,
-            height=height,
-            model=model,
-        )
+        img_bytes = _search_and_download(prompt)
         out_path.write_bytes(img_bytes)
-        return "ok", "deapi"
+        
+        # Strip watermarks and text automatically
+        detail = "internet_search"
+        try:
+            from pipeline.watermark_removal import remove_watermark
+            remove_watermark(str(out_path), str(out_path))
+            detail = "internet_search (watermark removed)"
+        except ImportError:
+            pass # easyocr not installed
+        except Exception as wm_e:
+            print(f"      [warn] Watermark removal failed: {wm_e}")
+            
+        return "ok", detail
     except Exception as e:
         return "fail", str(e)

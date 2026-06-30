@@ -26,7 +26,7 @@ def build_srt(
     out_path: Path,
     total_duration: float,
     *,
-    max_words_per_line: int = 5,
+    max_words_per_line: int = 1,
 ) -> Path:
     """Create .srt from sentence timestamps, splitting long sentences."""
     out_path = Path(out_path)
@@ -47,7 +47,7 @@ def build_srt(
         dur_ms = sent["duration_ms"]
 
         if len(words) <= max_words_per_line:
-            chunks.append((start_ms, start_ms + dur_ms, sent["text"]))
+            chunks.append((start_ms, start_ms + dur_ms, sent["text"].upper()))
         else:
             n_groups = (len(words) + max_words_per_line - 1) // max_words_per_line
             ms_per_word = dur_ms / len(words) if words else 1
@@ -56,7 +56,7 @@ def build_srt(
             for g in range(n_groups):
                 grp_start = pos
                 grp_end = min(pos + max_words_per_line, len(words))
-                grp_text = " ".join(words[grp_start:grp_end])
+                grp_text = " ".join(words[grp_start:grp_end]).upper()
 
                 t_start = start_ms + int(grp_start * ms_per_word)
                 t_end = start_ms + int(grp_end * ms_per_word)

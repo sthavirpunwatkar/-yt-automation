@@ -37,8 +37,10 @@ load_dotenv(REPO_ROOT / "scripts" / ".env")
 
 from pipeline.captions import build_srt
 from pipeline.channel_presets import get_preset, list_channel_ids
+from pipeline.downloader import download_manual_images
 from pipeline.edge_tts_synth import synthesize_full
 from pipeline.groq_script import generate_short_pack
+from pipeline.render_short import get_h264_encoder
 from pipeline.story_history import save_title
 
 # Configured DeAPI Tokens (Primary from .env + fallback pools)
@@ -222,13 +224,16 @@ def preprocess_clip(src: Path, dst: Path, target_dur: float) -> None:
         f"setpts=PTS*({target_dur}/{orig_dur}),"
         f"fps=30"
     )
+    encoder = get_h264_encoder()
     cmd = [
         "ffmpeg", "-y", "-hide_banner", "-loglevel", "warning",
         "-i", str(src),
         "-vf", vf,
-        "-c:v", "libx264", "-preset", "ultrafast", "-crf", "15",
-        str(dst)
+        "-c:v", encoder,
     ]
+    if encoder == "libx264":
+        cmd += ["-preset", "ultrafast", "-crf", "15"]
+    cmd.append(str(dst))
     subprocess.run(cmd, check=True)
 
 
@@ -313,12 +318,17 @@ def render_video_ltx(
 
     fc = ";\n".join(filter_parts)
 
+    encoder = get_h264_encoder()
     cmd = [
         "ffmpeg", "-y", "-hide_banner", "-loglevel", "warning",
         *inputs,
         "-filter_complex", fc,
         "-map", "[final]", "-map", f"{n}:a",
-        "-c:v", "libx264", "-preset", "fast", "-crf", "22",
+        "-c:v", encoder,
+    ]
+    if encoder == "libx264":
+        cmd += ["-preset", "fast", "-crf", "22"]
+    cmd += [
         "-pix_fmt", "yuv420p",
         "-c:a", "aac", "-b:a", "192k",
         "-shortest",
@@ -326,6 +336,30 @@ def render_video_ltx(
         str(out_video.resolve()),
     ]
     subprocess.run(cmd, check=True, cwd=str(tmp_dir))
+
+
+def convert_image_to_video_clip(img_path: Path, out_video_path: Path, duration: float) -> None:
+    """
+    Converts a static image to a 1080x1920 video clip of the specified duration
+    at 30fps using FFmpeg.
+    """
+    encoder = get_h264_encoder()
+    vf = (
+        "scale=1080:1920:force_original_aspect_ratio=increase,"
+        "crop=1080:1920,"
+        "fps=30"
+    )
+    cmd = [
+        "ffmpeg", "-y", "-hide_banner", "-loglevel", "warning",
+        "-loop", "1",
+        "-i", str(img_path),
+        "-t", f"{duration:.4f}",
+        "-vf", vf,
+        "-c:v", encoder,
+        "-pix_fmt", "yuv420p",
+        str(out_video_path)
+    ]
+    subprocess.run(cmd, check=True)
 
 
 def main() -> None:
@@ -340,6 +374,7 @@ def main() -> None:
     ap.add_argument("--instagram", action="store_true", help="Upload to Instagram Reels after render.")
     ap.add_argument("--facebook", action="store_true", help="Upload to Facebook Page Reels after render.")
     ap.add_argument("--privacy", default="private", choices=["private", "unlisted", "public"])
+    ap.add_argument("--image-urls", default=os.environ.get("IMAGE_URLS", ""), help="Comma-separated image URLs to download (bypasses DeAPI video generation)")
     args = ap.parse_args()
 
     # Get preset and override segment_count to 8 for video scenes
@@ -391,41 +426,61 @@ def main() -> None:
     print("\n③ Captions (SRT)...")
     build_srt(sentence_timings, srt_path, total_dur)
 
-    # 4. Generate 8 Videos via DeAPI txt2video
-    cooldown = 10
-    print(f"\n④ DeAPI Video Generation: 8 clips ({cooldown}s cooldown between submissions)...")
-    raw_video_paths = []
-    
-    with httpx.Client(timeout=120.0) as client:
-        for i, prompt in enumerate(video_prompts, 1):
-            full_prompt = prompt + (preset.get("image_style_suffix") or "")
-            print(f"   [Clip {i}/8] Submitting prompt: {full_prompt[:80]}...")
-            
-            request_id, successful_token = submit_video(full_prompt, client)
-            print(f"      Job ID: {request_id}")
-            
-            video_bytes = poll_video(request_id, successful_token, client)
-            
-            clip_path = vid_dir / f"raw_clip_{i:02d}.mp4"
-            clip_path.write_bytes(video_bytes)
-            print(f"      Saved raw clip to: {clip_path} ({len(video_bytes)//1024}KB)")
-            raw_video_paths.append(clip_path)
+    # 4. Generate 8 Videos via DeAPI txt2video or manual images
+    image_paths = []
+    if args.image_urls:
+        try:
+            print(f"\n④ Manual Mode: Downloading manual images from: {args.image_urls}...")
+            image_paths = download_manual_images(args.image_urls, vid_dir)
+        except Exception as dl_err:
+            print(f"   [Fallback Warning] Manual download failed: {dl_err}. Falling back to DeAPI generation...")
 
-            if i < len(video_prompts):
-                print(f"      Waiting {cooldown}s cooldown...")
-                time.sleep(cooldown)
+    if image_paths:
+        n_clips = len(image_paths)
+        clip_dur = (total_dur + (n_clips - 1) * FADE_DUR) / n_clips if n_clips > 1 else total_dur
+        print(f"\n⑤ Converting manual images to video clips (duration={clip_dur:.2f}s)...")
+        
+        processed_video_paths = []
+        for i, img_path in enumerate(image_paths, 1):
+            proc_path = tmp_dir / f"clip_{i:02d}.mp4"
+            convert_image_to_video_clip(img_path, proc_path, clip_dur)
+            processed_video_paths.append(proc_path)
+            print(f"   Converted manual image {i}/{n_clips} -> {proc_path}")
+    else:
+        cooldown = 10
+        print(f"\n④ DeAPI Video Generation: 8 clips ({cooldown}s cooldown between submissions)...")
+        raw_video_paths = []
+        
+        with httpx.Client(timeout=120.0) as client:
+            for i, prompt in enumerate(video_prompts, 1):
+                full_prompt = prompt + (preset.get("image_style_suffix") or "")
+                print(f"   [Clip {i}/8] Submitting prompt: {full_prompt[:80]}...")
+                
+                request_id, successful_token = submit_video(full_prompt, client)
+                print(f"      Job ID: {request_id}")
+                
+                video_bytes = poll_video(request_id, successful_token, client)
+                
+                clip_path = vid_dir / f"raw_clip_{i:02d}.mp4"
+                clip_path.write_bytes(video_bytes)
+                print(f"      Saved raw clip to: {clip_path} ({len(video_bytes)//1024}KB)")
+                raw_video_paths.append(clip_path)
 
-    # 5. Pre-process and time-scale clips
-    print("\n⑤ Pre-processing clips (scaling, cropping to 1080x1920, and adjusting speed)...")
-    clip_dur = (total_dur + 7 * FADE_DUR) / 8
-    print(f"   Target duration per clip: {clip_dur:.2f}s")
-    
-    processed_video_paths = []
-    for i, raw_path in enumerate(raw_video_paths, 1):
-        proc_path = tmp_dir / f"clip_{i:02d}.mp4"
-        preprocess_clip(raw_path, proc_path, clip_dur)
-        processed_video_paths.append(proc_path)
-        print(f"   Processed clip {i}/8")
+                if i < len(video_prompts):
+                    print(f"      Waiting {cooldown}s cooldown...")
+                    time.sleep(cooldown)
+
+        # 5. Pre-process and time-scale clips
+        print("\n⑤ Pre-processing clips (scaling, cropping to 1080x1920, and adjusting speed)...")
+        clip_dur = (total_dur + 7 * FADE_DUR) / 8
+        print(f"   Target duration per clip: {clip_dur:.2f}s")
+        
+        processed_video_paths = []
+        for i, raw_path in enumerate(raw_video_paths, 1):
+            proc_path = tmp_dir / f"clip_{i:02d}.mp4"
+            preprocess_clip(raw_path, proc_path, clip_dur)
+            processed_video_paths.append(proc_path)
+            print(f"   Processed clip {i}/8")
 
     # 6. Render final video
     print("\n⑥ Stitching and rendering final short video...")

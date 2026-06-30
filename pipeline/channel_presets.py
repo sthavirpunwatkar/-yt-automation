@@ -54,7 +54,7 @@ PRESETS: dict[str, ChannelPreset] = {
         "id": "fifa_2026",
         "label": "FIFA World Cup 2026 Live Coverage Shorts (English)",
         "language": "en",
-        "min_words": 110,
+        "min_words": 80,
         "tts_voice": "en-US-GuyNeural",
         "caption_font": "BebasNeue-Regular.ttf",
         "caption_font_name": "Bebas Neue",
@@ -135,7 +135,7 @@ PRESETS: dict[str, ChannelPreset] = {
         "id": "football",
         "label": "Modern Football Facts & Stories Shorts (English, 2005–present)",
         "language": "en",
-        "min_words": 110,
+        "min_words": 80,
         "tts_voice": "en-US-GuyNeural",
         "caption_font": "BebasNeue-Regular.ttf",
         "caption_font_name": "Bebas Neue",
@@ -298,6 +298,74 @@ PRESETS: dict[str, ChannelPreset] = {
             "how social media feuds between players have changed dressing room culture",
             "the modern doping case nobody in football wants to talk about",
             "why modern football clubs spend €100M on players they barely use",
+        ],
+    },
+
+    # ══════════════════════════════════════════════════════════════════
+    # HISTORICAL FOOTBALL — Classic Stories & Tragedies (English)
+    # ══════════════════════════════════════════════════════════════════
+    "football_history": {
+        "id": "football_history",
+        "label": "Historical Football Stories & Tragedies (English, pre-2005)",
+        "language": "en",
+        "min_words": 80,
+        "tts_voice": "en-US-ChristopherNeural",
+        "caption_font": "BebasNeue-Regular.ttf",
+        "caption_font_name": "Bebas Neue",
+        "yt_token_env": "YT_REFRESH_TOKEN",
+        "segment_count": 6,
+        "niche_keywords": [
+            "football history", "soccer history", "FIFA history", "football tragedies",
+            "classic football", "World Cup history", "football legends",
+        ],
+        "groq_system_hint": (
+            "You create GRIPPING, DOCUMENTARY-STYLE YouTube Shorts about historic football (soccer) stories and tragedies. "
+            "Your audience loves deep-dives into classic football lore, unbelievable historic matches, and legendary players from the past. "
+            "\n\n"
+            "ERA RULE: Focus on the 20th century and early 21st century (e.g., 1930s to 2005). "
+            "Cover legends like Pelé, Maradona, Puskás, Cruyff, classic World Cups (1950, 1966, 1970, 1986), "
+            "and historic club moments or tragedies (e.g., Munich air disaster, Tragedy of Maracanã). "
+            "\n\n"
+            "TITLE RULE: Include at least one of these keywords naturally: 'football history', 'FIFA history', 'World Cup history'. "
+            "Hook formats that work: 'The Greatest Upset in Football History', 'The Darkest Day in Football', 'How [Player] Changed Football Forever'. Under 90 characters, no hashtags."
+            "\n\n"
+            "DESCRIPTION: 2-3 atmospheric sentences. End with: #FootballHistory #FIFA #WorldCup #FootballLegends #Shorts"
+            "\n\n"
+            "NARRATION: "
+            "- 110-140 English words, ONE continuous spoken paragraph. "
+            "- Style: Like a serious, captivating podcast or documentary (similar to a gripping history podcast). "
+            "- Sentence 1: Hook the listener with the stakes or the tragedy immediately. "
+            "- Middle: Build the narrative with specific years, dates, player names, and stadium atmospheres. "
+            "- Ending: A profound or memorable closing thought. "
+            "- No hashtags in narration."
+            "\n\n"
+            "IMAGE PROMPTS: "
+            "- English only. Focus on vintage, historical, or classic football visuals. "
+            "- Good: 'vintage 1950s football match packed stadium, black and white style', 'classic football leather ball on muddy pitch', 'retro football players in classic kits'. "
+            "- NEVER: modern stadiums with LED screens, anime, cartoon, finance, food. "
+            "- No text, no logos."
+        ),
+        "image_style_suffix": (
+            ", vintage sports photography, classic football era, grainy film effect, historical documentary style, "
+            "no text overlays, no watermark, no logos, photorealistic"
+        ),
+        "image_negative_prompt": (
+            "modern stadium, LED boards, cartoon, anime, illustration, painting, drawing, neon, futuristic, "
+            "finance, legal, food, horror, fantasy, low quality, blurry, watermark, logo, text, signature"
+        ),
+        "topic_pool": [
+            "the Tragedy of Maracanã: how Uruguay broke Brazil's heart in the 1950 World Cup final",
+            "the Munich Air Disaster of 1958 and the rebuilding of Manchester United",
+            "Maradona's Hand of God and the Goal of the Century in the 1986 World Cup",
+            "the Magical Magyars: Hungary's 1954 World Cup heartbreak against West Germany",
+            "Pelé's emergence as a 17-year-old superstar in the 1958 World Cup",
+            "the Football War of 1969 between El Salvador and Honduras",
+            "the story of the Jules Rimet trophy being stolen and found by a dog named Pickles in 1966",
+            "Zinedine Zidane's shock headbutt in the 2006 World Cup final",
+            "the miracle of Bern: West Germany's impossible 1954 World Cup win",
+            "the match of the century: Italy vs West Germany in 1970",
+            "how Johan Cruyff and Total Football changed the game forever in the 1970s",
+            "the Superga air disaster of 1949 and the loss of the great Torino team",
         ],
     },
 }
